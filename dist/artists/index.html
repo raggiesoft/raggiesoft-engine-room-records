@@ -33,13 +33,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/root.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/extras.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/safety-net.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/err-main.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017c" />
+    <link rel="stylesheet" href="/assets/err-main.css?v=20261017d" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017d" />
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to main content</a>
@@ -52,8 +48,26 @@
           <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
           <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
           <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
-          <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
-          <li><a href="https://engineroom.raggiesoft.com" aria-current="page" class="is-active">⚙️ Engine Room</a></li>
+          <li class="rs-network-dropdown">
+            <button type="button" class="rs-network-dropdown-toggle is-active" aria-expanded="false" aria-haspopup="true">
+              <span aria-hidden="true">⚙️</span>
+              <span>Engine Room</span>
+              <span class="rs-network-caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="rs-network-dropdown-menu" role="menu" aria-label="Engine Room Records &amp; Band Roster">
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Hub</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists">🎸 All Artists Directory (7)</a></li>
+              <li class="rs-network-dropdown-divider" role="separator"></li>
+              <li class="rs-network-dropdown-header" role="presentation">✦ Band Roster (A–Z)</li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/crimson-node">🔴 Crimson Node</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/firelight">🔥 Firelight</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/fractured-prisms">💎 Fractured Prisms</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/mana-canvas">🎨 Mana Canvas</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/the-arctic-symphony-project">❄️ The Arctic Symphony Project</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/the-paper-wall">🧱 The Paper Wall</a></li>
+              <li role="none"><a role="menuitem" href="https://stardust.raggiesoft.com">🚀 The Stardust Engine</a></li>
+            </ul>
+          </li>
           <li><a href="https://lore.raggiesoft.com">🏛️ Lore</a></li>
           <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
           <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
@@ -199,7 +213,7 @@
               British Synth-Pop &amp; Gaslamp-Lit 1980s Progressive Art-Rock Operas
             </p>
             <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 0.65rem;">
-              Formed by surviving British siblings Claire and Rhys Manning after the 1981 Shap Fell train disaster, Fractured Prisms crafts towering 1980s analog modular synthesizer rock operas anchored by Claire&#39;s sacred wooden concert flute (&quot;Gwen&#39;s Flute&quot;) inside their gaslamp-lit Maryland estate, The Hollow Square.
+              Formed by surviving British-American siblings Claire Manning (older sister; autistic and living with lifelong cerebral palsy, uses a manual wheelchair) and Rhys Manning (younger brother; neurotypical synthesizer architect and lifelong safe person) after the winter 1981 M6 Shap Fell motorway pileup claimed the other four members of the Manning Family Orchestra. Fleeing to their father&#39;s vacant 1960s ranch house in Williamsport, Maryland, they built &quot;The Fragile Fortress&quot;—weaving the salvaged instruments of their lost family (including Cousin Gwen&#39;s wooden concert flute) into towering 1980s analog synthesizer rock operas set inside the gaslamp-lit 1883 Victorian sanctuary of The Hollow Square.
             </p>
           </div>
           <div class="btn-row">
@@ -865,8 +879,8 @@
                       <div class="badge-row">
                         <span class="badge">/artists/fractured-prisms/band</span>
                       </div>
-                      <h4 class="h6 fw-bold mb-2"><a href="/artists/fractured-prisms/band" style="text-decoration: none; color: var(--text-primary);">Band Personnel: Claire &amp; Rhys Manning | Fractured Prisms</a></h4>
-                      <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.85rem;">Meet siblings Claire Manning and Rhys Manning, the progressive art-rock duo behind Fractured Prisms.</p>
+                      <h4 class="h6 fw-bold mb-2"><a href="/artists/fractured-prisms/band" style="text-decoration: none; color: var(--text-primary);">Band Personnel &amp; The Missing Four | Fractured Prisms</a></h4>
+                      <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.85rem;">Complete personnel dossier for Fractured Prisms: surviving siblings Claire and Rhys Manning and the Missing Four of the Manning Family Orchestra.</p>
                     </div>
                     <div>
                       <a href="/artists/fractured-prisms/band" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a>
@@ -917,8 +931,8 @@
                       <div class="badge-row">
                         <span class="badge">/artists/fractured-prisms/lore/colonial-theatre</span>
                       </div>
-                      <h4 class="h6 fw-bold mb-2"><a href="/artists/fractured-prisms/lore/colonial-theatre" style="text-decoration: none; color: var(--text-primary);">Incident Report: The Colonial Theatre (1985) | Fractured Prisms</a></h4>
-                      <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.85rem;">How a historic venue accessibility failure in Phoenixville, PA sparked Rhys Manning&#39;s legendary stage confrontation.</p>
+                      <h4 class="h6 fw-bold mb-2"><a href="/artists/fractured-prisms/lore/colonial-theatre" style="text-decoration: none; color: var(--text-primary);">The Colonial Theatre Sanctuary (Hagerstown, MD) | Fractured Prisms</a></h4>
+                      <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.85rem;">Inside Fractured Prisms&#39; 1914 Colonial Theatre sanctuary, 39-minute standing-frame sets, and Subterranean Vault in Downtown Hagerstown, Maryland.</p>
                     </div>
                     <div>
                       <a href="/artists/fractured-prisms/lore/colonial-theatre" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a>
@@ -943,8 +957,8 @@
                       <div class="badge-row">
                         <span class="badge">/artists/fractured-prisms/story/1985-american-shores-tour</span>
                       </div>
-                      <h4 class="h6 fw-bold mb-2"><a href="/artists/fractured-prisms/story/1985-american-shores-tour" style="text-decoration: none; color: var(--text-primary);">The 1985 American Shores Tour | Fractured Prisms</a></h4>
-                      <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.85rem;">Archive of the historic 1985 American Shores Tour, culminating in Live at Independence Stadium and the Colonial Theatre.</p>
+                      <h4 class="h6 fw-bold mb-2"><a href="/artists/fractured-prisms/story/1985-american-shores-tour" style="text-decoration: none; color: var(--text-primary);">1985 Live at Independence Stadium (American Shores Tour) | Fractured Prisms</a></h4>
+                      <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.85rem;">Archive of the historic 1985 Live at Independence Stadium concert in Philadelphia, PA—featuring collaborative crew protocols and the Encore Cue Sheet.</p>
                     </div>
                     <div>
                       <a href="/artists/fractured-prisms/story/1985-american-shores-tour" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a>
@@ -1387,7 +1401,7 @@
       </div>
     </footer>
 
-    <script src="https://assets.raggiesoft.com/engine-room-records/js/err-client.js" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017c" defer></script>
+    <script src="/assets/err-client.js?v=20261017d" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017d" defer></script>
   </body>
 </html>

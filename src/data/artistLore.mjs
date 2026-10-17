@@ -88,7 +88,7 @@ export const ARTIST_LORE_PROFILES = {
     slug: 'fractured-prisms',
     name: 'Fractured Prisms',
     tagline: 'British Synth-Pop & Gaslamp-Lit 1980s Progressive Art-Rock Operas',
-    origin: 'London, England & The Hollow Square Sanctuary (Maryland, USA)',
+    origin: 'Romford (East London), UK & Williamsport / Hagerstown, Maryland',
     yearsActive: '1983–Present (Rescued via the 1999 London Discovery)',
     primaryGenre: '80s Progressive Art-Rock / British Synth-Pop / Victorian Rock Opera',
     listeningRoomUrl: 'https://music.raggiesoft.com/fractured-prisms',
@@ -98,33 +98,65 @@ export const ARTIST_LORE_PROFILES = {
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/fractured-prisms/social-preview.jpg',
     logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/fractured-prisms/band-logo.jpg',
     summary:
-      'Formed by surviving British siblings Claire and Rhys Manning after the 1981 Shap Fell train disaster, Fractured Prisms crafts towering 1980s analog modular synthesizer rock operas anchored by Claire\'s sacred wooden concert flute ("Gwen\'s Flute") inside their gaslamp-lit Maryland estate, The Hollow Square.',
+      'Formed by surviving British-American siblings Claire Manning (older sister; autistic and living with lifelong cerebral palsy, uses a manual wheelchair) and Rhys Manning (younger brother; neurotypical synthesizer architect and lifelong safe person) after the winter 1981 M6 Shap Fell motorway pileup claimed the other four members of the Manning Family Orchestra. Fleeing to their father\'s vacant 1960s ranch house in Williamsport, Maryland, they built "The Fragile Fortress"—weaving the salvaged instruments of their lost family (including Cousin Gwen\'s wooden concert flute) into towering 1980s analog synthesizer rock operas set inside the gaslamp-lit 1883 Victorian sanctuary of The Hollow Square.',
     whatKindOfMusic:
-      'Lush 1980s British progressive synth-pop, classical wooden concert flute lead melodies, Fairlight CMI and modular analog sequencers, and cinematic Victorian-meets-1980s concept albums.',
+      'Lush 1980s British progressive synth-pop, classical wooden concert flute lead melodies ("Gwen\'s Flute"), Roland/Yamaha analog sequencers and LinnDrum gated percussion, and cinematic Victorian-meets-1980s concept albums.',
     members: [
       {
-        name: 'Claire Manning',
-        role: 'Lead Concert Flute ("Gwen\'s Flute"), Vocals & Classical Arrangement',
-        notes: 'Wheelchair user and survivor of the December 1981 Shap Fell rail tragedy; performs from a custom sensory-safe stage sanctuary.'
+        name: 'Claire Manning ("The Voice in the Fog")',
+        role: 'Lead Vocals, Cousin Gwen\'s Wooden Concert Flute & Lyrical Vanguard',
+        notes: 'Older sister (20 in 1981; 22 in 1983). Has lived with cerebral palsy her entire life (uses a manual wheelchair) and is autistic (highly verbal), experiencing intense sensory depth and nighttime terrors anchored by her brother Rhys.'
       },
       {
-        name: 'Rhys Manning',
-        role: 'Modular Analog Synthesizers, Sequencers, Vocals & Acoustic Architecture',
-        notes: 'Claire\'s fiercely protective older brother; engineered The Hollow Square in Maryland to resurrect their family\'s musical voices.'
+        name: 'Rhys Manning ("The Mechanical Heart")',
+        role: 'Analog Synthesizers, Sequencers, LinnDrum Programming, Julian\'s Rickenbacker Bass, Simon\'s Guitars & Lifelong Safe Person',
+        notes: 'Younger brother (18 in 1981; 20 in 1983). Neurotypical anchor and 24/7 caretaker for Claire since childhood in their accessible Romford home; engineered the Williamsport Fragile Fortress and Hagerstown Colonial Theatre sanctuary.'
+      },
+      {
+        name: 'Gwen Manning — In Memoriam (The Missing Four)',
+        role: 'Cousin • Woodwinds (Oboe, Clarinet & Wooden Concert Flute)',
+        notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. Composed the centering "Safe Harbor" melody before shows; her wooden concert flute—the very first instrument the family ever purchased—was salvaged from the wreckage and is played by Claire on "Mirrors of Yesterday" and "The Hollow Square."'
+      },
+      {
+        name: 'Alistair Manning — In Memoriam (The Missing Four)',
+        role: 'Older Brother • Acoustic Drum Kit, Gongs & Orchestral Chimes',
+        notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. The powerhouse heartbeat of the original Manning Family Orchestra; Rhys\'s heavy 1983 LinnDrum programming and gated toms mechanically rebuild Alistair\'s pulse.'
+      },
+      {
+        name: 'Julian Hayes — In Memoriam (The Missing Four)',
+        role: 'Cousin • Rickenbacker Bass Guitar & Classical Cello',
+        notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. Wove deep, cinematic low-end melodies; Rhys plays Julian\'s actual salvaged Rickenbacker bass paired with fretless bass synthesizers.'
+      },
+      {
+        name: 'Simon Hayes — In Memoriam (The Missing Four)',
+        role: 'Cousin • Acoustic & Electric Lead Guitars',
+        notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. Architect of their soaring guitar solos; Rhys plays Simon\'s actual guitars using his old picks and loops them into sequencers, while Claire\'s virtuoso flute solo replaces the guitar solo on "Mirrors of Yesterday."'
       }
     ],
     lorePillars: [
       {
-        title: '1981 Shap Fell Tragedy & The Fragile Fortress ("The Hollow Square")',
-        body: 'In December 1981, a catastrophic train derailment at Shap Fell claimed the lives of the Manning parents and younger sister Gwen, leaving Claire paralyzed and deeply traumatized. Using their family\'s generational inheritance, Rhys relocated Claire from England to a secluded historic estate in Maryland—"The Hollow Square"—filling its gaslamp-lit halls with towering banks of vintage analog synthesizers mapped to each lost family member\'s musical range.'
+        title: 'Winter 1981: The M6 Shap Fell Motorway Disaster & The Missing Four',
+        body: 'Originally a six-piece family ensemble—the Manning Family Orchestra—tragedy struck in the winter of 1981 when a sudden freezing-fog white-out and black-ice multi-car pileup on the M6 motorway over Shap Fell in Cumbria claimed the four touring members of their generation: cousin Gwen Manning (woodwinds), older brother Alistair Manning (percussion), cousin Julian Hayes (Rickenbacker bass & cello), and cousin Simon Hayes (lead guitars). Claire (20) and Rhys (18) survived only because they were hundreds of miles south at their accessible childhood home in Romford, East London—a house built with wider door frames, gentle transitions, and no sharp corners, surrounded by understanding lifelong neighbors like Mrs. Allen and the Bennetts.'
       },
       {
-        title: '1983 "Carnaby Street" & 1984 "1883 (The Rock Opera)"',
-        body: 'Operating under a strictly independent distribution-only arrangement, Rhys and Claire debuted in 1983 with Carnaby Street—marrying driving British synth-pop with Gwen\'s rescued wooden concert flute ("Safe Harbor"). In 1984, they released the monumental two-disc concept album 1883, slipping 100 years backward through time inside The Hollow Square.'
+        title: 'Romford, 1982: Why Martin Never Legally Married Claire & "The Day the Telly Man Knocked"',
+        body: 'In 1982, grieving and seeking normalcy, Claire moved into a Romford flat with Martin (surname-less by design)—who deliberately skipped civil marriage registration and a legal certificate so he could call her "my wife" socially while avoiding paper trails and spousal obligations. When Martin refused to assist with Claire\'s daily physical care, she packed her bags and called Rhys. That mid-morning, while Martin was away on the 5:25 PM commuter train schedule, a TV Licence Enquiry Officer ("the telly man") knocked because Martin had cheaped out and held only a black-and-white licence for a colour television. Respecting polite officials who followed rules, Claire welcomed the officer at eye level with real tea and fresh canary creams, truthfully showed mail proving her permanent address was with her brother Rhys, and handed over the colour TV receipt in Martin\'s name. Rhys arrived early to bring her home; because there was never a legal marriage, no divorce was required, and at 5:25 PM Martin returned to an empty flat and a formal TV Licence enforcement notice.'
       },
       {
-        title: '1985: The Colonial Theatre Incident & Live at Independence Stadium',
-        body: 'During their 1985 American Shores tour, an infamous accessibility failure at the historic Colonial Theatre in Phoenixville, Pennsylvania—where venue staff failed to provide safe wheelchair access for Claire—sparked Rhys Manning\'s legendary stage confrontation. Refusing to ever subject Claire to cramped, inaccessible club venues again, the duo rented Philadelphia\'s 90,000-seat Independence Stadium directly, engineering a barrier-free, sensory-controlled stadium triumph captured on 1985\'s Live at Independence Stadium. In 1999, during The Stardust Engine\'s Hard Reset tour in London, Holly and Cassidy O\'Connell uncovered the Carnaby Street master vaults and welcomed Claire and Rhys into the Engine Room Records family.'
+        title: 'Williamsport, Maryland ("The Fragile Fortress"), Route 441 & The 1983 IRS Reality Check',
+        body: 'Born to an American father from Williamsport, Maryland (Washington County) and a British mother, Rhys and Claire used their dual citizenship and generational inheritance to relocate to their father\'s vacant 1960s ranch house in Williamsport, relying on the Route 441 County Commuter bus for daytime autonomy. Inside this "Fragile Fortress," they recorded 1983\'s Carnaby Street with zero session musicians—playing the salvaged instruments of Gwen, Alistair, Julian, and Simon alongside Roland and Yamaha synthesizers. When "The Hollow Square" spent 14 weeks at #1 on the US and UK charts, the sudden royalty windfall triggered an unexpected IRS tax bill (having paid HMRC in the UK, the young siblings hadn\'t realized dual citizens owed US tax filings).'
+      },
+      {
+        title: '1984–1985: 1883 (The Rock Opera) & Live at Independence Stadium (Philadelphia, PA)',
+        body: 'After releasing their 1984 two-disc Victorian concept album 1883, Fractured Prisms bypassed inaccessible clubs entirely by renting Philadelphia\'s 100,000-capacity Independence Stadium directly for their 1985 American Shores live spectacle. Claire and Rhys treated the stagehands, road crew, lighting engineers, and top-tier salaried "Session Ghosts" backing musicians with deep respect, warmth, and generosity—working together as a collaborative effort so long as Claire\'s wheelchair access, autistic sensory accommodations ("Play the Ink" predictability and the "Hold the Line" static blue-wash synth drone), and the sacred family instruments were respected. Following the encore ("The Hollow Square"), a soundproofed conversion van with a flat ADA ramp and warm amber train-carriage lighting carried them down I-95 South to I-70 West back to Williamsport.'
+      },
+      {
+        title: 'The Hagerstown 70mm Soundstage, The Soho Mail-Drop Decoy & The 1914 Colonial Theatre',
+        body: 'To protect their privacy in Washington County, MD, the siblings routed all fan mail through a rented Soho, London P.O. Box decoy while filming 35mm and 70mm optical-double-exposure music videos inside an industrial hangar in Hagerstown ("Apex Industrial Holdings") housing a 360-degree 1883 Victorian set with hidden hydraulic lifts. In 1984, they purchased Downtown Hagerstown\'s 1914 Colonial Theatre in cash before demolition—reopening it in late 1987 for 39-minute live sets at 8:00 PM with a stepless sloped auditorium floor, a hidden locking standing frame beneath Claire\'s 1883 Victorian gowns, a disguised 1914 mahogany "birdcage" hydraulic elevator, a strictly dry British refreshment room (serving proper tea, canary creams, and newspaper-cone fish & chips), and the lead-and-velvet soundproofed Subterranean Vault basement apartment.'
+      },
+      {
+        title: 'The 1999 London Discovery & Engine Room Records Sanctuary',
+        body: 'In 1999, during The Stardust Engine\'s Hard Reset tour stop in London, Holly and Cassidy O\'Connell uncovered the archival Carnaby Street and 1883 master vaults and traced the Soho mail drop back to Maryland—welcoming Claire and Rhys Manning into the permanent artist-first sanctuary of Engine Room Records.'
       }
     ]
   },
