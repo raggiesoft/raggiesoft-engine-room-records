@@ -51,14 +51,14 @@ export function renderDocumentShell({
   const canonicalUrl = `https://engineroom.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
 
   const navItems = [
-    { href: '/', label: '1. Music & Roster' },
-    { href: '/artists', label: 'Band Directory (7)' },
-    { href: '/studio-engineering', label: '2. Behind the Scenes' },
-    { href: '/corporate', label: '3. Corporate & Lore' },
-    { href: '/oconnell-trust', label: "O'Connell Trust" },
-    { href: '/jessica-miller-center', label: 'Jessica Miller Center' },
-    { href: '/commercial-licensing', label: 'Commercial Licensing' },
-    { href: '/dsp-verification', label: 'DSP Verification' }
+    { href: '/', label: 'Home' },
+    { href: '/artists', label: 'Artists (7)' },
+    { href: '/studio-engineering', label: 'Studio' },
+    { href: '/corporate', label: 'Corporate' },
+    { href: '/oconnell-trust', label: 'Trust' },
+    { href: '/jessica-miller-center', label: 'Miller Center' },
+    { href: '/commercial-licensing', label: 'Licensing' },
+    { href: '/dsp-verification', label: 'DSP' }
   ];
 
   const navHtml = navItems
@@ -106,7 +106,11 @@ export function renderDocumentShell({
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
-    <link rel="stylesheet" href="/assets/err-main.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/root.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/extras.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/safety-net.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/err-main.css" />
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to main content</a>
@@ -118,21 +122,36 @@ export function renderDocumentShell({
             src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png"
             alt="Engine Room Records industrial gear crest"
             class="brand-logo"
-            width="42"
-            height="42"
+            width="36"
+            height="36"
           />
-          <span>
+          <span class="brand-text">
             <span class="brand-title">Engine Room Records</span>
-            <span class="brand-subtitle">Official Imprint of Michael P. Ragsdale</span>
+            <span class="brand-subtitle">Imprint of Michael P. Ragsdale</span>
           </span>
         </a>
 
-        <nav aria-label="Primary Navigation">
+        <button
+          type="button"
+          class="mobile-menu-toggle"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Toggle navigation menu"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary Navigation">
           <ul class="nav-links">
             ${navHtml}
             <li>
               <a href="https://music.raggiesoft.com" class="nav-cta" target="_blank" rel="noopener noreferrer">
-                🎧 The Listening Room ↗
+                🎧 Listen ↗
               </a>
             </li>
             <li>
@@ -201,7 +220,7 @@ export function renderDocumentShell({
       </div>
     </footer>
 
-    <script src="/assets/err-client.js" defer></script>
+    <script src="https://assets.raggiesoft.com/engine-room-records/js/err-client.js" defer></script>
   </body>
 </html>`;
 }

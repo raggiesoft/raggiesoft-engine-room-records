@@ -34,7 +34,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
-    <link rel="stylesheet" href="/assets/err-main.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/root.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/extras.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/safety-net.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/err-main.css" />
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to main content</a>
@@ -46,28 +50,43 @@
             src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png"
             alt="Engine Room Records industrial gear crest"
             class="brand-logo"
-            width="42"
-            height="42"
+            width="36"
+            height="36"
           />
-          <span>
+          <span class="brand-text">
             <span class="brand-title">Engine Room Records</span>
-            <span class="brand-subtitle">Official Imprint of Michael P. Ragsdale</span>
+            <span class="brand-subtitle">Imprint of Michael P. Ragsdale</span>
           </span>
         </a>
 
-        <nav aria-label="Primary Navigation">
+        <button
+          type="button"
+          class="mobile-menu-toggle"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Toggle navigation menu"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary Navigation">
           <ul class="nav-links">
-            <li><a href="/" class="nav-link">1. Music &amp; Roster</a></li>
-            <li><a href="/artists" class="nav-link">Band Directory (7)</a></li>
-            <li><a href="/studio-engineering" class="nav-link">2. Behind the Scenes</a></li>
-            <li><a href="/corporate" class="nav-link" aria-current="page">3. Corporate &amp; Lore</a></li>
-            <li><a href="/oconnell-trust" class="nav-link">O&#39;Connell Trust</a></li>
-            <li><a href="/jessica-miller-center" class="nav-link">Jessica Miller Center</a></li>
-            <li><a href="/commercial-licensing" class="nav-link">Commercial Licensing</a></li>
-            <li><a href="/dsp-verification" class="nav-link">DSP Verification</a></li>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/artists" class="nav-link">Artists (7)</a></li>
+            <li><a href="/studio-engineering" class="nav-link">Studio</a></li>
+            <li><a href="/corporate" class="nav-link" aria-current="page">Corporate</a></li>
+            <li><a href="/oconnell-trust" class="nav-link">Trust</a></li>
+            <li><a href="/jessica-miller-center" class="nav-link">Miller Center</a></li>
+            <li><a href="/commercial-licensing" class="nav-link">Licensing</a></li>
+            <li><a href="/dsp-verification" class="nav-link">DSP</a></li>
             <li>
               <a href="https://music.raggiesoft.com" class="nav-cta" target="_blank" rel="noopener noreferrer">
-                🎧 The Listening Room ↗
+                🎧 Listen ↗
               </a>
             </li>
             <li>
@@ -567,6 +586,6 @@
       </div>
     </footer>
 
-    <script src="/assets/err-client.js" defer></script>
+    <script src="https://assets.raggiesoft.com/engine-room-records/js/err-client.js" defer></script>
   </body>
 </html>

@@ -1,13 +1,30 @@
 /**
  * @license MIT
  * err-client.js — Progressive Enhancement for engineroom.raggiesoft.com
- * Implements Modern Web Guidance dark-mode-toggle (two-state override reverting
- * to system default when matching OS preference) and DSP verification filtering.
+ * Implements Modern Web Guidance dark-mode-toggle, mobile navigation drawer,
+ * and DSP verification instant filtering.
  */
 (function () {
   var meta = document.querySelector('meta[name="color-scheme"]');
   var toggleBtn = document.getElementById('theme-toggle');
   var toggleLabel = document.getElementById('theme-toggle-label');
+  var mobileToggle = document.getElementById('mobile-menu-toggle');
+  var primaryNav = document.getElementById('primary-navigation');
+
+  if (mobileToggle && primaryNav) {
+    mobileToggle.addEventListener('click', function () {
+      var expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      primaryNav.classList.toggle('is-open', !expanded);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && primaryNav.classList.contains('is-open')) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        primaryNav.classList.remove('is-open');
+        mobileToggle.focus();
+      }
+    });
+  }
 
   function getSystemScheme() {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -30,15 +47,7 @@
     var current = getRenderedScheme();
     document.documentElement.setAttribute('data-bs-theme', current);
     if (!toggleLabel) return;
-    var stored = null;
-    try {
-      stored = localStorage.getItem('color-scheme');
-    } catch (e) {}
-    if (stored === 'light' || stored === 'dark') {
-      toggleLabel.textContent = current === 'dark' ? '🌙 Dark (Pinned)' : '☀️ Light (Pinned)';
-    } else {
-      toggleLabel.textContent = current === 'dark' ? '🌙 System (Dark)' : '☀️ System (Light)';
-    }
+    toggleLabel.textContent = current === 'dark' ? '🌙 Dark' : '☀️ Light';
   }
 
   if (toggleBtn && meta) {

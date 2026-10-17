@@ -90,13 +90,30 @@ function buildClientJs() {
   return `/**
  * @license MIT
  * err-client.js — Progressive Enhancement for engineroom.raggiesoft.com
- * Implements Modern Web Guidance dark-mode-toggle (two-state override reverting
- * to system default when matching OS preference) and DSP verification filtering.
+ * Implements Modern Web Guidance dark-mode-toggle, mobile navigation drawer,
+ * and DSP verification instant filtering.
  */
 (function () {
   var meta = document.querySelector('meta[name="color-scheme"]');
   var toggleBtn = document.getElementById('theme-toggle');
   var toggleLabel = document.getElementById('theme-toggle-label');
+  var mobileToggle = document.getElementById('mobile-menu-toggle');
+  var primaryNav = document.getElementById('primary-navigation');
+
+  if (mobileToggle && primaryNav) {
+    mobileToggle.addEventListener('click', function () {
+      var expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      primaryNav.classList.toggle('is-open', !expanded);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && primaryNav.classList.contains('is-open')) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        primaryNav.classList.remove('is-open');
+        mobileToggle.focus();
+      }
+    });
+  }
 
   function getSystemScheme() {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -119,15 +136,7 @@ function buildClientJs() {
     var current = getRenderedScheme();
     document.documentElement.setAttribute('data-bs-theme', current);
     if (!toggleLabel) return;
-    var stored = null;
-    try {
-      stored = localStorage.getItem('color-scheme');
-    } catch (e) {}
-    if (stored === 'light' || stored === 'dark') {
-      toggleLabel.textContent = current === 'dark' ? '🌙 Dark (Pinned)' : '☀️ Light (Pinned)';
-    } else {
-      toggleLabel.textContent = current === 'dark' ? '🌙 System (Dark)' : '☀️ System (Light)';
-    }
+    toggleLabel.textContent = current === 'dark' ? '🌙 Dark' : '☀️ Light';
   }
 
   if (toggleBtn && meta) {
@@ -310,10 +319,17 @@ function buildSite() {
   fs.rmSync(distDir, { recursive: true, force: true });
   fs.mkdirSync(distDir, { recursive: true });
 
-  // 1. Copy CSS and write client JS + JSON ledger
+  // 1. Copy CSS and write client JS + JSON ledger (to both ./dist and /raggiesoft-assets CDN)
   const cssContent = fs.readFileSync(path.join(projectRoot, 'src', 'styles', 'err-main.css'), 'utf-8');
+  const clientJsContent = buildClientJs();
   writeDistFile('assets/err-main.css', cssContent);
-  writeDistFile('assets/err-client.js', buildClientJs());
+  writeDistFile('assets/err-client.js', clientJsContent);
+  const sharedCdnCssDir = path.join(assetsDir, 'css');
+  const sharedCdnJsDir = path.join(assetsDir, 'js');
+  fs.mkdirSync(sharedCdnCssDir, { recursive: true });
+  fs.mkdirSync(sharedCdnJsDir, { recursive: true });
+  fs.writeFileSync(path.join(sharedCdnCssDir, 'err-main.css'), cssContent, 'utf-8');
+  fs.writeFileSync(path.join(sharedCdnJsDir, 'err-client.js'), clientJsContent, 'utf-8');
   writeDistFile('data/master-catalog.json', JSON.stringify(masterCatalog, null, 2));
 
   // 2. Render core 3-pillar pages (with Master Archive Index appended to /corporate and /artists)
