@@ -111,7 +111,7 @@ export function renderDocumentShell({
     <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/extras.css" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/webawesome/safety-net.css" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/engine-room-records/css/err-main.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017c" />
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to main content</a>
@@ -243,7 +243,7 @@ export function renderDocumentShell({
     </footer>
 
     <script src="https://assets.raggiesoft.com/engine-room-records/js/err-client.js" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017c" defer></script>
   </body>
 </html>`;
 }
