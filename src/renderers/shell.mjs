@@ -107,7 +107,7 @@ export function renderDocumentShell({
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
     <link rel="stylesheet" href="/assets/err-main.css?v=20261017e" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017e" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017f" />
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to main content</a>
@@ -257,7 +257,7 @@ export function renderDocumentShell({
     </footer>
 
     <script src="/assets/err-client.js?v=20261017e" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017e" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017f" defer></script>
   </body>
 </html>`;
 }
