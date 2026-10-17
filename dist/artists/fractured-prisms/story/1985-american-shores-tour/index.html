@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+      } catch (e) {}
+    </script>
+    <title>The 1985 American Shores Tour | Fractured Prisms</title>
+    <meta name="description" content="Archive of the historic 1985 American Shores Tour, culminating in Live at Independence Stadium and the Colonial Theatre." />
+    <link rel="canonical" href="https://engineroom.raggiesoft.com/artists/fractured-prisms/story/1985-american-shores-tour" />
+    <meta property="og:title" content="The 1985 American Shores Tour | Fractured Prisms" />
+    <meta property="og:description" content="Archive of the historic 1985 American Shores Tour, culminating in Live at Independence Stadium and the Colonial Theatre." />
+    <meta property="og:image" content="https://assets.raggiesoft.com/engine-room-records/artists/fractured-prisms/social-preview.jpg" />
+    <meta property="og:url" content="https://engineroom.raggiesoft.com/artists/fractured-prisms/story/1985-american-shores-tour" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Engine Room Records" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The 1985 American Shores Tour | Fractured Prisms" />
+    <meta name="twitter:description" content="Archive of the historic 1985 American Shores Tour, culminating in Live at Independence Stadium and the Colonial Theatre." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/engine-room-records/artists/fractured-prisms/social-preview.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/err-main.css" />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="Engine Room Records Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png"
+            alt="Engine Room Records industrial gear crest"
+            class="brand-logo"
+            width="42"
+            height="42"
+          />
+          <span>
+            <span class="brand-title">Engine Room Records</span>
+            <span class="brand-subtitle">Official Imprint of Michael P. Ragsdale</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">1. Music &amp; Roster</a></li>
+            <li><a href="/artists" class="nav-link" aria-current="page">Band Directory (7)</a></li>
+            <li><a href="/studio-engineering" class="nav-link">2. Behind the Scenes</a></li>
+            <li><a href="/corporate" class="nav-link">3. Corporate &amp; Lore</a></li>
+            <li><a href="/oconnell-trust" class="nav-link">O&#39;Connell Trust</a></li>
+            <li><a href="/jessica-miller-center" class="nav-link">Jessica Miller Center</a></li>
+            <li><a href="/commercial-licensing" class="nav-link">Commercial Licensing</a></li>
+            <li><a href="/dsp-verification" class="nav-link">DSP Verification</a></li>
+            <li>
+              <a href="https://music.raggiesoft.com" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="theme-toggle-btn"
+                aria-label="Toggle color scheme between light and dark mode"
+                title="Toggle Light / Dark Mode (Reverts to System default when matching OS)"
+              >
+                <span id="theme-toggle-label">◐ Theme</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      
+<style>
+    /* Fractured Prisms Theme Overrides */
+    .gothic-font {
+        font-family: 'Playfair Display', serif;
+    }
+    .text-glow-prism {
+        text-shadow: 0 0 15px rgba(177, 156, 217, 0.4);
+        color: #e6e6fa !important; 
+    }
+    .bg-prism-dark {
+        background-color: #0b0914 !important; 
+    }
+    .border-prism {
+        border-color: rgba(177, 156, 217, 0.3) !important;
+    }
+    
+    /* Artifact Styling */
+    .artifact-paper {
+        background-color: var(--prism-artifact-bg, #dcdcd5);
+        color: var(--prism-artifact-color, #111);
+        font-family: 'Georgia', serif;
+        border-left: 5px solid var(--prism-artifact-border, #6c757d);
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Archival Watermark */
+    .artifact-watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-30deg);
+        font-size: 8rem;
+        font-family: 'Courier New', monospace;
+        color: rgba(0, 0, 0, 0.03);
+        font-weight: bold;
+        text-transform: uppercase;
+        pointer-events: none;
+        white-space: nowrap;
+        user-select: none;
+    }
+    
+    [data-bs-theme="dark"] .artifact-watermark {
+        color: rgba(0, 0, 0, 0.05);
+    }
+</style>
+
+<div class="bg-prism-dark min-vh-100 py-5">
+    <div class="container">
+        
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <span class="badge bg-secondary text-white-50 px-3 py-2 mb-3 text-uppercase letter-spacing-1">
+                    <i class="fa-duotone fa-file-contract me-2"></i>Recovered Archive: Item 85-C
+                </span>
+                <h1 class="display-4 fw-bold text-glow-prism gothic-font mb-3">
+                    The Independence Stadium Manifesto
+                </h1>
+                <p class="lead text-white-50 font-monospace">
+                    Venue: Independence Stadium, Philadelphia, PA (Capacity: 90,000) <br>
+                    Event: The Hollow Square Live Masterpiece (1985)
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10">
+                <div class="card artifact-paper p-4 p-md-5 mb-5 rounded-0 border-0">
+                    <div class="artifact-watermark">CONFIDENTIAL</div>
+                    
+                    <p class="fst-italic mb-5 fs-5" style="color: var(--prism-artifact-muted, #333); line-height: 1.8; position: relative; z-index: 1;">
+                        Backed by immense generational wealth, Fractured Prisms completely bypassed the traditional club circuit. Their first-ever live performance was a sold-out stadium show with no opening act. To execute this while protecting Claire's autistic sensory needs and honouring their deceased siblings, Rhys engineered one of the most uncompromising, heavily restricted stage environments in rock history.
+                    </p>
+
+                    <div style="position: relative; z-index: 1;">
+                        <h4 class="fw-bold text-uppercase mb-3" style="color: var(--prism-artifact-color, #111); font-family: 'Courier New', monospace;">1. The Stage Geometry & "The Session Ghosts"</h4>
+                        <p class="small mb-4" style="color: var(--prism-artifact-muted, #333);">
+                            The stage is sharply divided into two distinct zones, enforced by physical industrial red tape lines on the floor. <br><br>
+                            <strong>The Vanguard:</strong> Rhys and his imposing fortress of mechanical synthesisers, alongside Claire, seated in her wheelchair at the centre of the stage.<br>
+                            <strong>The Session Ghosts:</strong> The hired backing band. Positioned strictly in the shadows behind the red tape. They are compensated at the absolute top tier of the industry, but they are "ghosts"—they do not interact with the crowd, they do not cross the red line, and they are never fully illuminated.
+                        </p>
+
+                        <h4 class="fw-bold text-uppercase mb-3" style="color: var(--prism-artifact-color, #111); font-family: 'Courier New', monospace;">2. Rule Number 1: The Sacred Perimeter</h4>
+                        <p class="small mb-4" style="color: var(--prism-artifact-muted, #333);">
+                            The family’s original acoustic and electronic instruments are not tools; they are headstones and memorials to the deceased family members. <br><br>
+                            <strong>Zero Exceptions:</strong> NO ONE but Rhys or Claire may touch the family's original instruments.<br>
+                            <strong>Gwen's Flute:</strong> The most sacred artifact on the tour is Gwen's wooden flute. Claire is its sole custodian. <br>
+                            <strong>The Consequence:</strong> If any stagehand, tech, or session player touches the original instruments or bumps the flute stand, it is a "Fired on the Spot" offence.
+                        </p>
+
+                        <h4 class="fw-bold text-uppercase mb-3" style="color: var(--prism-artifact-color, #111); font-family: 'Courier New', monospace;">3. Acoustic Rigidity & Stage Accommodations</h4>
+                        <p class="small mb-4" style="color: var(--prism-artifact-muted, #333);">
+                            Because of Claire's autistic needs, the sensory environment must be absolutely predictable.<br><br>
+                            <strong>Play the Ink:</strong> The "Session Ghosts" are strictly briefed to play the music exactly as written and rehearsed. There are no unapproved jam sessions, no improvised solos, and no sudden deviations.<br>
+                            <strong>The "Hold the Line" Contingency:</strong> If the stadium environment becomes overwhelming, Rhys triggers a specific, repeating synthesiser drone. The band immediately fades to silence, the lights drop to a static blue wash, and everyone holds the line until Rhys gives the visual cue that Claire has recalibrated.
+                        </p>
+
+                        <h4 class="fw-bold text-uppercase mb-3" style="color: var(--prism-artifact-color, #111); font-family: 'Courier New', monospace;">4. The Sanctum Protocol</h4>
+                        <p class="small mb-4" style="color: var(--prism-artifact-muted, #333);">
+                            The dressing room and immediate backstage corridor are classified as "The Sanctum." Rhys violently rejects the chaotic VIP rockstar culture to build a fortress around his sister.<br><br>
+                            <strong>The "Rhys Only" Directive:</strong> No venue staff or crew members are permitted to assist Claire. Rhys exclusively handles all wheelchair transfers and physical assistance.<br>
+                            <strong>Recalibration:</strong> Claire relies entirely on deep pressure hugs from Rhys to stave off sensory meltdowns. If she is overwhelmed, venue staff are instructed to turn away, secure the perimeter, and give the siblings absolute privacy.
+                        </p>
+
+                        <h4 class="fw-bold text-uppercase mb-3" style="color: var(--prism-artifact-color, #111); font-family: 'Courier New', monospace;">5. The Extraction Protocol</h4>
+                        <p class="small mb-0" style="color: var(--prism-artifact-muted, #333);">
+                            The lack of wheelchair accessibility in the city's municipal subway, the post-concert mob of 90,000 screaming fans, and the risk to Gwen's flute make standard transport impossible.<br><br>
+                            <strong>The Armoured Coach:</strong> A custom-outfitted, heavily armoured, soundproofed conversion van waits deep in the concrete tunnels under the stadium, featuring dim amber lighting and a flat ramp deployment to mimic the sensory safety of a train carriage.<br>
+                            <strong>The Route Home:</strong> Their private transport takes a secured, police-escorted route out of the complex, hitting the interstate corridor to begin the quiet journey back to their 1960s ranch house sanctuary in Williamsport, Maryland.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="alert alert-secondary d-flex align-items-start gap-3 border p-4 shadow-lg d-block" role="note">
+                    <div class="d-flex align-items-center mb-4 border-bottom border-secondary pb-3">
+                        <i class="fa-duotone fa-sliders-up fs-2 text-secondary me-3"></i>
+                        <div>
+                            <h5 class="fw-bold text-uppercase text-light mb-1 font-monospace">The Cue Sheet</h5>
+                            <span class="text-white-50 small font-monospace">Track: The Hollow Square (Encore)</span>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled text-white-75 font-monospace small mb-0" style="line-height: 2.2;">
+                        <li class="mb-2"><strong class="text-primary">0:00 [The Misdirection]:</strong> Total blackout. A single white strobe hits Rhys's primary drum sequencer as a slow, unfamiliar synthesiser vamp begins.</li>
+                        <li class="mb-2"><strong class="text-primary">0:13 [The Phantom Melody]:</strong> Claire introduces a haunting, unrecognisable melody on Gwen's wooden flute. The audience is captivated but entirely disoriented—there is no flute on the studio version of the song. The misdirection holds.</li>
+                        <li class="mb-2"><strong class="text-primary">0:24 [The Anchor Drop]:</strong> Rhys drops the massive, iconic gated reverb snare rhythm. Stadium blinders flash the crowd. The audience instantly recognises the beat—it is the song they paid to hear. The stadium erupts in a deafening roar.</li>
+                        <li class="mb-2"><strong class="text-primary">0:32 [The Convergence]:</strong> Claire plays the flute alongside the Session Ghost's guitar, perfectly mirroring the familiar intro melody of the studio master.</li>
+                        <li class="mb-2"><strong class="text-primary">0:46 [The Breath]:</strong> Claire delivers a sweeping, wordless vocalisation, letting her voice fill the arena before the verse begins.</li>
+                        <li class="mb-2"><strong class="text-primary">1:05 [The Reverence]:</strong> Rhys sings the first line. The 90,000-seat stadium instantly drops into a pin-drop, reverent silence, acknowledging the profound memorial weight of the song. Claire joins him, and the siblings trade lines in the dark.</li>
+                        <li><strong class="text-primary">5:24 [The Secure Decay]:</strong> Final note. Complete stage blackout. House lights do not come up until Claire has securely returned Gwen's flute to its reinforced case.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-4 border-top border-prism">
+            <div class="col-12 text-center">
+                <a href="/artists/fractured-prisms/story" class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2 px-4 font-monospace small text-uppercase">
+                    <i slot="start" class="fa-duotone fa-arrow-left"></i>Return to The Lore
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Engine Room Records (Real-World Imprint)</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;) is the creative brand and private record imprint under which <strong>Michael P. Ragsdale</strong> produces and distributes his music.
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="/about">📜 About</a> • <a href="/history">🕰️ Label History</a> • <a href="/assets">🏛️ Strategic Assets</a> • <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media</a>
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Closed Submission Policy</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              <strong>Engine Room Records does not accept unsolicited demos, artist submissions, or representation inquiries.</strong> Any submissions received are automatically deleted before reaching any inbox.
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">RaggieSoft Network</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com">🎧 The Listening Room (music.raggiesoft.com)</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 The Stardust Engine (stardust.raggiesoft.com)</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 RaggieSoft Book Reader (books.raggiesoft.com)</a></li>
+              <li><a href="https://lore.raggiesoft.com">🏛️ Lore Omnibus (lore.raggiesoft.com)</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+              <li><a href="https://raggiesoft.com">🌐 RaggieSoft Hub (raggiesoft.com)</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Corporate Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, Claire and Rhys Manning, Julian Croft, Maya Sterling, Julian Rowlands, and Matt Miller), bands, biographies, universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Vanguard Horizon, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are strictly works of fiction. Any resemblance to actual persons, living or dead, businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Source code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+          (alongside applicable DSP consumer streaming licenses or direct commercial synchronization clearances via
+          <a href="/commercial-licensing">Commercial Licensing</a>).
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/err-client.js" defer></script>
+  </body>
+</html>

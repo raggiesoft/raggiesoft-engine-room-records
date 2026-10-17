@@ -1,0 +1,29 @@
+---
+/**
+ * @license MIT
+ * ============================================================================
+ * src/pages/index.astro — Engine Room Records Landing Page (/)
+ * ============================================================================
+ * Architectural Overview:
+ * Implements the Three Core Pillars of Engine Room Records (`engineroom.raggiesoft.com`):
+ * 1. "What Kind of Music Do I Make?": Curated directory of all 7 active bands
+ *    that passes visitors directly to The Listening Room (`https://music.raggiesoft.com`).
+ * 2. Behind the Scenes on Music Generation: Transparent studio engineering summary
+ *    linking to `/studio-engineering`.
+ * 3. The Corporate Entity of Engine Room Records: Clear dual-layer breakdown
+ *    distinguishing the Real-World creative brand (**Engine Room Records**, never "LLC")
+ *    from the In-Universe lore conglomerate (**Engine Room Records, LLC** founded by
+ *    Holly O'Connell in 1992 and The O'Connell Family Revocable Trust).
+ * 4. Closed Submission Policy: Explicitly states that Engine Room Records is a closed
+ *    private imprint and that unsolicited submissions are deleted prior to inbox delivery.
+ * ============================================================================
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Engine Room Records | Official Imprint & Studio Hub"
+  description="What kind of music do I make? Explore all 7 Engine Room Records bands, studio engineering, and our dual-layer corporate lore."
+  canonicalPath="/"
+>
+  <!-- Static HTML compiled and hydrated with catalog.json and corporate-structure.json via scripts/build.mjs -->
+</BaseLayout>

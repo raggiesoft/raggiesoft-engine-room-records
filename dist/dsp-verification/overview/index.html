@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+      } catch (e) {}
+    </script>
+    <title>DSP Verification Portal | Engine Room Records</title>
+    <meta name="description" content="Official administrative portal for DSP identity and copyright verification." />
+    <link rel="canonical" href="https://engineroom.raggiesoft.com/dsp-verification/overview" />
+    <meta property="og:title" content="DSP Verification Portal | Engine Room Records" />
+    <meta property="og:description" content="Official administrative portal for DSP identity and copyright verification." />
+    <meta property="og:image" content="https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg" />
+    <meta property="og:url" content="https://engineroom.raggiesoft.com/dsp-verification/overview" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Engine Room Records" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DSP Verification Portal | Engine Room Records" />
+    <meta name="twitter:description" content="Official administrative portal for DSP identity and copyright verification." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/err-main.css" />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="Engine Room Records Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png"
+            alt="Engine Room Records industrial gear crest"
+            class="brand-logo"
+            width="42"
+            height="42"
+          />
+          <span>
+            <span class="brand-title">Engine Room Records</span>
+            <span class="brand-subtitle">Official Imprint of Michael P. Ragsdale</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">1. Music &amp; Roster</a></li>
+            <li><a href="/artists" class="nav-link">Band Directory (7)</a></li>
+            <li><a href="/studio-engineering" class="nav-link">2. Behind the Scenes</a></li>
+            <li><a href="/corporate" class="nav-link">3. Corporate &amp; Lore</a></li>
+            <li><a href="/oconnell-trust" class="nav-link">O&#39;Connell Trust</a></li>
+            <li><a href="/jessica-miller-center" class="nav-link">Jessica Miller Center</a></li>
+            <li><a href="/commercial-licensing" class="nav-link">Commercial Licensing</a></li>
+            <li><a href="/dsp-verification" class="nav-link" aria-current="page">DSP Verification</a></li>
+            <li>
+              <a href="https://music.raggiesoft.com" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="theme-toggle-btn"
+                aria-label="Toggle color scheme between light and dark mode"
+                title="Toggle Light / Dark Mode (Reverts to System default when matching OS)"
+              >
+                <span id="theme-toggle-label">◐ Theme</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      
+<style>
+    /* Strictly Corporate / Legal Styling - LIGHT MODE (Default) */
+    .dsp-portal {
+        background-color: #ffffff !important;
+        color: #212529 !important;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    .dsp-header {
+        border-bottom: 4px solid #000;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .dsp-table th {
+        background-color: #f8f9fa !important;
+        color: #000 !important;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-bottom: 2px solid #000 !important;
+    }
+    .dsp-table td {
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        vertical-align: middle;
+    }
+    .dsp-directory-link {
+        color: #0d6efd;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .dsp-directory-link:hover { text-decoration: underline; }
+
+    /* Override Elara Dark Mode - TRUE WCAG COMPLIANT DARK MODE */
+    [data-bs-theme="dark"] .dsp-portal {
+        background-color: #121212 !important; 
+        color: #e0e0e0 !important; 
+        border-color: #444 !important;
+    }
+    [data-bs-theme="dark"] .dsp-header {
+        border-bottom-color: #666 !important; 
+    }
+    [data-bs-theme="dark"] .dsp-header h1 {
+        color: #ffffff !important;
+    }
+    [data-bs-theme="dark"] .text-muted { color: #adb5bd !important; }
+    [data-bs-theme="dark"] .text-primary { color: #66b2ff !important; }
+    [data-bs-theme="dark"] .text-info { color: #33d9b2 !important; }
+    [data-bs-theme="dark"] .text-danger { color: #ff6b6b !important; }
+    [data-bs-theme="dark"] .text-success { color: #51cf66 !important; }
+    [data-bs-theme="dark"] .dsp-directory-link { color: #66b2ff; }
+
+    [data-bs-theme="dark"] .dsp-table th {
+        background-color: #1a1a1a !important;
+        color: #ffffff !important;
+        border-bottom-color: #666 !important;
+        border-color: #444 !important;
+    }
+    [data-bs-theme="dark"] .dsp-table td, 
+    [data-bs-theme="dark"] .dsp-table {
+        border-color: #444 !important;
+        color: #e0e0e0 !important;
+    }
+    [data-bs-theme="dark"] .bg-light {
+        background-color: #1a1a1a !important; 
+        border-color: #444 !important;
+        color: #e0e0e0 !important;
+    }
+    [data-bs-theme="dark"] .alert-secondary {
+        background-color: #1a1a1a !important;
+        color: #e0e0e0 !important;
+        border-color: #666 !important;
+    }
+    [data-bs-theme="dark"] .alert-info {
+        background-color: #0b1a26 !important;
+        color: #e0e0e0 !important;
+        border-color: #1f4068 !important;
+    }
+
+    /* Print Overrides for Official Documentation Cleanliness */
+    @media print {
+        body { background: #fff !important; color: #000 !important; }
+        .dsp-portal { border: none !important; box-shadow: none !important; my: 0 !important; p: 0 !important; }
+        #elara-master-footer, .d-print-none, .btn { display: none !important; }
+    }
+</style>
+
+<div class="container py-5 dsp-portal shadow-lg my-4 rounded border border-secondary">
+    
+    
+    <div class="dsp-header d-flex justify-content-between align-items-end flex-wrap gap-3">
+        <div>
+            <h1 class="h3 fw-bold text-uppercase mb-1" style="letter-spacing: -0.5px;">Independent Artist Verification</h1>
+            <h2 class="h5 text-muted mb-0">Direct Ownership & Chain of Custody Portal</h2>
+        </div>
+        <div class="text-start text-md-end font-monospace small">
+            <strong>Date of Record:</strong> October 17, 2026<br>
+            <strong>Status:</strong> OFFICIAL AUDIT LOG
+        </div>
+    </div>
+
+            
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h3 class="h6 fw-bold text-uppercase border-bottom border-dark pb-2 mb-3">1. Primary Creator & Ownership</h3>
+                <ul class="list-unstyled small mb-0">
+                    <li class="mb-1"><strong>Primary Artist / Creator:</strong> Michael P. Ragsdale</li>
+                    <li class="mb-1"><strong>Project / Persona:</strong> Various Artists</li>
+                    <li class="mb-1"><strong>Self-Publishing Alias:</strong> Engine Room Records (Sole Proprietorship)</li>
+                    <li class="mb-1"><strong>Official Web Domain:</strong> <a href="/" class="dsp-directory-link">engineroom-records.com</a> &bull; <a href="https://music.raggiesoft.com" class="dsp-directory-link">music.raggiesoft.com</a></li>
+                    <li class="mb-0"><strong>Primary Contact:</strong> <a href="mailto:dsp.operations@engineroom-records.com" class="dsp-directory-link">dsp.operations@engineroom-records.com</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 mt-4 mt-md-0">
+                <h3 class="h6 fw-bold text-uppercase border-bottom border-dark pb-2 mb-3">2. Production Workflow & AI Clearance</h3>
+                <div class="p-3 bg-light border border-secondary rounded small">
+                    <p class="mb-2"><strong>Workflow:</strong> This catalog is entirely produced by Michael P. Ragsdale operating as a solo creator, utilizing <strong>Google Gemini</strong> for lyricism/editing and <strong>Suno AI (Commercial Premium License)</strong> for audio generation.</p>
+                    <p class="mb-2"><strong>Rights Granted:</strong> Pursuant to the Suno Commercial Terms of Service, the creator (Michael P. Ragsdale) retains full, perpetual commercial exploitation rights, including but not limited to distribution, monetization, and synchronization.</p>
+                    <p class="mb-0 text-danger fw-bold">No vocal cloning or deepfakes of real-world artists are utilized in this catalog.</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="mb-5">
+            <h3 class="h6 fw-bold text-uppercase border-bottom border-dark pb-2 mb-3">3. Work of Fiction &amp; Narrative Lore Disclosure (Notice to DSP Verifiers)</h3>
+            <div class="p-3 bg-light border border-secondary rounded small">
+                <p class="mb-2">
+                    <strong>Fictitious Personas, Institutions &amp; Lore:</strong> All band names (<em>The Stardust Engine, Fractured Prisms, The Paper Wall, Crimson Node, Mana Canvas, The Arctic Symphony Project, Firelight</em>), band members (e.g., Ryan, Cassidy, and Holly O'Connell), in-universe corporate structures (e.g., "Engine Room Records, LLC", "The Forger Nation Trust", "OmniCorp", "Apex Records", "Prairie Coachworks", "Sainte-Claire"), fictional universities and athletic venues (e.g., "Commonwealth Polytechnic Institute / CPI", "The Forgers", "The Crucible"), transit agencies ("Blue Ridge Transit"), in-universe legal filings, and historical backdate timelines (e.g., 1983&ndash;2017) depicted across this website and in song lyrics are <strong>entirely works of creative fiction</strong>. Any resemblance to actual persons (living or dead), real-world businesses, academic institutions, or events is purely coincidental.
+                </p>
+                <p class="mb-0">
+                    <strong>Real-World Legal Chain of Custody:</strong> While the fictional narrative lore describes "Engine Room Records, LLC" and fictional executives/attorneys as part of a multimedia story universe, in the real world <strong>Michael P. Ragsdale</strong> is the sole human creator, executive producer, and 100% independent rights-holder of all sound recordings, musical compositions, and metadata in this catalog.
+                </p>
+            </div>
+        </div>
+
+                    
+            <div class="mb-4">
+                <h3 class="h6 fw-bold text-uppercase border-bottom border-dark pb-2 mb-3">4. Master Catalog Directory</h3>
+                <p class="small text-muted mb-4">Please select the artist persona under review to access their specific ISRC records and chain of custody documentation.</p>
+                
+                <div class="row g-3">
+                                            <div class="col-12">
+                            <div class="alert alert-secondary d-flex align-items-start gap-3 small d-block" role="note"><i slot="icon" class="fa-solid fa-spinner fa-spin"></i>Awaiting Master Catalog Sync...</div>
+                        </div>
+                                    </div>
+            </div>
+
+        
+        
+    <div class="mt-5 text-center border-top border-dark pt-3 small text-muted">
+        <p class="mb-0">This verification environment is dynamically compiled from active systemic deployment listings.</p>
+        <p class="font-monospace m-0">Authorized Electronic Signature: Michael P. Ragsdale</p>
+    </div>
+</div>
+
+<style>
+    .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
+</style>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Engine Room Records (Real-World Imprint)</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;) is the creative brand and private record imprint under which <strong>Michael P. Ragsdale</strong> produces and distributes his music.
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="/about">📜 About</a> • <a href="/history">🕰️ Label History</a> • <a href="/assets">🏛️ Strategic Assets</a> • <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media</a>
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Closed Submission Policy</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              <strong>Engine Room Records does not accept unsolicited demos, artist submissions, or representation inquiries.</strong> Any submissions received are automatically deleted before reaching any inbox.
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">RaggieSoft Network</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com">🎧 The Listening Room (music.raggiesoft.com)</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 The Stardust Engine (stardust.raggiesoft.com)</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 RaggieSoft Book Reader (books.raggiesoft.com)</a></li>
+              <li><a href="https://lore.raggiesoft.com">🏛️ Lore Omnibus (lore.raggiesoft.com)</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+              <li><a href="https://raggiesoft.com">🌐 RaggieSoft Hub (raggiesoft.com)</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Corporate Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, Claire and Rhys Manning, Julian Croft, Maya Sterling, Julian Rowlands, and Matt Miller), bands, biographies, universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Vanguard Horizon, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are strictly works of fiction. Any resemblance to actual persons, living or dead, businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Source code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+          (alongside applicable DSP consumer streaming licenses or direct commercial synchronization clearances via
+          <a href="/commercial-licensing">Commercial Licensing</a>).
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/err-client.js" defer></script>
+  </body>
+</html>

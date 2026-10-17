@@ -1,0 +1,72 @@
+---
+/**
+ * @license MIT
+ * ============================================================================
+ * BaseLayout.astro — Engine Room Records (engineroom.raggiesoft.com)
+ * ============================================================================
+ * Architectural Overview:
+ * Primary Astro 6 document shell enforcing:
+ * 1. WCAG 2.1 AA / Section 508 compliance (skip-link, semantic landmarks,
+ *    >= 4.5:1 contrast ratio in both dark and light modes, visible focus rings).
+ * 2. Modern Web Guidance Dark/Light Mode Architecture:
+ *    - `<meta name="color-scheme" content="light dark">` paired with `:root`
+ *      `color-scheme: light dark` and `:has(> head > meta[name="color-scheme"])`
+ *      overrides so user selection in `localStorage` seamlessly overrides OS
+ *      `prefers-color-scheme` without FOUC.
+ *    - `light-dark()` CSS color tokens paired with `scrollbar-width: thin`
+ *      and `scrollbar-color` (never animated).
+ * 3. Mandatory OpenGraph (`og:*`) and Twitter Card metadata (`title` <= 60 chars,
+ *    `description` <= 155 chars).
+ * 4. Global Fictitious Persons & Entities Disclaimer and Closed Submission Policy.
+ * ============================================================================
+ */
+const {
+  title = 'Engine Room Records | Official Imprint & Studio Hub',
+  description = 'Official imprint of Michael P. Ragsdale. Explore 7 bands, studio engineering, and the dual-layer lore of Engine Room Records.',
+  canonicalPath = '/',
+  ogImage = 'https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg',
+  ogType = 'website'
+} = Astro.props;
+
+const canonicalUrl = `https://engineroom.raggiesoft.com${canonicalPath}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" id="meta-color-scheme" />
+    <script is:inline>
+      // Synchronous FOUC-prevention script: applies stored user theme preference
+      // directly to <meta name="color-scheme"> before first paint.
+      (function () {
+        try {
+          var saved = localStorage.getItem('err-theme');
+          var meta = document.getElementById('meta-color-scheme');
+          if (meta && (saved === 'light' || saved === 'dark')) {
+            meta.content = saved;
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Engine Room Records" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="stylesheet" href="/assets/err-main.css" />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to main content</a>
+    <slot />
+    <script src="/assets/err-client.js" defer></script>
+  </body>
+</html>

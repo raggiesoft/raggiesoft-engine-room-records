@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+      } catch (e) {}
+    </script>
+    <title>Crimson Node | Lore &amp; Discography | Engine Room Records</title>
+    <meta name="description" content="Crimson Node (Stadium Synth-Prog / 80s Arena Rock / Power-Pop): Engineered inside a sound-dampened Albemarle County garage by the Miller, Brooks, and Pelle" />
+    <link rel="canonical" href="https://engineroom.raggiesoft.com/artists/crimson-node" />
+    <meta property="og:title" content="Crimson Node | Lore &amp; Discography | Engine Room Records" />
+    <meta property="og:description" content="Crimson Node (Stadium Synth-Prog / 80s Arena Rock / Power-Pop): Engineered inside a sound-dampened Albemarle County garage by the Miller, Brooks, and Pelle" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/social-preview.jpg" />
+    <meta property="og:url" content="https://engineroom.raggiesoft.com/artists/crimson-node" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Engine Room Records" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Crimson Node | Lore &amp; Discography | Engine Room Records" />
+    <meta name="twitter:description" content="Crimson Node (Stadium Synth-Prog / 80s Arena Rock / Power-Pop): Engineered inside a sound-dampened Albemarle County garage by the Miller, Brooks, and Pelle" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/social-preview.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/err-main.css" />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="Engine Room Records Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png"
+            alt="Engine Room Records industrial gear crest"
+            class="brand-logo"
+            width="42"
+            height="42"
+          />
+          <span>
+            <span class="brand-title">Engine Room Records</span>
+            <span class="brand-subtitle">Official Imprint of Michael P. Ragsdale</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">1. Music &amp; Roster</a></li>
+            <li><a href="/artists" class="nav-link" aria-current="page">Band Directory (7)</a></li>
+            <li><a href="/studio-engineering" class="nav-link">2. Behind the Scenes</a></li>
+            <li><a href="/corporate" class="nav-link">3. Corporate &amp; Lore</a></li>
+            <li><a href="/oconnell-trust" class="nav-link">O&#39;Connell Trust</a></li>
+            <li><a href="/jessica-miller-center" class="nav-link">Jessica Miller Center</a></li>
+            <li><a href="/commercial-licensing" class="nav-link">Commercial Licensing</a></li>
+            <li><a href="/dsp-verification" class="nav-link">DSP Verification</a></li>
+            <li>
+              <a href="https://music.raggiesoft.com" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="theme-toggle-btn"
+                aria-label="Toggle color scheme between light and dark mode"
+                title="Toggle Light / Dark Mode (Reverts to System default when matching OS)"
+              >
+                <span id="theme-toggle-label">◐ Theme</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      
+    <nav aria-label="Breadcrumb" style="margin-bottom: 1rem; font-size: 0.85rem;">
+      <a href="/">Engine Room Records</a> &rsaquo; <a href="/artists">Artist Roster</a> &rsaquo; <strong>Crimson Node</strong>
+    </nav>
+
+    <section class="hero-card" aria-labelledby="artist-heading">
+      <div class="artist-header">
+        <img
+          src="https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/band-logo.jpg"
+          alt="Crimson Node emblem"
+          class="artist-logo"
+          width="72"
+          height="72"
+        />
+        <div>
+          <span class="eyebrow">ERR-006 • Albemarle County (Charlottesville), Virginia (&quot;The Kids House&quot;) • 2000–Present</span>
+          <h1 id="artist-heading" style="margin-bottom: 0.25rem;">Crimson Node</h1>
+          <p style="margin: 0; font-weight: 700; color: var(--accent-amber);">The Albemarle County Garage Sessions — Stadium Synth-Prog &amp; DevOps Rock</p>
+        </div>
+      </div>
+
+      <p class="lead" style="margin-top: 1rem;">
+        Engineered inside a sound-dampened Albemarle County garage by the Miller, Brooks, and Pelletier family phalanx, Crimson Node is directed by non-verbal wheelchair-using producer Matt Miller from his custom Tactile Command Rig and fronted by a powerhouse rotating vocal lineup.
+      </p>
+
+      <div class="callout-box" style="margin-bottom: 1.25rem;">
+        <strong>What Kind of Music Is Crimson Node?</strong>
+        <span style="color: var(--text-secondary);"> High-octane stadium synth-prog, precision rhythm-section grooves (&quot;Quality of Service&quot;, &quot;The Flight Path&quot;), and rotating four-part female lead vocals.</span>
+      </div>
+
+      <div class="btn-row">
+        <a href="https://music.raggiesoft.com/crimson-node" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          🎧 Listen to Crimson Node in The Listening Room ↗
+        </a>
+        
+        <a href="https://books.raggiesoft.com/books/crimson-node" class="btn btn-emerald" target="_blank" rel="noopener noreferrer">📚 Read Companion Novel on Book Reader ↗</a>
+        
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="lore-pillars-heading">
+      <div class="section-header">
+        <span class="eyebrow">Canonical In-Universe History</span>
+        <h2 id="lore-pillars-heading">1. Canonical Band Lore &amp; Sanctuary History</h2>
+      </div>
+      <div class="grid-3">
+        
+      <article class="card card-accent-amber">
+        <div>
+          <h3>Matt Miller&#39;s Tactile Command Rig (Zero-Verbal Production Mastery)</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0;">
+            Crimson Node was never built for commercial industry approval—it was engineered inside a sound-dampened garage at &quot;The Kids House&quot; in Albemarle County, Virginia. At the center of the room sits Matt Miller in his manual wheelchair. Functionally non-verbal, Matt designed a color-coded Tactile Command Rig that routes stems, click tracks, and dynamic bus compression in real time, proving that communication and leadership transcend spoken speech.
+          </p>
+        </div>
+      </article>
+
+      <article class="card card-accent-amber">
+        <div>
+          <h3>The Rotating Vocalist Architecture</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0;">
+            Rather than placing the pressure of frontperson duties on one singer, Emily, Jessica, Rachel, and Shiloh rotate through the vocal booth based on the emotional telemetry of each song—moving effortlessly from the arena-sized synth-prog of &quot;The Flight Path&quot; to the DevOps-inspired precision of &quot;Quality of Service.&quot;
+          </p>
+        </div>
+      </article>
+
+      <article class="card card-accent-amber">
+        <div>
+          <h3>Northwood, Piedmont &amp; The Family Phalanx</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0;">
+            Behind the music stands a fierce narrative of educational advocacy and neurodivergent protection across Northwood and Piedmont—chronicled in the companion narrative archive at books.raggiesoft.com/books/crimson-node.
+          </p>
+        </div>
+      </article>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="members-heading">
+      <div class="section-header">
+        <span class="eyebrow">Personnel &amp; Roles</span>
+        <h2 id="members-heading">2. Band Members &amp; Studio Collective</h2>
+      </div>
+      <div class="grid-2">
+        
+      <div class="card" style="padding: 1.1rem;">
+        <div>
+          <h3 style="font-size: 1.05rem; margin: 0 0 0.25rem;">Matt Miller (&quot;The Manager / The Crimson Node&quot;)</h3>
+          <p style="font-size: 0.82rem; font-weight: 700; color: var(--accent-primary); margin: 0 0 0.45rem;">
+            Executive Producer, Sequencer Routing &amp; Tactile Command Rig Architect
+          </p>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); margin: 0;">
+            Functionally non-verbal wheelchair user who directs every mix, arrangement, and cue from his custom Vanguard LogicPad rig without speaking a single word.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 1.1rem;">
+        <div>
+          <h3 style="font-size: 1.05rem; margin: 0 0 0.25rem;">Emily Miller, Rachel Miller, Sarah Miller, Jessica Brooks, Chloe Brooks, &amp; Shiloh Brooks</h3>
+          <p style="font-size: 0.82rem; font-weight: 700; color: var(--accent-primary); margin: 0 0 0.45rem;">
+            The Rotating Vocal Phalanx &amp; Multi-Instrumentalists
+          </p>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); margin: 0;">
+            Rejecting a single frontperson, the women of the Albemarle compound trade stadium belts, punk grit, and soaring harmonies track by track.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 1.1rem;">
+        <div>
+          <h3 style="font-size: 1.05rem; margin: 0 0 0.25rem;">Elise &amp; Elodie Pelletier (&quot;The Pelletier Twins&quot;) + Hailey &amp; Heather Bouchard</h3>
+          <p style="font-size: 0.82rem; font-weight: 700; color: var(--accent-primary); margin: 0 0 0.45rem;">
+            Dual Synthesizers, Harmonic Counterpoint &amp; CCC Ensemble
+          </p>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); margin: 0;">
+            Provide the locked stereo keyboard and rhythm foundation across the Albemarle sessions.
+          </p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="discog-heading">
+      <div class="section-header">
+        <span class="eyebrow">The Listening Room Handoff • CC BY-SA 4.0</span>
+        <h2 id="discog-heading">3. Discography &amp; Free 128kbps MP3 Archives (1 Releases)</h2>
+        <p style="margin: 0; color: var(--text-secondary);">
+          Select any release below to stream in <a href="https://music.raggiesoft.com/crimson-node">The Listening Room</a> or download the complete 128kbps MP3 ZIP archive under our <strong>CC BY-SA 4.0</strong> license.
+        </p>
+      </div>
+      <div class="grid-2">
+        
+              <article class="card">
+                <div>
+                  <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.85rem;">
+                    <img
+                      src="https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/2002-crimson-node/album-art.jpg"
+                      alt="Album cover for Crimson Node"
+                      width="76"
+                      height="76"
+                      style="border-radius: 0.5rem; object-fit: cover; border: 1px solid var(--border-strong); flex-shrink: 0;"
+                      loading="lazy"
+                    />
+                    <div>
+                      <div class="badge-row" style="margin-bottom: 0.25rem;">
+                        <span class="badge">2002</span>
+                        <span class="badge">Studio Album</span>
+                        <span class="badge">15 Tracks</span>
+                      </div>
+                      <h3 style="margin: 0 0 0.2rem; font-size: 1.1rem;">Crimson Node</h3>
+                      <p style="margin: 0; font-size: 0.8rem; color: var(--accent-amber); font-weight: 700;">The 2002 Debut Album (The Garage Sessions)</p>
+                    </div>
+                  </div>
+                  <p style="font-size: 0.87rem; color: var(--text-secondary); margin: 0 0 0.75rem;">
+                    Recorded entirely in the heavily modified, sound-dampened Garage Studio of the Kids House in Albemarle County, Virginia, Crimson Node is the self-titled debut album of the Miller family&#39;s collaborative 1980s-inspired synth-prog and arena rock project.
+                  </p>
+                </div>
+                <div class="btn-row">
+                  <a href="https://music.raggiesoft.com/crimson-node/2002-crimson-node" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    🎧 Stream &amp; Lyrics in Listening Room ↗
+                  </a>
+                  <a href="https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/2002-crimson-node/web-mp3/2002-crimson-node-free-archive.zip" class="btn btn-emerald" download target="_blank" rel="noopener noreferrer">⬇ Free 128kbps MP3 (.zip)</a>
+                </div>
+              </article>
+      </div>
+    </section>
+  
+    
+        <section class="section-block mt-4 pt-4 border-top border-secondary-subtle">
+               <span class="eyebrow">Deep Band Dossiers (23)</span>
+               <h2>Explore All Crimson Node Sub-Pages</h2>
+               <div class="grid-3">
+                 
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/ccc</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/ccc" style="text-decoration: none; color: var(--text-primary);">CCC Campus | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">The Charlottesville Community College ecosystem provided a critical off-site network of safe variables, forming the early academic structure around t...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/ccc" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/ccc/hailey-bouchard</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/ccc/hailey-bouchard" style="text-decoration: none; color: var(--text-primary);">Hailey Bouchard | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">As Heather&#39;s identical twin sister, Hailey caused zero processing errors for Matt&#39;s highly literal, systems-oriented brain; she was simply recognized...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/ccc/hailey-bouchard" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/ccc/heather-bouchard</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/ccc/heather-bouchard" style="text-decoration: none; color: var(--text-primary);">Heather Bouchard | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Following a catastrophic &quot;Unhandled Exception&quot;—an abusive relationship that Matt barely survived prior to meeting her—Heather was the one who ini...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/ccc/heather-bouchard" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family" style="text-decoration: none; color: var(--text-primary);">The Phalanx | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Operating out of the Albemarle County Kids House, the Miller, Brooks, and Pelletier alliance forms an impenetrable, decentralized care network and an...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/chloe-brooks</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/chloe-brooks" style="text-decoration: none; color: var(--text-primary);">Chloe Brooks | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Classically trained on the flute since the 6th grade, Chloe brings a premium, conservatory-level sophistication to Crimson Node&#39;s 1980s progressive r...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/chloe-brooks" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/elise-pelletier</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/elise-pelletier" style="text-decoration: none; color: var(--text-primary);">Elise Pelletier | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">After the toxic ableism of past outsiders and the devastating system failures of previous social attempts, the Albemarle County compound was fiercely...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/elise-pelletier" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/elodie-pelletier</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/elodie-pelletier" style="text-decoration: none; color: var(--text-primary);">Elodie Pelletier | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">While her twin sister Elise brings a quiet, steady gravity to the ecosystem, Elodie injects a joyful, unbothered lightness that the Kids House desper...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/elodie-pelletier" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/emily-miller</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/emily-miller" style="text-decoration: none; color: var(--text-primary);">Emily Miller | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">When Crimson Node needs to cut through a wall of heavy analog synthesizers and driving rhythm guitars, they turn to Emily. Providing the massive, soa...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/emily-miller" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/jessica-brooks</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/jessica-brooks" style="text-decoration: none; color: var(--text-primary);">Jessica Brooks | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Anchoring the low end of Crimson Node&#39;s massive 1980s sound, Jessica surrounds herself with stacks of heavy analog synthesizers and fretless basses. ...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/jessica-brooks" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/matt-miller</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/matt-miller" style="text-decoration: none; color: var(--text-primary);">Matt Miller | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Navigating the world with dyspraxia, asynchronous development, and a sensory processing disorder, Matt Miller is functionally non-verbal. However, he...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/matt-miller" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/rachel-miller</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/rachel-miller" style="text-decoration: none; color: var(--text-primary);">Rachel Miller | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Driving the complex time signatures of Crimson Node&#39;s 1980s progressive rock sound, Rachel commands the acoustic drum kit with absolute authority. Sh...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/rachel-miller" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/sarah-miller</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/sarah-miller" style="text-decoration: none; color: var(--text-primary);">Sarah Miller | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Sarah initially did not start off working in the band. Originally training as an LPN with her sights set on becoming an MD, her ultimate ambition was...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/sarah-miller" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/shiloh-brooks</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/shiloh-brooks" style="text-decoration: none; color: var(--text-primary);">Shiloh Brooks | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Within the Miller and Brooks family ecosystem, Shiloh holds the sacred title of &quot;Player Two.&quot; Her loyalty to Matt is absolute, unbroken, and fiercely...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/shiloh-brooks" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/family/the-pelletier-twins</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/family/the-pelletier-twins" style="text-decoration: none; color: var(--text-primary);">Elise &amp; Elodie Pelletier | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Elise and Elodie are dicephalic parapagus twins, operating as two completely independent legal and psychological entities sharing a single physical c...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/family/the-pelletier-twins" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/northwood</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/northwood" style="text-decoration: none; color: var(--text-primary);">Northwood High | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">1668 Kempsville Road, Virginia Beach, VA. Home of the Lions. A strictly policed 1999 environment characterized by intense accessibility barriers, the...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/northwood" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/northwood/staff/arthur-vance</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/northwood/staff/arthur-vance" style="text-decoration: none; color: var(--text-primary);">Arthur Vance | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">While Sarah Miller serves as Matt&#39;s primary Private Duty Nurse and ultimate clinical protector, she cannot always be present inside the classroom. In...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/northwood/staff/arthur-vance" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/northwood/staff/bernard-morgan</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/northwood/staff/bernard-morgan" style="text-decoration: none; color: var(--text-primary);">Bernard Morgan | Northwood High - Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">The Approachable Principal &amp; Student Advocate.</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/northwood/staff/bernard-morgan" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/northwood/staff/mrs-demarco</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/northwood/staff/mrs-demarco" style="text-decoration: none; color: var(--text-primary);">Mrs. DeMarco | Northwood High - Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">The Culinary Warden &amp; Operator of the Shadow Law.</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/northwood/staff/mrs-demarco" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/northwood/staff/mrs-periwinkle</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/northwood/staff/mrs-periwinkle" style="text-decoration: none; color: var(--text-primary);">Mrs. Periwinkle | Northwood High - Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">The Dewey Decimal Terror &amp; Master of Psychological Warfare.</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/northwood/staff/mrs-periwinkle" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/northwood/students/courtney-evans</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/northwood/students/courtney-evans" style="text-decoration: none; color: var(--text-primary);">Courtney Evans | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Courtney was Matt Miller&#39;s first genuine romantic connection. It is critical to note that before the bubble popped, she was not abusive; she was genu...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/northwood/students/courtney-evans" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/piedmont</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/piedmont" style="text-decoration: none; color: var(--text-primary);">The University of the Piedmont | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">A prestigious, historic institution in Charlottesville defined by extreme wealth, intense elitism, and deep-seated &quot;Rahoo&quot; lacrosse culture. The ulti...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/piedmont" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/characters/piedmont/trent-montgomery</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/characters/piedmont/trent-montgomery" style="text-decoration: none; color: var(--text-primary);">Trent Montgomery | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">Trent is the living embodiment of The University of the Piedmont&#39;s entitled, hyper-masculine lacrosse culture. He performs his &quot;Rahoo&quot; identity with ...</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/characters/piedmont/trent-montgomery" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+
+                   <article class="card card-accent-amber">
+                     <div>
+                       <span class="badge mb-2">/artists/crimson-node/discography</span>
+                       <h3 class="h6 fw-bold"><a href="/artists/crimson-node/discography" style="text-decoration: none; color: var(--text-primary);">Discography | Crimson Node</a></h3>
+                       <p style="font-size: 0.83rem; color: var(--text-secondary);">The complete archival history of the band, from the raw garage sessions in Albemarle County to the heavy analog production of Engine Room Records.</p>
+                     </div>
+                     <div><a href="/artists/crimson-node/discography" class="btn btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Open Dossier →</a></div>
+                   </article>
+               </div>
+             </section>
+        <section class="section-block mt-4 pt-4 border-top border-secondary-subtle">
+          <span class="eyebrow">Original Archival Dossier</span>
+          
+<div class="border-bottom border-primary border-opacity-50" style="
+    position: relative;
+    background-image: linear-gradient(rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.85)), 
+                      url('https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/2002-crimson-node/album-art.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+">
+    <div class="container-fluid text-center pt-5 pb-5">
+        <div class="container pt-5 pb-4">
+            <h1 class="display-2 text-uppercase text-glow-primary text-white brand-font" style="letter-spacing: 2px;">
+                <i class="fa-duotone fa-waveform-lines me-3 text-primary"></i>Crimson Node
+            </h1>
+            <p class="lead fs-3 text-uppercase text-white" 
+               style="font-family: 'Exo 2', sans-serif; font-weight: 300; letter-spacing: 4px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                The Albemarle County Garage Sessions.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 mb-2">
+    <div class="alert alert-secondary d-flex align-items-start gap-3 shadow-sm d-block" role="note">
+        <i slot="icon" class="fa-duotone fa-robot-astromech fa-3x text-info d-none d-md-block"></i>
+        <div>
+            <h4 class="alert-heading h6 fw-bold mb-1 text-uppercase letter-spacing-1"><i class="fa-duotone fa-robot-astromech me-2 text-info d-inline-block d-md-none"></i>Transparency & Timeline Notice</h4>
+            <p class="mb-2 small text-body-secondary border-bottom border-secondary-subtle pb-2">
+                <strong>Crimson Node</strong> is a multimedia storytelling and world-building project. The music is generated using a commercial Suno license, with conceptual lore, characters, and lyrics co-written by human direction and Gemini.
+            </p>
+            <p class="mb-0 small text-body-secondary">
+                <strong>Dual Timelines:</strong> To maintain our immersive fictional universe while strictly complying with modern digital distribution standards, our catalog features two timelines: a fictional <strong>Narrative Era</strong> (e.g., 2000) tied to the band's lore, and a real-world <strong>Actual Release Date</strong> (e.g., 2026) reflecting when the audio was officially distributed to streaming platforms.
+                <a href="https://raggiesoft.com/about/ai-disclaimer" class="alert-link fw-bold text-info border-bottom border-info text-decoration-none ms-1">Read the full AI Disclaimer.</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 border-bottom border-secondary border-opacity-25 position-relative" style="z-index: 1050;">
+    <div class="bg-body-tertiary rounded shadow-sm border border-secondary border-opacity-50">
+        <div class="row g-0 align-items-center">
+            
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/2002-crimson-node/album-art.jpg" 
+                     alt="Crimson Node Debut Album" 
+                     class="img-fluid h-100 object-fit-cover rounded-start border-end border-secondary border-opacity-50"
+                     style="min-height: 400px;">
+            </div>
+
+            <div class="col-lg-6 p-4 p-md-5 text-center text-lg-start">
+                <span class="badge bg-success text-success-emphasis mb-3 px-3 py-2 text-uppercase letter-spacing-1" style="border: 1px solid var(--bs-success-border-subtle);">
+                    <i class="fa-solid fa-satellite-dish me-2 pulse-icon"></i>Now Streaming
+                </span>
+                <h2 class="display-5 fw-bold text-uppercase mb-3 brand-font">The Sessions Are Live</h2>
+                <p class="lead text-body-secondary mb-4">
+                    The 15-track debut album has officially cleared the global distribution network. Featuring the massive stadium synth-prog of "The Flight Path" and the relentless energy of "Quality of Service."
+                </p>
+                
+                <img src="https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/2002-crimson-node/album-art.jpg" 
+                     alt="Crimson Node Debut Album" 
+                     class="img-fluid rounded mb-4 d-block d-lg-none shadow-sm border border-secondary">
+
+                <div class="d-flex flex-column align-items-center align-items-lg-start">
+                    
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                        <a href="https://music.raggiesoft.com/crimson-node" class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2 shadow-sm px-4 fw-bold d-inline-flex align-items-center border-glow" target="_blank" rel="noopener noreferrer">
+                            <i slot="start" class="fa-duotone fa-headphones"></i>The Listening Room
+                        </a>
+                        <a href="https://music.raggiesoft.com/crimson-node/2002-crimson-node" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center gap-2 shadow-sm px-4 fw-bold d-inline-flex align-items-center">
+                            <i slot="start" class="fa-duotone fa-book-open-cover"></i>Studio Lore
+                        </a>
+                        
+                        
+<style>
+/* Patch for Web Awesome Button Group not recognizing wa-dropdown in split buttons */
+wa-button-group.dynamic-store-group {
+    display: flex !important;
+    gap: 0 !important;
+}
+wa-button-group.dynamic-store-group wa-button.main-store-btn::part(base) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    margin-right: -1px !important;
+    z-index: 1 !important;
+}
+wa-button-group.dynamic-store-group wa-button.main-store-btn:hover::part(base) {
+    z-index: 3 !important;
+}
+wa-button-group.dynamic-store-group wa-dropdown {
+    display: flex !important;
+}
+wa-button-group.dynamic-store-group wa-dropdown wa-button::part(base) {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    z-index: 2 !important;
+}
+wa-button-group.dynamic-store-group wa-dropdown wa-button:hover::part(base) {
+    z-index: 3 !important;
+}
+
+/* DSP Custom Colors */
+wa-button.dsp-spotify::part(base) { background-color: #1DB954 !important; border-color: #1DB954 !important; color: white !important; }
+wa-button.dsp-spotify:hover::part(base) { background-color: #1ed760 !important; border-color: #1ed760 !important; }
+
+wa-button.dsp-apple::part(base) { background-color: #FA243C !important; border-color: #FA243C !important; color: white !important; }
+wa-button.dsp-apple:hover::part(base) { background-color: #ff4055 !important; border-color: #ff4055 !important; }
+
+wa-button.dsp-amazon::part(base) { background-color: #00A8E1 !important; border-color: #00A8E1 !important; color: white !important; }
+wa-button.dsp-amazon:hover::part(base) { background-color: #00c0ff !important; border-color: #00c0ff !important; }
+
+wa-button.dsp-youtube::part(base) { background-color: #FF0000 !important; border-color: #FF0000 !important; color: white !important; }
+wa-button.dsp-youtube:hover::part(base) { background-color: #ff3333 !important; border-color: #ff3333 !important; }
+
+/* DSP Custom Text Colors for Dropdown Icons */
+.text-dsp-spotify { color: #1DB954 !important; }
+.text-dsp-apple { color: #FA243C !important; }
+.text-dsp-amazon { color: #00A8E1 !important; }
+.text-dsp-youtube { color: #FF0000 !important; }
+</style>
+
+<div class="d-flex flex-wrap gap-2">
+    
+    <div class="btn-group d-inline-flex align-items-stretch dynamic-store-group" role="group">
+        <a href="https://open.spotify.com/artist/" class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2 main-store-btn fw-bold dsp-spotify" target="_blank" rel="noopener noreferrer" data-default-text="Artist on">
+            <i slot="start" class="main-store-icon fa-brands fa-spotify"></i>
+            <span class="main-store-text">Artist on Spotify</span>
+        </a>
+        
+        <details class="wa-ported-dropdown position-relative d-inline-block"><summary class="btn toggle-store-btn px-2 dsp-spotify list-unstyled d-inline-flex align-items-center gap-1" aria-label="Toggle platform options">
+                <i class="fa-solid fa-chevron-down"></i>
+            </summary><div class="wa-ported-dropdown-menu position-absolute end-0 mt-1 p-2 rounded-3 border shadow-lg bg-body z-3" style="min-width: 220px;">
+            
+            
+            <div class="px-3 py-2 bg-body-tertiary border-bottom border-secondary-subtle mb-1" style="max-width: 240px;">
+                <span class="d-block fw-bold text-primary mb-1"><i class="fa-solid fa-memory me-1"></i> Set Global Default</span>
+                <span class="d-block small text-body-secondary lh-sm" style="font-size: 0.8em;">Select your preferred app. We will remember it for all future albums.</span>
+            </div>
+                                                                                                                                    </div></details>
+    </div>
+
+    
+</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 border-bottom border-secondary border-opacity-25 position-relative" style="z-index: 1050;">
+    <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-uppercase text-body-emphasis mb-3 brand-font">
+            The Vanguard Architecture
+        </h2>
+        <p class="lead text-body-secondary mx-auto" style="max-width: 800px;">
+            Crimson Node wasn't engineered in a commercial studio. It was built in a sound-dampened garage by a family dedicated to maintaining an impenetrable, joyful, and highly clinical ecosystem.
+        </p>
+    </div>
+
+    <div class="row g-5 justify-content-center">
+        
+        
+        <div class="col-md-6 col-lg-5">
+            <div class="card wa-ported-card card bg-hud-red h-100 border-primary shadow-glow hover-lift overflow-hidden w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-body p-4 text-center d-flex flex-column">
+                    <div class="mb-3"><i class="fa-duotone fa-laptop-code fa-3x opacity-75"></i></div>
+                    
+                    
+                    <h3 class="h4 fw-bold text-uppercase mb-1">The Manager</h3>
+                    
+                    
+                    <p class="small font-monospace opacity-50 mb-3">Matt Miller // The Crimson Node</p>
+                    
+                    
+                    <p class="small opacity-75 mb-0">
+                        Functionally non-verbal and operating from a manual wheelchair, Matt acts as the band's brilliant, systems-oriented producer. From his Tactile Command Rig, he oversees the digital track routing and manages the band's entire operation without speaking a single word.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-6 col-lg-5">
+            <div class="card wa-ported-card card bg-hud-blue h-100 border-info shadow-glow hover-lift overflow-hidden w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-body p-4 text-center d-flex flex-column">
+                    <div class="mb-3"><i class="fa-duotone fa-microphone-stand fa-3x opacity-75"></i></div>
+                    
+                    
+                    <h3 class="h4 fw-bold text-uppercase mb-1">The Rotating Vocalist</h3>
+                    
+                    
+                    <p class="small font-monospace opacity-50 mb-3">Emily, Jessica, Rachel, & Shiloh</p>
+                    
+                    
+                    <p class="small opacity-75 mb-0">
+                        The band rejects the concept of a single lead singer. Instead, the women of the Albemarle compound seamlessly rotate through the vocal booth, trading powerhouse stadium belts, aggressive punk energy, and melodic power-ballads to match the emotional weight of each track.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card wa-ported-card card h-100 border-secondary bg-transparent hover-lift w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-body d-flex flex-column text-center p-4">
+                    <div class="mb-3 text-primary"><i class="fa-duotone fa-users fa-3x"></i></div>
+                    <h3 class="fw-bold text-primary brand-font">The Phalanx</h3>
+                    <p class="text-secondary small">
+                        Meet the family ecosystem: Matt, Sarah, Shiloh, Rachel, Emily, and Jessica.
+                    </p>
+                    <a href="/artists/crimson-node/characters/family" class="btn btn-outline-primary mt-auto rounded-pill">View Roster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card wa-ported-card card h-100 border-secondary bg-transparent hover-lift w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-body d-flex flex-column text-center p-4">
+                    <div class="mb-3 text-danger"><i class="fa-duotone fa-book-atlas fa-3x"></i></div>
+                    <h3 class="fw-bold text-danger brand-font">The Lore</h3>
+                    <p class="text-secondary small">
+                        Explore the architecture of the Kids House, the Trent Ejection, and the CCC Crash.
+                    </p>
+                    <a href="https://books.raggiesoft.com/crimson-node" class="btn btn-outline-danger d-inline-flex align-items-center justify-content-center gap-2 mt-auto" target="_blank" rel="noopener noreferrer">Read History</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card wa-ported-card card h-100 border-secondary bg-transparent hover-lift w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-body d-flex flex-column text-center p-4">
+                    <div class="mb-3 text-info"><i class="fa-duotone fa-compact-disc fa-3x"></i></div>
+                    <h3 class="fw-bold text-info brand-font">The Discography</h3>
+                    <p class="text-secondary small">
+                        Explore the full catalog of master tapes produced in the Albemarle garage.
+                    </p>
+                    <a href="/artists/crimson-node/discography" class="btn btn-outline-info mt-auto rounded-pill">View Albums</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.hover-lift { transition: transform 0.2s; }
+.hover-lift:hover { transform: translateY(-5px); }
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+.pulse-icon {
+    animation: pulse 2s infinite;
+}
+
+/* --- CAROUSEL DROPDOWN FIX --- */
+#discographyCarousel {
+    position: relative;
+    z-index: 1040; 
+}
+#discographyCarousel .carousel-inner {
+    overflow: visible; 
+}
+</style>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Engine Room Records (Real-World Imprint)</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;) is the creative brand and private record imprint under which <strong>Michael P. Ragsdale</strong> produces and distributes his music.
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="/about">📜 About</a> • <a href="/history">🕰️ Label History</a> • <a href="/assets">🏛️ Strategic Assets</a> • <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media</a>
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Closed Submission Policy</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              <strong>Engine Room Records does not accept unsolicited demos, artist submissions, or representation inquiries.</strong> Any submissions received are automatically deleted before reaching any inbox.
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">RaggieSoft Network</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com">🎧 The Listening Room (music.raggiesoft.com)</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 The Stardust Engine (stardust.raggiesoft.com)</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 RaggieSoft Book Reader (books.raggiesoft.com)</a></li>
+              <li><a href="https://lore.raggiesoft.com">🏛️ Lore Omnibus (lore.raggiesoft.com)</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+              <li><a href="https://raggiesoft.com">🌐 RaggieSoft Hub (raggiesoft.com)</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Corporate Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, Claire and Rhys Manning, Julian Croft, Maya Sterling, Julian Rowlands, and Matt Miller), bands, biographies, universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Vanguard Horizon, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are strictly works of fiction. Any resemblance to actual persons, living or dead, businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Source code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+          (alongside applicable DSP consumer streaming licenses or direct commercial synchronization clearances via
+          <a href="/commercial-licensing">Commercial Licensing</a>).
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/err-client.js" defer></script>
+  </body>
+</html>

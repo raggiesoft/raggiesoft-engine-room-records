@@ -1,0 +1,208 @@
+/**
+ * @license MIT
+ * ============================================================================
+ * src/renderers/shell.mjs — Engine Room Records (engineroom.raggiesoft.com)
+ * ============================================================================
+ * Architectural Overview:
+ * Renders the outer HTML5 document shell, accessible sticky navigation bar,
+ * Modern Web Guidance dark/light mode toggle, OpenGraph (`og:*`) + Twitter Card
+ * social tags (`title` <= 60 chars, `description` <= 155 chars), and the
+ * mandatory RaggieSoft Fictitious Persons & Entities Disclaimer + Real-World vs.
+ * In-Universe LLC corporate disclosure footer.
+ * ============================================================================
+ */
+
+/**
+ * Escapes HTML special characters for safe attribute and text interpolation.
+ * @param {string} str
+ * @returns {string}
+ */
+export function escapeHtml(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
+ * Wraps page body content in the canonical Engine Room Records HTML shell.
+ *
+ * @param {Object} opts
+ * @param {string} opts.title - Page title (strictly <= 60 characters)
+ * @param {string} opts.description - Meta/OG description (strictly <= 155 characters)
+ * @param {string} opts.canonicalPath - Route path starting with `/`
+ * @param {string} [opts.ogImage] - Full URL to 1200x630 OpenGraph image
+ * @param {string} [opts.ogType] - OpenGraph type (`website` or `profile`)
+ * @param {string} opts.bodyHtml - Inner `<main id="content">` HTML markup
+ * @returns {string}
+ */
+export function renderDocumentShell({
+  title,
+  description,
+  canonicalPath = '/',
+  ogImage = 'https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg',
+  ogType = 'website',
+  bodyHtml
+}) {
+  const safeTitle = escapeHtml(title.slice(0, 60));
+  const safeDesc = escapeHtml(description.slice(0, 155));
+  const canonicalUrl = `https://engineroom.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
+
+  const navItems = [
+    { href: '/', label: '1. Music & Roster' },
+    { href: '/artists', label: 'Band Directory (7)' },
+    { href: '/studio-engineering', label: '2. Behind the Scenes' },
+    { href: '/corporate', label: '3. Corporate & Lore' },
+    { href: '/oconnell-trust', label: "O'Connell Trust" },
+    { href: '/jessica-miller-center', label: 'Jessica Miller Center' },
+    { href: '/commercial-licensing', label: 'Commercial Licensing' },
+    { href: '/dsp-verification', label: 'DSP Verification' }
+  ];
+
+  const navHtml = navItems
+    .map((item) => {
+      const isCurrent =
+        item.href === canonicalPath ||
+        (item.href !== '/' && canonicalPath.startsWith(item.href + '/'));
+      return `<li><a href="${item.href}" class="nav-link"${isCurrent ? ' aria-current="page"' : ''}>${escapeHtml(item.label)}</a></li>`;
+    })
+    .join('\n            ');
+
+  return `<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+      } catch (e) {}
+    </script>
+    <title>${safeTitle}</title>
+    <meta name="description" content="${safeDesc}" />
+    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
+    <meta property="og:title" content="${safeTitle}" />
+    <meta property="og:description" content="${safeDesc}" />
+    <meta property="og:image" content="${escapeHtml(ogImage)}" />
+    <meta property="og:url" content="${escapeHtml(canonicalUrl)}" />
+    <meta property="og:type" content="${escapeHtml(ogType)}" />
+    <meta property="og:site_name" content="Engine Room Records" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${safeTitle}" />
+    <meta name="twitter:description" content="${safeDesc}" />
+    <meta name="twitter:image" content="${escapeHtml(ogImage)}" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/err-main.css" />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="Engine Room Records Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png"
+            alt="Engine Room Records industrial gear crest"
+            class="brand-logo"
+            width="42"
+            height="42"
+          />
+          <span>
+            <span class="brand-title">Engine Room Records</span>
+            <span class="brand-subtitle">Official Imprint of Michael P. Ragsdale</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-links">
+            ${navHtml}
+            <li>
+              <a href="https://music.raggiesoft.com" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="theme-toggle-btn"
+                aria-label="Toggle color scheme between light and dark mode"
+                title="Toggle Light / Dark Mode (Reverts to System default when matching OS)"
+              >
+                <span id="theme-toggle-label">◐ Theme</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      ${bodyHtml}
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Engine Room Records (Real-World Imprint)</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;) is the creative brand and private record imprint under which <strong>Michael P. Ragsdale</strong> produces and distributes his music.
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="/about">📜 About</a> • <a href="/history">🕰️ Label History</a> • <a href="/assets">🏛️ Strategic Assets</a> • <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media</a>
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Closed Submission Policy</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              <strong>Engine Room Records does not accept unsolicited demos, artist submissions, or representation inquiries.</strong> Any submissions received are automatically deleted before reaching any inbox.
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">RaggieSoft Network</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com">🎧 The Listening Room (music.raggiesoft.com)</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 The Stardust Engine (stardust.raggiesoft.com)</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 RaggieSoft Book Reader (books.raggiesoft.com)</a></li>
+              <li><a href="https://lore.raggiesoft.com">🏛️ Lore Omnibus (lore.raggiesoft.com)</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+              <li><a href="https://raggiesoft.com">🌐 RaggieSoft Hub (raggiesoft.com)</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Corporate Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, Claire and Rhys Manning, Julian Croft, Maya Sterling, Julian Rowlands, and Matt Miller), bands, biographies, universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Vanguard Horizon, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are strictly works of fiction. Any resemblance to actual persons, living or dead, businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Source code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+          (alongside applicable DSP consumer streaming licenses or direct commercial synchronization clearances via
+          <a href="/commercial-licensing">Commercial Licensing</a>).
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/err-client.js" defer></script>
+  </body>
+</html>`;
+}
+

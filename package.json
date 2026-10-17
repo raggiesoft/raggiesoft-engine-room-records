@@ -1,0 +1,17 @@
+{
+  "name": "raggiesoft-engine-room-records",
+  "version": "1.0.0",
+  "description": "Engine Room Records (engineroom.raggiesoft.com) — Official Imprint Directory, Behind-the-Scenes Studio Engineering Documentation, and Dual-Layer Corporate & Lore Archive. Built with Astro 6 Static SSG.",
+  "license": "MIT",
+  "author": "Michael P. Ragsdale (https://raggiesoft.com)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/build.mjs --watch",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs --serve"
+  },
+  "dependencies": {
+    "astro": "^6.0.0"
+  }
+}
