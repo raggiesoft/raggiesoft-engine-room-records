@@ -347,32 +347,56 @@ export function renderCommercialLicensingPage() {
 }
 
 /**
- * Renders `/dsp-verification` page with interactive & print-ready catalog table.
+ * Renders `/dsp-verification` page with interactive & print-ready catalog table,
+ * plus full support for `?artist=`, `?album=`, and `?track=` URL query parameters
+ * used by Cloudflare DSP verification redirects (`fracturedprisms.com/dsp-verification`,
+ * `thestardustengine.com/dsp-verification`, etc.) and DistroKid/Spotify/Apple Music review links.
  * @param {any} masterCatalog
  * @returns {string}
  */
 export function renderDspVerificationPage(masterCatalog) {
-  const artists = Array.isArray(masterCatalog?.artists) ? masterCatalog.artists : [];
+  const flatTracks = Array.isArray(masterCatalog) ? masterCatalog : [];
   let rowsHtml = '';
-  let totalTracks = 0;
+  let totalTracks = flatTracks.length;
 
-  for (const artist of artists) {
-    const albums = Array.isArray(artist.albums) ? artist.albums : [];
-    for (const album of albums) {
-      const tracks = Array.isArray(album.tracks) ? album.tracks : [];
-      for (const track of tracks) {
-        totalTracks += 1;
-        rowsHtml += `
-          <tr data-artist="${escapeHtml(artist.slug || '')}" data-album="${escapeHtml(album.slug || '')}" data-track="${escapeHtml(track.slug || '')}">
-            <td><code>${escapeHtml(track.errId || artist.errId || 'ERR')}</code></td>
-            <td><strong>${escapeHtml(track.title || '')}</strong></td>
-            <td>${escapeHtml(artist.name || '')}</td>
-            <td>${escapeHtml(album.title || '')} (${escapeHtml(String(album.narrativeYear || ''))})</td>
-            <td><code>${escapeHtml(track.isrc || 'Pending')}</code></td>
-            <td>${escapeHtml(track.duration || '')}</td>
-          </tr>`;
-      }
-    }
+  for (const item of flatTracks) {
+    const artistSlug = String(item.artistSlug || '');
+    const albumSlug = String(item.albumSlug || '');
+    const trackSlug = String(item.trackSlug || '');
+    const affidavitUrl = `/dsp-verification?artist=${encodeURIComponent(artistSlug)}&album=${encodeURIComponent(albumSlug)}&track=${encodeURIComponent(trackSlug)}`;
+    rowsHtml += `
+      <tr
+        data-artist="${escapeHtml(artistSlug)}"
+        data-artist-name="${escapeHtml(item.artistPersona || '')}"
+        data-album="${escapeHtml(albumSlug)}"
+        data-album-title="${escapeHtml(item.albumTitle || '')}"
+        data-track="${escapeHtml(trackSlug)}"
+        data-track-title="${escapeHtml(item.trackTitle || '')}"
+        data-err-id="${escapeHtml(item.err_id || 'ERR')}"
+        data-isrc="${escapeHtml(item.isrc || 'Pending')}"
+        data-upc="${escapeHtml(item.albumUPC || 'N/A')}"
+        data-distributor="${escapeHtml(item.distributor || 'DistroKid')}"
+        data-clearance="${escapeHtml(item.aiClearance || 'Suno Commercial Pro Plan')}"
+        data-release-date="${escapeHtml(item.realReleaseDate || '')}"
+      >
+        <td><code>${escapeHtml(item.err_id || 'ERR')}</code></td>
+        <td><code>${escapeHtml(item.isrc || 'Pending')}</code></td>
+        <td>
+          <strong><a href="${escapeHtml(affidavitUrl)}" style="color: var(--accent-primary); text-decoration: none;">${escapeHtml(item.trackTitle || '')}</a></strong>
+          <div style="font-size: 0.78rem; color: var(--text-secondary);">UPC: <code>${escapeHtml(item.albumUPC || 'N/A')}</code> • ${escapeHtml(item.realReleaseDate || '')}</div>
+        </td>
+        <td>
+          <a href="/dsp-verification?artist=${encodeURIComponent(artistSlug)}" style="color: var(--text-primary); font-weight: 600; text-decoration: none;">${escapeHtml(item.artistPersona || '')}</a>
+          <div style="font-size: 0.78rem; color: var(--text-secondary);">${escapeHtml(item.albumTitle || '')}</div>
+        </td>
+        <td>
+          <span class="badge">${escapeHtml(item.distributor || 'DistroKid')}</span>
+          <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.2rem;">${escapeHtml(item.aiClearance || 'Suno Commercial Pro')}</div>
+        </td>
+        <td class="no-print">
+          <a href="${escapeHtml(affidavitUrl)}" class="btn" style="padding: 0.3rem 0.65rem; font-size: 0.78rem;">📄 Affidavit</a>
+        </td>
+      </tr>`;
   }
 
   const bodyHtml = `
@@ -380,15 +404,57 @@ export function renderDspVerificationPage(masterCatalog) {
       <span class="eyebrow">Administrative Chain-of-Custody &amp; Copyright Dossier</span>
       <h1 id="dsp-heading">DSP Identity, ISRC &amp; Commercial Rights Verification</h1>
       <p class="lead">
-        Official verification portal for Digital Service Providers (Spotify, Apple Music, Amazon Music, YouTube Music, DistroKid) confirming that <strong>Michael P. Ragsdale</strong> is the sole real-world human owner, copyright holder, and commercial rights registrant for all releases under the <strong>Engine Room Records</strong> imprint (${totalTracks} registered works).
+        Official verification portal for Digital Service Providers (Spotify for Artists, Apple Music for Artists, Amazon Music, YouTube Music, DistroKid) confirming that <strong>Michael P. Ragsdale</strong> is the sole real-world human owner, copyright holder, and commercial rights registrant for all releases under the <strong>Engine Room Records</strong> imprint (${totalTracks} registered works).
       </p>
       <div class="btn-row no-print">
         <button type="button" class="btn btn-primary" onclick="window.print()">
           🖨️ Print / Save Official PDF Verification Dossier
         </button>
+        <a href="/dsp-verification" class="btn" id="dsp-reset-filter-btn" style="display: none;">
+          🔄 View Full Master Catalog (${totalTracks} Tracks)
+        </a>
         <a href="/data/master-catalog.json" class="btn" target="_blank" rel="noopener noreferrer">
           📦 Raw JSON Ledger (master-catalog.json) ↗
         </a>
+      </div>
+    </section>
+
+    <!-- Dynamic Artist Direct Claim Callout (Populated when ?artist=<slug> is present) -->
+    <section id="dsp-artist-claim-section" class="section-block" style="display: none;" aria-live="polite">
+      <div class="callout-box card-accent-amber" style="border-width: 2px;">
+        <span class="eyebrow">DSP Artist Profile Claim Verification</span>
+        <h2 id="dsp-artist-claim-title" style="font-size: 1.35rem; margin-bottom: 0.5rem;">Notice to Platform Verification Teams</h2>
+        <p id="dsp-artist-claim-body" style="font-size: 0.95rem; margin-bottom: 0.75rem;"></p>
+        <div class="grid-3" style="font-size: 0.86rem;">
+          <div class="card" style="padding: 0.85rem;">
+            <strong>Legal Owner &amp; Claimant</strong>
+            <div style="color: var(--text-secondary);">Michael P. Ragsdale (Sole Proprietor)<br><a href="mailto:mpragsdale@raggiesoft.com">mpragsdale@raggiesoft.com</a></div>
+          </div>
+          <div class="card" style="padding: 0.85rem;">
+            <strong>Record Imprint</strong>
+            <div style="color: var(--text-secondary);">Engine Room Records (Real-World Brand)<br><a href="https://engineroom.raggiesoft.com">engineroom.raggiesoft.com</a></div>
+          </div>
+          <div class="card" style="padding: 0.85rem;">
+            <strong>Primary Aggregator</strong>
+            <div style="color: var(--text-secondary);">DistroKid / Direct DSP Distribution<br>100% Master &amp; Publishing Controlled</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Single-Track Affidavit View (Populated when ?artist=...&album=...&track=... is present) -->
+    <section id="dsp-track-affidavit-section" class="section-block" style="display: none;" aria-live="polite">
+      <div class="hero-card card-accent-emerald" style="border: 2px solid var(--accent-emerald);">
+        <span class="eyebrow">Official Track-Level Chain-of-Custody Affidavit</span>
+        <h2 id="dsp-affidavit-track-title" style="font-size: 1.5rem; margin-bottom: 0.35rem;">Track Verification Affidavit</h2>
+        <p id="dsp-affidavit-subtitle" class="lead" style="font-size: 1rem; margin-bottom: 1rem;"></p>
+        <div class="grid-2" id="dsp-affidavit-details" style="margin-bottom: 1rem;"></div>
+        <div class="callout-box" style="margin-bottom: 0;">
+          <strong>Declaration of Commercial Rights &amp; Origin:</strong>
+          <p style="margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--text-secondary);">
+            I, <strong>Michael P. Ragsdale</strong>, hereby certify under penalty of perjury that I am the sole creator, producer, and legal owner of this sound recording and underlying composition. All generative audio components were synthesized under an active, paid commercial <strong>Suno Pro / Premier Studio</strong> subscription granting 100% commercial ownership and monetization clearance, combined with human lyric authoring, phonetic arrangement, and local digital signal processing (DSP) mastering.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -396,27 +462,36 @@ export function renderDspVerificationPage(masterCatalog) {
       <div class="callout-box card-accent-emerald">
         <h2 id="affidavit-heading" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Official Chain-of-Custody Statement for Content Review Teams</h2>
         <ul style="margin: 0; padding-left: 1.3rem; font-size: 0.9rem; color: var(--text-secondary); display: grid; gap: 0.4rem;">
-          <li><strong>Real-World Owner &amp; Claimant:</strong> Michael P. Ragsdale (<a href="https://raggiesoft.com">https://raggiesoft.com</a> / <a href="https://michaelpragsdale.com">https://michaelpragsdale.com</a>)</li>
+          <li><strong>Real-World Owner &amp; Claimant:</strong> Michael P. Ragsdale (<a href="https://raggiesoft.com">https://raggiesoft.com</a> / <a href="https://michaelpragsdale.com">https://michaelpragsdale.com</a>) • Administrative Contact: <a href="mailto:mpragsdale@raggiesoft.com">mpragsdale@raggiesoft.com</a></li>
           <li><strong>Record Imprint Name:</strong> Engine Room Records (Real-world brand name; <em>Engine Room Records, LLC</em> is strictly a work of fiction).</li>
           <li><strong>Commercial AI Generation Clearance:</strong> All audio tracks are produced using Michael P. Ragsdale's paid commercial Suno Studio subscription with full commercial distribution rights assigned to the subscriber under Suno's Terms of Service.</li>
           <li><strong>Fictitious Band &amp; Narrative Disclosure:</strong> All band names (<em>The Stardust Engine</em>, <em>Fractured Prisms</em>, <em>The Paper Wall</em>, <em>The Arctic Symphony Project</em>, <em>Crimson Node</em>, <em>Mana Canvas</em>, and <em>Firelight</em>) and character biographies are original works of fiction created by Michael P. Ragsdale.</li>
         </ul>
+      </div>
+      <div class="btn-row no-print" style="margin-top: 0.85rem;">
+        <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); align-self: center;">Quick Artist Claim Filters:</span>
+        <a href="/dsp-verification?artist=the-stardust-engine" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🚀 The Stardust Engine</a>
+        <a href="/dsp-verification?artist=fractured-prisms" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">💎 Fractured Prisms</a>
+        <a href="/dsp-verification?artist=the-paper-wall" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🧱 The Paper Wall</a>
+        <a href="/dsp-verification?artist=the-arctic-symphony-project" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">❄️ The Arctic Symphony Project</a>
+        <a href="/dsp-verification?artist=crimson-node" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🔴 Crimson Node</a>
+        <a href="/dsp-verification?artist=mana-canvas" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🎨 Mana Canvas</a>
       </div>
     </section>
 
     <section class="section-block" aria-labelledby="ledger-heading">
       <div class="section-header">
         <span class="eyebrow">Master Registry • Filterable by URL Params (?artist=, ?album=, ?track=)</span>
-        <h2 id="ledger-heading">Registered Catalog &amp; ISRC Ledger (${totalTracks} Tracks)</h2>
+        <h2 id="ledger-heading">Registered Catalog &amp; ISRC Ledger (<span id="dsp-visible-count">${totalTracks}</span> of ${totalTracks} Tracks)</h2>
         <div class="no-print" style="margin-top: 0.75rem;">
           <label for="dsp-search" style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 0.35rem;">
-            Filter by ISRC, Track Title, Artist, or Album:
+            Filter by ISRC, UPC, ERR-ID, Track Title, Artist, or Album:
           </label>
           <input
             type="search"
             id="dsp-search"
-            placeholder="e.g. QZRP52580801, Escape Velocity, Fractured Prisms..."
-            style="width: 100%; max-width: 520px; padding: 0.55rem 0.85rem; border-radius: 0.5rem; border: 1px solid var(--border-strong); background: var(--bg-elevated); color: var(--text-primary);"
+            placeholder="e.g. QZRP52580801, Escape Velocity, Fractured Prisms, 199959656614..."
+            style="width: 100%; max-width: 560px; padding: 0.55rem 0.85rem; border-radius: 0.5rem; border: 1px solid var(--border-strong); background: var(--bg-elevated); color: var(--text-primary);"
           />
         </div>
       </div>
@@ -426,11 +501,11 @@ export function renderDspVerificationPage(masterCatalog) {
           <thead>
             <tr>
               <th scope="col">ERR-ID</th>
-              <th scope="col">Track Title</th>
-              <th scope="col">Artist Project</th>
-              <th scope="col">Album (Lore Year)</th>
               <th scope="col">ISRC</th>
-              <th scope="col">Duration</th>
+              <th scope="col">Track Title &amp; Release UPC</th>
+              <th scope="col">Artist Persona &amp; Album</th>
+              <th scope="col">Aggregator &amp; AI Clearance</th>
+              <th scope="col" class="no-print">Dossier</th>
             </tr>
           </thead>
           <tbody>
