@@ -12,7 +12,7 @@
  * - Every artist, album, and track reference links directly to The Listening
  *   Room (`https://music.raggiesoft.com/...`).
  * - Every companion novel reference links directly to RaggieSoft Book Reader
- *   (`https://books.raggiesoft.com/books/...`).
+ *   (`https://books.raggiesoft.com/...`).
  * - The Stardust Engine's deep band lore lives on its dedicated cosmic property
  *   (`https://stardust.raggiesoft.com`), while `engineroom.raggiesoft.com`
  *   provides their executive roster overview and direct handoff.
@@ -30,8 +30,8 @@ export const ARTIST_LORE_PROFILES = {
     primaryGenre: '80s Synth-Pop / Arena Rock / 80s Cosmic Pop',
     listeningRoomUrl: 'https://music.raggiesoft.com/the-stardust-engine',
     dedicatedSiteUrl: 'https://stardust.raggiesoft.com',
-    bookReaderUrl: 'https://books.raggiesoft.com/books/stardust-engine',
-    secondaryBookUrl: 'https://books.raggiesoft.com/books/erin',
+    bookReaderUrl: 'https://books.raggiesoft.com/stardust-engine',
+    secondaryBookUrl: 'https://books.raggiesoft.com/erin',
     secondaryBookTitle: 'Before the Distance: The Story of John & Erin',
     heroImage: 'https://assets.raggiesoft.com/stardust-engine/images/stardust-engine-hero.jpg',
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg',
@@ -93,7 +93,7 @@ export const ARTIST_LORE_PROFILES = {
     primaryGenre: '80s Progressive Art-Rock / British Synth-Pop / Victorian Rock Opera',
     listeningRoomUrl: 'https://music.raggiesoft.com/fractured-prisms',
     dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/fractured-prisms',
-    bookReaderUrl: 'https://books.raggiesoft.com/books/fractured-prisms',
+    bookReaderUrl: 'https://books.raggiesoft.com/fractured-prisms',
     heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/fractured-prisms/social-preview.jpg',
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/fractured-prisms/social-preview.jpg',
     logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/fractured-prisms/band-logo.jpg',
@@ -171,7 +171,7 @@ export const ARTIST_LORE_PROFILES = {
     primaryGenre: 'Literary Rock Opera / Alternative & Industrial Rock',
     listeningRoomUrl: 'https://music.raggiesoft.com/the-paper-wall',
     dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/the-paper-wall',
-    bookReaderUrl: 'https://books.raggiesoft.com/books/luna-leo',
+    bookReaderUrl: 'https://books.raggiesoft.com/luna-leo',
     heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/the-paper-wall/social-preview.jpg',
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/the-paper-wall/social-preview.jpg',
     logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/the-paper-wall/band-logo.jpg',
@@ -227,7 +227,7 @@ export const ARTIST_LORE_PROFILES = {
     primaryGenre: 'Holiday Symphonic Rock / Neoclassical Metal / Rock Opera',
     listeningRoomUrl: 'https://music.raggiesoft.com/the-arctic-symphony-project',
     dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/the-arctic-symphony-project',
-    bookReaderUrl: 'https://books.raggiesoft.com/books/julian',
+    bookReaderUrl: 'https://books.raggiesoft.com/julian',
     heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/the-arctic-symphony-project/social-preview.jpg',
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/the-arctic-symphony-project/social-preview.jpg',
     logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/the-arctic-symphony-project/band-logo.jpg',
@@ -263,7 +263,7 @@ export const ARTIST_LORE_PROFILES = {
       },
       {
         title: 'Tales from the Solstice (3-Disc Symphonic Rock Opera)',
-        body: 'With their masters liberated, the ensemble re-christened themselves The Arctic Symphony Project and recorded the 3-disc symphonic rock opera Tales from the Solstice (2007), uniting Julian\'s 1996 Appalachian beacon with Matthew\'s cross-country survival and culminating in the restored Trilingual "Family Mix" of "Upon This Winter\'s Night." Read the complete companion novel Upon This Winter\'s Night: The Story of Julian Rowlands at books.raggiesoft.com/books/julian.'
+        body: 'With their masters liberated, the ensemble re-christened themselves The Arctic Symphony Project and recorded the 3-disc symphonic rock opera Tales from the Solstice (2007), uniting Julian\'s 1996 Appalachian beacon with Matthew\'s cross-country survival and culminating in the restored Trilingual "Family Mix" of "Upon This Winter\'s Night." Read the complete companion novel Upon This Winter\'s Night: The Story of Julian Rowlands at books.raggiesoft.com/julian.'
       }
     ]
   },
@@ -278,7 +278,7 @@ export const ARTIST_LORE_PROFILES = {
     primaryGenre: 'Stadium Synth-Prog / 80s Arena Rock / Power-Pop',
     listeningRoomUrl: 'https://music.raggiesoft.com/crimson-node',
     dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/crimson-node',
-    bookReaderUrl: 'https://books.raggiesoft.com/books/crimson-node',
+    bookReaderUrl: 'https://books.raggiesoft.com/crimson-node',
     heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/social-preview.jpg',
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/social-preview.jpg',
     logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/crimson-node/band-logo.jpg',
@@ -314,7 +314,7 @@ export const ARTIST_LORE_PROFILES = {
       },
       {
         title: 'Northwood, Piedmont & The Family Phalanx',
-        body: 'Behind the music stands a fierce narrative of educational advocacy and neurodivergent protection across Northwood and Piedmont—chronicled in the companion narrative archive at books.raggiesoft.com/books/crimson-node.'
+        body: 'Behind the music stands a fierce narrative of educational advocacy and neurodivergent protection across Northwood and Piedmont—chronicled in the companion narrative archive at books.raggiesoft.com/crimson-node.'
       }
     ]
   },
@@ -324,36 +324,36 @@ export const ARTIST_LORE_PROFILES = {
     slug: 'mana-canvas',
     name: 'Mana Canvas',
     tagline: 'Symphonic Fantasy Rock, 16-Bit SNES Chiptune & Acoustic RPG Alchemy',
-    origin: 'The Aethelgard Archives / Blacksburg Studio Collective',
-    yearsActive: '2017–Present',
-    primaryGenre: 'Symphonic Fantasy Rock / 16-Bit Chiptune Prog / Acoustic Alchemy',
+    origin: 'The Runebreaker Soundstage / Blacksburg Studio Collective',
+    yearsActive: '1992–Present',
+    primaryGenre: 'Symphonic Fantasy Rock / 16-Bit Chiptune Prog / JRPG Soundtrack',
     listeningRoomUrl: 'https://music.raggiesoft.com/mana-canvas',
     dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/mana-canvas',
-    bookReaderUrl: 'https://books.raggiesoft.com/books/aethel',
-    secondaryBookUrl: 'https://books.raggiesoft.com/books/runebreaker',
-    secondaryBookTitle: 'Runebreaker',
+    bookReaderUrl: 'https://books.raggiesoft.com/dream-kingdom',
+    secondaryBookUrl: 'https://runebreaker.raggiesoft.com',
+    secondaryBookTitle: 'Runebreaker Portal',
     heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/mana-canvas/social-preview.jpg',
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/mana-canvas/social-preview.jpg',
     logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/mana-canvas/band-logo.jpg',
     summary:
-      'The official musical voice of the Aethel Saga and Runebreaker universes. Mana Canvas fuses authentic 16-bit Super Famicom / SNES SPC700 synth nostalgia with roaring progressive rock guitars, orchestral strings, and tavern acoustic storytelling.',
+      'The official musical voice of the Runebreaker / Dream Kingdom universe. Mana Canvas fuses authentic 16-bit Super Famicom / SNES SPC-700 synth nostalgia with roaring progressive rock guitars, orchestral strings, and arena singalongs.',
     whatKindOfMusic:
-      '16-bit SNES RPG chiptune leads fused with symphonic progressive metal, Celtic/fantasy acoustic ballads, and boss-battle rock operas.',
+      '16-bit SNES RPG chiptune leads fused with symphonic progressive rock, fantasy acoustic ballads, and live concert rock operas.',
     members: [
       {
-        name: 'The Aethelgard Sound Team',
-        role: '16-Bit SPC700 Synthesis, Symphonic Orchestration & Progressive Rock Ensemble',
-        notes: 'In-house fantasy soundtrack collective scoring Songs of the Untethered and The Silver Gauntlet of Aethel.'
+        name: 'The Mana Canvas Ensemble',
+        role: '16-Bit SPC-700 Synthesis, Symphonic Orchestration & Progressive Rock Ensemble',
+        notes: 'In-house JRPG and progressive rock collective scoring Runebreaker (1992) and Runebreaker Live (1993).'
       }
     ],
     lorePillars: [
       {
-        title: 'Scoring the Aethel Saga & Runebreaker',
-        body: 'Mana Canvas bridges RaggieSoft\'s literary fantasy universes (The Aethel Saga and Runebreaker on books.raggiesoft.com) with Engine Room Records\' audio engineering. Every release is structured like a golden-era 1990s 16-bit RPG soundtrack brought to life with a full rock orchestra.'
+        title: 'Scoring Runebreaker & The 16-Bit Digital Realm',
+        body: 'Mana Canvas bridges RaggieSoft\'s Runebreaker / Dream Kingdom narrative universe (books.raggiesoft.com/dream-kingdom and runebreaker.raggiesoft.com) with Engine Room Records\' audio engineering. Every release is structured like a golden-era 1990s 16-bit Super Famicom RPG soundtrack brought to life with a full rock orchestra.'
       },
       {
-        title: 'Songs of the Untethered & The Silver Gauntlet of Aethel',
-        body: 'Across releases like Songs of the Untethered and The Silver Gauntlet of Aethel, Mana Canvas pairs nostalgic pixel-era melodies with full-bandwidth progressive rock instrumentation—celebrating characters who break free from predetermined system rules.'
+        title: 'From SPC-700 Chiptunes to the 1993 Live Concert Stage',
+        body: 'Following the 1992 release of the ambient 16-bit Runebreaker soundtrack chronicling Ocea\'s journey into the digital realm, Mana Canvas took the score on the road for 1993\'s Runebreaker Live—translating 8-channel SPC-700 melodies into full-bandwidth progressive rock instrumentation and culminating in a 6-minute arena singalong of "The Grand Decree."'
       }
     ]
   },
@@ -362,35 +362,41 @@ export const ARTIST_LORE_PROFILES = {
     errId: 'ERR-007',
     slug: 'firelight',
     name: 'Firelight',
-    tagline: 'Heartland Acoustic Rock, Warm Campfire Harmonies & Ruby Mountain Anthology',
-    origin: 'Ruby Mountain & Blue Ridge Sanctuary, Virginia',
-    yearsActive: '1989–Present',
-    primaryGenre: 'Heartland Rock / Acoustic Americana / Campfire Folk-Rock',
+    tagline: '1980s Fantasy-Adventure Movie Soundtracks, Synth-Pop Themes & Symphonic Rock',
+    origin: 'The Aethelgard Soundstage / Engine Room Records Soundtrack Division',
+    yearsActive: '1987–Present',
+    primaryGenre: '80s Movie Soundtracks / 80s Synth-Pop / Fantasy-Adventure Score',
     listeningRoomUrl: 'https://music.raggiesoft.com/firelight',
     dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/firelight',
-    bookReaderUrl: 'https://books.raggiesoft.com/books/ruby-mountain',
-    heroImage: 'https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg',
-    ogImage: 'https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg',
-    logoUrl: 'https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png',
+    bookReaderUrl: 'https://books.raggiesoft.com/aethel-saga',
+    secondaryBookUrl: 'https://books.raggiesoft.com/aethel/',
+    secondaryBookTitle: 'The Silver Gauntlet of Aethel (Full Novel)',
+    heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/firelight/1987-silver-gauntlet-of-aethel/social-preview.jpg',
+    ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/firelight/1987-silver-gauntlet-of-aethel/social-preview.jpg',
+    logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/firelight/band-logo.png',
     summary:
-      'Spanning a 16-album narrative anthology rooted in the Ruby Mountain story world, Firelight trades stadium synthesizers for warm acoustic guitars, mandolin, Hammond organ, and porch-light vocal harmonies chronicling decades of resilience and family healing.',
+      'The official 1980s motion picture soundtrack ensemble behind The Silver Gauntlet of Aethel—Michael P. Ragsdale\'s love letter to 1980s fantasy-adventure cinema. Anchored by its flagship main theme "A Sister\'s Love" (heavily inspired by Limahl\'s iconic NeverEnding Story theme song), Firelight fuses shimmering 1980s analog synth-pop arpeggios and soaring melodic hooks with widescreen fantasy orchestration.',
     whatKindOfMusic:
-      'Warm acoustic heartland rock, roots Americana, fingerpicked acoustic guitars, pedal steel, and intimate storytelling.',
+      '1980s fantasy-adventure movie soundtracks, shimmering Limahl-inspired 80s synth-pop title themes ("A Sister\'s Love"), power-rock villain and battle anthems, and sweeping orchestral film scores.',
     members: [
       {
-        name: 'The Ruby Mountain Ensemble',
-        role: 'Acoustic Guitars, Mandolin, Upright Bass, Warm Hammond Organ & Ensemble Vocals',
-        notes: 'Chronicles the multi-decade Ruby Mountain narrative arc from 1989\'s The Spark in the Pine to 2016\'s Embers of the Dawn.'
+        name: 'The Firelight Soundtrack Ensemble',
+        role: '1980s Analog Synthesizers, Soaring Lead Vocals, Electric Guitars & Symphonic Fantasy Orchestra',
+        notes: 'Composed and performed the 1987 Theatrical Soundtrack LP and the definitive 2017 3-disc "Leviathan Cut" Original Motion Picture Soundtrack for The Silver Gauntlet of Aethel.'
       }
     ],
     lorePillars: [
       {
-        title: 'A 16-Album Acoustic Chronicle (1989–2016)',
-        body: 'While The Stardust Engine and Fractured Prisms explore cosmic and Victorian synth-rock architectures, Firelight anchors the acoustic heartland wing of Engine Room Records. Across sixteen chronological albums—beginning with 1989\'s The Spark in the Pine and 1990\'s Chasing the Horizon through 2016\'s Embers of the Dawn—Firelight scores the quiet triumphs, mountain winters, and enduring bonds of the Ruby Mountain sanctuary.'
+        title: 'A Love Letter to 1980s Fantasy-Adventure Cinema & Limahl\'s "NeverEnding Story"',
+        body: 'The Silver Gauntlet of Aethel was created as Michael P. Ragsdale\'s personal love letter to 1980s fantasy-adventure movies. When composing the saga\'s signature main theme, "A Sister\'s Love (Main Theme)," Michael took very heavy inspiration from Limahl\'s iconic 1984 theme song to The NeverEnding Story—marrying propulsive 1980s synth-pop arpeggios, shimmering electronic basslines, and an unforgettable, sky-scraping chorus that captures the wonder, peril, and unbreakable sibling bond between twins Kaelan and Kaela.'
       },
       {
-        title: 'Companion Literary Archive: Ruby Mountain',
-        body: 'Every era of Firelight\'s catalog pairs with the Ruby Mountain literary archives on RaggieSoft Book Reader (books.raggiesoft.com/books/ruby-mountain), while all playable tracks and full lyrics stream in The Listening Room at music.raggiesoft.com/firelight.'
+        title: 'The 1987 Truncated Theatrical LP vs. The 2017 3-Disc "Leviathan Cut" Soundtrack',
+        body: 'In-universe, Firelight\'s original 1987 release—The Silver Gauntlet of Aethel (Theatrical Soundtrack)—was heavily edited down to fit a single vinyl LP, reflecting the studio-mandated truncated theatrical cut of the film that omitted the final two eras in favor of a tidy "happily ever after." Thirty years later, in 2017, Engine Room Records released the definitive 3-disc "Leviathan Cut" Original Motion Picture Soundtrack across Book I: The Unwinding Path, Book II: The Shadow\'s Heart, and Book III: The Dawn of the Twins—restoring the complete four-era mythic arc.'
+      },
+      {
+        title: 'Companion Literary Saga: The Silver Gauntlet of Aethel',
+        body: 'Every movement of Firelight\'s soundtrack score pairs directly with the four-era fantasy saga The Silver Gauntlet of Aethel on RaggieSoft Book Reader (books.raggiesoft.com/aethel-saga), while all four soundtrack albums and full lyrics stream in The Listening Room at music.raggiesoft.com/firelight.'
       }
     ]
   }

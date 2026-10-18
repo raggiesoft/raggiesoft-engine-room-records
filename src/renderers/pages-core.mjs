@@ -126,7 +126,7 @@ export function renderHomePage(catalog) {
       <h1 id="hero-heading">&ldquo;What Kind of Music Do I Make?&rdquo;</h1>
       <p class="lead">
         Welcome to <strong>Engine Room Records</strong> (<a href="https://engineroom.raggiesoft.com">engineroom.raggiesoft.com</a>, also reachable via our vanity domain <code>engineroom-records.com</code>).
-        In real life, <strong>Engine Room Records</strong> is the private creative imprint under which <strong>Michael P. Ragsdale</strong> writes, engineers, and distributes <strong>${totalAlbums} albums (${totalTracks} songs)</strong> across seven distinct musical projects—spanning 1980s stadium synth-rock, zero-gravity <em>80s Cosmic Pop</em>, British art-rock operas, holiday symphonic metal, 16-bit RPG progressive rock, and acoustic heartland storytelling.
+        In real life, <strong>Engine Room Records</strong> is the private creative imprint under which <strong>Michael P. Ragsdale</strong> writes, engineers, and distributes <strong>${totalAlbums} albums (${totalTracks} songs)</strong> across seven distinct musical projects—spanning 1980s stadium synth-rock, zero-gravity <em>80s Cosmic Pop</em>, British art-rock operas, holiday symphonic metal, 16-bit RPG progressive rock, and 1980s fantasy-adventure movie soundtracks.
       </p>
       <div class="btn-row">
         <a href="https://music.raggiesoft.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer">

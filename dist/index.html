@@ -27,15 +27,16 @@
     <meta name="twitter:title" content="Engine Room Records | Official Imprint &amp; Studio Hub" />
     <meta name="twitter:description" content="What kind of music do I make? Explore all 7 Engine Room Records bands, studio engineering, and our dual-layer corporate lore." />
     <meta name="twitter:image" content="https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg" />
-    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo-white.png" media="(prefers-color-scheme: dark)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
-    <link rel="stylesheet" href="/assets/err-main.css?v=20261017e" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017j" />
+    <link rel="stylesheet" href="/assets/err-main.css?v=20261017f" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017k" />
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to main content</a>
@@ -78,10 +79,19 @@
     <header class="site-header" role="banner">
       <div class="container header-inner">
         <a href="/" class="brand-link" aria-label="Engine Room Records Home">
+          <!-- Light Mode Logo: Black on Transparent Background -->
           <img
             src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png"
             alt="Engine Room Records industrial gear crest"
-            class="brand-logo"
+            class="brand-logo brand-logo-light"
+            width="36"
+            height="36"
+          />
+          <!-- Dark Mode Logo: White on Transparent Background -->
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo-white.png"
+            alt="Engine Room Records industrial gear crest"
+            class="brand-logo brand-logo-dark"
             width="36"
             height="36"
           />
@@ -144,7 +154,7 @@
       <h1 id="hero-heading">&ldquo;What Kind of Music Do I Make?&rdquo;</h1>
       <p class="lead">
         Welcome to <strong>Engine Room Records</strong> (<a href="https://engineroom.raggiesoft.com">engineroom.raggiesoft.com</a>, also reachable via our vanity domain <code>engineroom-records.com</code>).
-        In real life, <strong>Engine Room Records</strong> is the private creative imprint under which <strong>Michael P. Ragsdale</strong> writes, engineers, and distributes <strong>31 albums (358 songs)</strong> across seven distinct musical projects—spanning 1980s stadium synth-rock, zero-gravity <em>80s Cosmic Pop</em>, British art-rock operas, holiday symphonic metal, 16-bit RPG progressive rock, and acoustic heartland storytelling.
+        In real life, <strong>Engine Room Records</strong> is the private creative imprint under which <strong>Michael P. Ragsdale</strong> writes, engineers, and distributes <strong>31 albums (358 songs)</strong> across seven distinct musical projects—spanning 1980s stadium synth-rock, zero-gravity <em>80s Cosmic Pop</em>, British art-rock operas, holiday symphonic metal, 16-bit RPG progressive rock, and 1980s fantasy-adventure movie soundtracks.
       </p>
       <div class="btn-row">
         <a href="https://music.raggiesoft.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -211,7 +221,7 @@
             <a href="https://stardust.raggiesoft.com" class="btn">
               🚀 Cosmic Portal (stardust.raggiesoft.com) ↗
             </a>
-            <a href="https://books.raggiesoft.com/books/stardust-engine" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
+            <a href="https://books.raggiesoft.com/stardust-engine" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
           </div>
         </article>
 
@@ -253,7 +263,7 @@
             <a href="/artists/fractured-prisms" class="btn">
               📖 Fractured Prisms Lore &amp; Roster
             </a>
-            <a href="https://books.raggiesoft.com/books/fractured-prisms" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
+            <a href="https://books.raggiesoft.com/fractured-prisms" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
           </div>
         </article>
 
@@ -295,7 +305,7 @@
             <a href="/artists/the-paper-wall" class="btn">
               📖 The Paper Wall Lore &amp; Roster
             </a>
-            <a href="https://books.raggiesoft.com/books/luna-leo" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
+            <a href="https://books.raggiesoft.com/luna-leo" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
           </div>
         </article>
 
@@ -337,7 +347,7 @@
             <a href="/artists/the-arctic-symphony-project" class="btn">
               📖 The Arctic Symphony Project Lore &amp; Roster
             </a>
-            <a href="https://books.raggiesoft.com/books/julian" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
+            <a href="https://books.raggiesoft.com/julian" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
           </div>
         </article>
 
@@ -379,7 +389,7 @@
             <a href="/artists/crimson-node" class="btn">
               📖 Crimson Node Lore &amp; Roster
             </a>
-            <a href="https://books.raggiesoft.com/books/crimson-node" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
+            <a href="https://books.raggiesoft.com/crimson-node" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
           </div>
         </article>
 
@@ -404,13 +414,13 @@
             </div>
 
             <p style="font-size: 0.84rem; font-weight: 700; color: var(--accent-amber); margin: 0 0 0.5rem;">
-              Symphonic Fantasy Rock / 16-Bit Chiptune Prog / Acoustic Alchemy
+              Symphonic Fantasy Rock / 16-Bit Chiptune Prog / JRPG Soundtrack
             </p>
             <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 0.75rem;">
-              <strong>What It Sounds Like:</strong> 16-bit SNES RPG chiptune leads fused with symphonic progressive metal, Celtic/fantasy acoustic ballads, and boss-battle rock operas.
+              <strong>What It Sounds Like:</strong> 16-bit SNES RPG chiptune leads fused with symphonic progressive rock, fantasy acoustic ballads, and live concert rock operas.
             </p>
             <p style="font-size: 0.86rem; color: var(--text-muted); margin: 0;">
-              The official musical voice of the Aethel Saga and Runebreaker universes. Mana Canvas fuses authentic 16-bit Super Famicom / SNES SPC700 synth nostalgia with roaring progressive rock guitars, orchestral strings, and tavern acoustic storytelling.
+              The official musical voice of the Runebreaker / Dream Kingdom universe. Mana Canvas fuses authentic 16-bit Super Famicom / SNES SPC-700 synth nostalgia with roaring progressive rock guitars, orchestral strings, and arena singalongs.
             </p>
           </div>
 
@@ -421,7 +431,7 @@
             <a href="/artists/mana-canvas" class="btn">
               📖 Mana Canvas Lore &amp; Roster
             </a>
-            <a href="https://books.raggiesoft.com/books/aethel" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
+            <a href="https://books.raggiesoft.com/dream-kingdom" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
           </div>
         </article>
 
@@ -429,7 +439,7 @@
           <div>
             <div class="artist-header">
               <img
-                src="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png"
+                src="https://assets.raggiesoft.com/engine-room-records/artists/firelight/band-logo.png"
                 alt="Firelight emblem"
                 class="artist-logo"
                 width="56"
@@ -446,13 +456,13 @@
             </div>
 
             <p style="font-size: 0.84rem; font-weight: 700; color: var(--accent-amber); margin: 0 0 0.5rem;">
-              Heartland Rock / Acoustic Americana / Campfire Folk-Rock
+              80s Movie Soundtracks / 80s Synth-Pop / Fantasy-Adventure Score
             </p>
             <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 0.75rem;">
-              <strong>What It Sounds Like:</strong> Warm acoustic heartland rock, roots Americana, fingerpicked acoustic guitars, pedal steel, and intimate storytelling.
+              <strong>What It Sounds Like:</strong> 1980s fantasy-adventure movie soundtracks, shimmering Limahl-inspired 80s synth-pop title themes (&quot;A Sister&#39;s Love&quot;), power-rock villain and battle anthems, and sweeping orchestral film scores.
             </p>
             <p style="font-size: 0.86rem; color: var(--text-muted); margin: 0;">
-              Spanning a 16-album narrative anthology rooted in the Ruby Mountain story world, Firelight trades stadium synthesizers for warm acoustic guitars, mandolin, Hammond organ, and porch-light vocal harmonies chronicling decades of resilience and family healing.
+              The official 1980s motion picture soundtrack ensemble behind The Silver Gauntlet of Aethel—Michael P. Ragsdale&#39;s love letter to 1980s fantasy-adventure cinema. Anchored by its flagship main theme &quot;A Sister&#39;s Love&quot; (heavily inspired by Limahl&#39;s iconic NeverEnding Story theme song), Firelight fuses shimmering 1980s analog synth-pop arpeggios and soaring melodic hooks with widescreen fantasy orchestration.
             </p>
           </div>
 
@@ -463,7 +473,7 @@
             <a href="/artists/firelight" class="btn">
               📖 Firelight Lore &amp; Roster
             </a>
-            <a href="https://books.raggiesoft.com/books/ruby-mountain" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
+            <a href="https://books.raggiesoft.com/aethel-saga" class="btn btn-amber" target="_blank" rel="noopener noreferrer">📚 Companion Book ↗</a>
           </div>
         </article>
       </div>

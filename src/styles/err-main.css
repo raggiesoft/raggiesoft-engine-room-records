@@ -243,9 +243,55 @@ a:hover {
   width: 36px;
   height: 36px;
   border-radius: 0.5rem;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 3px;
+  background-color: var(--bg-elevated);
   border: 1px solid var(--border-strong);
   flex-shrink: 0;
+}
+
+/* ==========================================================================
+ * Dual Brand Logo Switching (Light Mode Black vs. Dark Mode White)
+ * ==========================================================================
+ * - Light Mode Default: Shows `.brand-logo-light` (black on transparent).
+ * - Dark Mode (OS `prefers-color-scheme: dark` or manual theme override):
+ *   Shows `.brand-logo-dark` (white on transparent).
+ */
+.brand-logo-light {
+  display: block;
+}
+
+.brand-logo-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .brand-logo-light {
+    display: none;
+  }
+  .brand-logo-dark {
+    display: block;
+  }
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .brand-logo-light,
+html[data-bs-theme="dark"] .brand-logo-light {
+  display: none !important;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .brand-logo-dark,
+html[data-bs-theme="dark"] .brand-logo-dark {
+  display: block !important;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="light"]) .brand-logo-light,
+html[data-bs-theme="light"] .brand-logo-light {
+  display: block !important;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="light"]) .brand-logo-dark,
+html[data-bs-theme="light"] .brand-logo-dark {
+  display: none !important;
 }
 
 .brand-text {
