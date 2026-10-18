@@ -399,5 +399,53 @@ export const ARTIST_LORE_PROFILES = {
         body: 'Every movement of Firelight\'s soundtrack score pairs directly with the four-era fantasy saga The Silver Gauntlet of Aethel on RaggieSoft Book Reader (books.raggiesoft.com/aethel-saga), while all four soundtrack albums and full lyrics stream in The Listening Room at music.raggiesoft.com/firelight.'
       }
     ]
+  },
+
+  'the-hoshizora-ensemble': {
+    errId: 'ERR-008',
+    slug: 'the-hoshizora-ensemble',
+    name: 'The Hoshizora Ensemble',
+    tagline: '1970s Japanese Maritime Folk-Pop, Acoustic City Pop & Seto Inland Sea Ferry Themes',
+    origin: 'Osaka & The Seto Inland Sea, Japan (Licensed for US Distribution by Engine Room Records, LLC in 2002)',
+    yearsActive: '1978–Present (1978 Japan Original • 2002 US Bilingual Edition • 2026 Digital Restoration)',
+    primaryGenre: '70s Japanese Folk-Pop / City Pop / Maritime Easy Listening',
+    listeningRoomUrl: 'https://music.raggiesoft.com/the-hoshizora-ensemble',
+    dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/the-hoshizora-ensemble',
+    bookReaderUrl: 'https://books.raggiesoft.com/aubrie',
+    secondaryBookUrl: 'https://books.raggiesoft.com/stardust-engine',
+    secondaryBookTitle: 'The Stardust Engine (Midnight Drivers & Twin Moons Era)',
+    heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/the-hoshizora-ensemble/1978-voyages-on-the-seto-inland-sea/social-preview.jpg',
+    ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/the-hoshizora-ensemble/social-preview.jpg',
+    logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/the-hoshizora-ensemble/band-logo.jpg',
+    summary:
+      'Originally recorded in Osaka in May 1978 as the official shipboard passenger cabin soundtrack for the overnight Ferry Hoshizora on Japan\'s Seto Inland Sea, The Hoshizora Ensemble\'s "Hoshizora no Uta: Voyages on the Seto Inland Sea" was licensed for North American distribution by Holly O\'Connell in 2002 during the Japanese leg of The Stardust Engine\'s Midnight Drivers World Tour—an overnight ferry crossing that directly inspired the 2003 Twin Moons project.',
+    whatKindOfMusic:
+      'Breezy 1978 Japanese acoustic folk-pop and maritime City Pop featuring warm fingerpicked acoustic guitars, gentle electric bass, soft brushed percussion, and lush harmonic vocals in both original Japanese and the 2002 Engine Room Records English studio translation.',
+    members: [
+      {
+        name: 'The Hoshizora Ensemble (Osaka, 1978)',
+        role: 'Acoustic Guitars, Maritime Strings, Warm Vocal Harmonies & Shipboard Chime Arrangements',
+        notes: 'Recorded the original 1978 Japanese Seto Inland Sea passenger ferry suite in Osaka, Japan.'
+      },
+      {
+        name: 'Holly O\'Connell, J.D., CFA (Executive Producer, 2002 US Edition)',
+        role: 'North American Licensing Architect & Executive Producer (Engine Room Records, LLC)',
+        notes: 'Negotiated the 2002 American distribution rights and commissioned the official English-language studio translation after the ferry crossing restored Ryan and Cassidy\'s sensory equilibrium during the Midnight Drivers World Tour.'
+      }
+    ],
+    lorePillars: [
+      {
+        title: 'Three Release Dates: 1978 (Japan) • 2002 (US Edition) • 2026 (Real-World Digital)',
+        body: 'Hoshizora no Uta: Voyages on the Seto Inland Sea carries three canonical release dates: (1) May 15, 1978—its original Japanese maritime release in Osaka for the overnight Ferry Hoshizora; (2) July 12, 2002—its United States release on Engine Room Records, LLC featuring the newly commissioned English studio translations alongside the 1978 Japanese masters; and (3) October 18, 2026—its real-world digital streaming debut on The Listening Room.'
+      },
+      {
+        title: 'The 2001–2002 "Midnight Drivers" World Tour & The Spark for "Twin Moons"',
+        body: 'During the exhausting Japanese stadium leg of The Stardust Engine\'s 2001–2002 Midnight Drivers World Tour, Holly O\'Connell bypassed high-speed rail and booked accessible private suites aboard the overnight Ferry Hoshizora across the Seto Inland Sea from Osaka to Beppu. As the ship glided out of harbor at dusk and "Hoshizora no Uta (Song of the Starry Sky)" played over the cabin speakers, Ryan and Cassidy\'s tour exhaustion and sensory overload dropped to zero. That calm, zero-gravity sanctuary over the dark water directly inspired Cassidy and Ryan to conceive the 2003 Twin Moons double-album concept (specifically Moon 1: Sanctuary [Zero-G]). Before leaving Japan, Holly negotiated the North American distribution rights and commissioned an official English translation.'
+      },
+      {
+        title: 'Narrative Role in "Aubrie": Jordan\'s Two Meltdowns on the Seto Inland Sea',
+        body: 'Years later, during the Japan leg of the found family\'s post-Freshman world trek in Aubrie (books.raggiesoft.com/aubrie), non-speaking autistic AAC user Jordan ("Aubrey") hears the 1978 Japanese version of "Hoshizora no Uta" playing over the Ferry Hoshizora cabin PA. Even without understanding a word of Japanese, the warm acoustic arrangement makes him feel unconditionally safe for the first time in his life, triggering his first emotional meltdown (Track 1). Moments later, when Zoë—who speaks fluent Japanese—translates the lyrics for him ("Here, you can lay your heavy burdens down"), the realization that the song is literally offering him sanctuary triggers a second, explosive meltdown of pure relief (Track 2, the 2002 English version)—inspiring Zoë to coach the entire family in Japanese at CPI starting Sophomore Year.'
+      }
+    ]
   }
 };
