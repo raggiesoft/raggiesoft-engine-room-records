@@ -413,7 +413,14 @@ html[data-bs-theme="light"] .brand-logo-dark {
     display: none;
     width: 100%;
     padding-top: 0.5rem;
+    padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
     border-top: 1px solid var(--border-subtle);
+    max-height: calc(100vh - 4.5rem);
+    max-height: calc(100dvh - 4.5rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .primary-nav.is-open {
     display: block;
