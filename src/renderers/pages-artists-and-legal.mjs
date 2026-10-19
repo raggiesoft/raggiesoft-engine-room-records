@@ -428,11 +428,11 @@ export function renderDspVerificationPage(masterCatalog) {
         <div class="grid-3" style="font-size: 0.86rem;">
           <div class="card" style="padding: 0.85rem;">
             <strong>Legal Owner &amp; Claimant</strong>
-            <div style="color: var(--text-secondary);">Michael P. Ragsdale (Sole Proprietor)<br><a href="mailto:mpragsdale@raggiesoft.com">mpragsdale@raggiesoft.com</a></div>
+            <div style="color: var(--text-secondary);">Michael P. Ragsdale (Sole Proprietor)<br><a href="mailto:dsp.operations@engineroom-records.com">dsp.operations@engineroom-records.com</a></div>
           </div>
           <div class="card" style="padding: 0.85rem;">
             <strong>Record Imprint</strong>
-            <div style="color: var(--text-secondary);">Engine Room Records (Real-World Brand)<br><a href="https://engineroom.raggiesoft.com">engineroom.raggiesoft.com</a></div>
+            <div style="color: var(--text-secondary);">Engine Room Records (Real-World Brand)<br><a href="https://engineroom-records.com/">engineroom-records.com</a> / <a href="https://engineroom.raggiesoft.com">engineroom.raggiesoft.com</a></div>
           </div>
           <div class="card" style="padding: 0.85rem;">
             <strong>Primary Aggregator</strong>
@@ -452,7 +452,7 @@ export function renderDspVerificationPage(masterCatalog) {
         <div class="callout-box" style="margin-bottom: 0;">
           <strong>Declaration of Commercial Rights &amp; Origin:</strong>
           <p style="margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--text-secondary);">
-            I, <strong>Michael P. Ragsdale</strong>, hereby certify under penalty of perjury that I am the sole creator, producer, and legal owner of this sound recording and underlying composition. All generative audio components were synthesized under an active, paid commercial <strong>Suno Pro / Premier Studio</strong> subscription granting 100% commercial ownership and monetization clearance, combined with human lyric authoring, phonetic arrangement, and local digital signal processing (DSP) mastering.
+            I, <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>), hereby certify under penalty of perjury that I am the sole creator, producer, and legal owner of this sound recording and underlying composition. All generative audio components were synthesized under an active, paid commercial <strong>Suno Pro / Premier Studio</strong> subscription granting 100% commercial ownership and monetization clearance, combined with human lyric authoring, phonetic arrangement, and local digital signal processing (DSP) mastering.
           </p>
         </div>
       </div>
@@ -462,7 +462,7 @@ export function renderDspVerificationPage(masterCatalog) {
       <div class="callout-box card-accent-emerald">
         <h2 id="affidavit-heading" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Official Chain-of-Custody &amp; Dual Timelines Statement for Content Review Teams</h2>
         <ul style="margin: 0; padding-left: 1.3rem; font-size: 0.9rem; color: var(--text-secondary); display: grid; gap: 0.45rem;">
-          <li><strong>Real-World Owner &amp; Claimant:</strong> Michael P. Ragsdale (<a href="https://raggiesoft.com">https://raggiesoft.com</a> / <a href="https://michaelpragsdale.com">https://michaelpragsdale.com</a>) • Administrative Contact: <a href="mailto:mpragsdale@raggiesoft.com">mpragsdale@raggiesoft.com</a></li>
+          <li><strong>Real-World Owner &amp; Claimant:</strong> Michael P. Ragsdale (<a href="https://engineroom-records.com/">https://engineroom-records.com</a> / <a href="https://raggiesoft.com">https://raggiesoft.com</a> / <a href="https://michaelpragsdale.com">https://michaelpragsdale.com</a>) • Official DSP &amp; DistroKid Operations Contact: <a href="mailto:dsp.operations@engineroom-records.com">dsp.operations@engineroom-records.com</a> (Administrative: <a href="mailto:mpragsdale@raggiesoft.com">mpragsdale@raggiesoft.com</a>)</li>
           <li><strong>Record Imprint Name:</strong> Engine Room Records (Real-world brand name; <em>Engine Room Records, LLC</em> is strictly a work of fiction).</li>
           <li><strong>Dual Timelines Policy (1976–2016 Lore Eras vs. 2026 Real-World Production):</strong> Historical dates displayed in album URLs and narrative descriptions (e.g., <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong> (<code>schema:temporalCoverage</code>) within the Ocean View Archives Rock Opera universe. <strong>100% of all sound recordings, lyrics, melodies, and masters were created and produced in 2026</strong> (<code>schema:datePublished: 2026</code>) by Michael P. Ragsdale.</li>
           <li><strong>First-Party Remaster Chain of Custody (<em>&ldquo;The Horizon Line&rdquo;</em> • DistroKid Ref: Z0MB5RT4):</strong> Track 13 on <em>Starfield Calibration</em> (<strong>&ldquo;The Horizon Line&rdquo; — Cosmic Tidal Lock Mix</strong>, <code>ERR-001-2011-113</code>, UPC <code>700299965607</code>) is an official first-party studio remaster of Michael P. Ragsdale&rsquo;s own original song <strong>&ldquo;The Horizon Line&rdquo;</strong> from <em>Midnight Drivers</em> (<code>ERR-001-2001-105</code>, DistroKid ISRC <code>QZWFW2601360</code>, UPC <code>825324114857</code>, distributed via DistroKid on <strong>2026-05-01</strong>—53 days prior to an unrelated third-party Suno-generated track uploaded by <code>coffeeandpop</code> on 2026-06-23 under UPC <code>882518230267</code> that shares only a title and Suno&rsquo;s synthesized female vocal timbre).</li>
