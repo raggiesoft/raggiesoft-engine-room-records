@@ -221,7 +221,7 @@ function buildClientJs() {
         '<strong>Notice to Platform Verification Teams (Apple Music for Artists, Spotify for Artists, Amazon Music for Artists, YouTube Music, DistroKid):</strong> ' +
         'You have been routed to this official Engine Room Records verification ledger via an authenticated domain or artist claim link for <strong>' +
         displayArtist +
-        '</strong>. This confirms that <strong>Michael P. Ragsdale</strong> (<code>mpragsdale@raggiesoft.com</code>) is the sole human creator, producer, and 100% legal rights holder authorized to claim and administer the official artist profile and catalog for <strong>' +
+        '</strong>. This confirms that <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) is the sole human creator, producer, and 100% legal rights holder authorized to claim and administer the official artist profile and catalog for <strong>' +
         displayArtist +
         '</strong>.';
       artistClaimSection.style.display = 'block';
@@ -261,7 +261,7 @@ function buildClientJs() {
           '<div><strong>Release Date:</strong> ' + rel + '</div>' +
           '</div>' +
           '<div class="card" style="padding: 0.9rem;">' +
-          '<div><strong>Legal Owner:</strong> Michael P. Ragsdale</div>' +
+          '<div><strong>Legal Owner:</strong> Michael P. Ragsdale (<code>dsp.operations@engineroom-records.com</code>)</div>' +
           '<div><strong>Artist Persona:</strong> ' + aName + ' (Fictitious Project)</div>' +
           '<div><strong>Aggregator:</strong> ' + dist + '</div>' +
           '<div><strong>Commercial AI Clearance:</strong> ' + clr + '</div>' +
