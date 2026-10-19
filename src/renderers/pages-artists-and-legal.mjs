@@ -472,12 +472,14 @@ export function renderDspVerificationPage(masterCatalog) {
       </div>
       <div class="btn-row no-print" style="margin-top: 0.85rem;">
         <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); align-self: center;">Quick Artist Claim Filters:</span>
-        <a href="/dsp-verification?artist=the-stardust-engine" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🚀 The Stardust Engine</a>
-        <a href="/dsp-verification?artist=fractured-prisms" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">💎 Fractured Prisms</a>
-        <a href="/dsp-verification?artist=the-paper-wall" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🧱 The Paper Wall</a>
-        <a href="/dsp-verification?artist=the-arctic-symphony-project" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">❄️ The Arctic Symphony Project</a>
-        <a href="/dsp-verification?artist=crimson-node" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🔴 Crimson Node</a>
-        <a href="/dsp-verification?artist=mana-canvas" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🎨 Mana Canvas</a>
+        <a href="/dsp-verification/?artist=the-stardust-engine" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🚀 The Stardust Engine</a>
+        <a href="/dsp-verification/?artist=fractured-prisms" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">💎 Fractured Prisms</a>
+        <a href="/dsp-verification/?artist=the-paper-wall" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🧱 The Paper Wall</a>
+        <a href="/dsp-verification/?artist=the-arctic-symphony-project" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">❄️ The Arctic Symphony Project</a>
+        <a href="/dsp-verification/?artist=crimson-node" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🔴 Crimson Node</a>
+        <a href="/dsp-verification/?artist=mana-canvas" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🎨 Mana Canvas</a>
+        <a href="/dsp-verification/?artist=the-hoshizora-ensemble" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">⛴️ The Hoshizora Ensemble</a>
+        <a href="/dsp-verification/?artist=firelight" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🔥 Firelight</a>
       </div>
     </section>
 

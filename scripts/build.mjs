@@ -188,6 +188,7 @@ function buildClientJs() {
     if (s === 'arctic-symphony-project' || s === 'winter-palace' || s === 'the-winter-palace') return 'the-arctic-symphony-project';
     if (s === 'crimsonnode') return 'crimson-node';
     if (s === 'manacanvas') return 'mana-canvas';
+    if (s === 'hoshizora-ensemble' || s === 'hoshizora' || s === 'thehoshizoraensemble') return 'the-hoshizora-ensemble';
     return s;
   }
 
@@ -198,6 +199,7 @@ function buildClientJs() {
     'the-arctic-symphony-project': 'The Arctic Symphony Project',
     'crimson-node': 'Crimson Node',
     'mana-canvas': 'Mana Canvas',
+    'the-hoshizora-ensemble': 'The Hoshizora Ensemble',
     'firelight': 'Firelight'
   };
 
@@ -213,14 +215,36 @@ function buildClientJs() {
       if (resetBtn) resetBtn.style.display = 'inline-flex';
     }
 
-    // Populate Artist Direct Claim Banner if ?artist= is provided
-    if (normArtist && artistClaimSection && artistClaimTitle && artistClaimBody) {
-      var displayArtist = ARTIST_NAMES[normArtist] || rawArtist;
-      artistClaimTitle.textContent = 'Direct Artist Profile Claim Verification: ' + displayArtist;
+    // Populate Artist / Album Direct Claim Banner if ?artist= or ?album= is provided
+    if ((normArtist || paramAlbum) && artistClaimSection && artistClaimTitle && artistClaimBody) {
+      var matchedAlbumRow = null;
+      for (var j = 0; j < rows.length; j++) {
+        var rowItem = rows[j];
+        var rowArtist = (rowItem.getAttribute('data-artist') || '').toLowerCase();
+        var rowAlbum = (rowItem.getAttribute('data-album') || '').toLowerCase();
+        if ((!normArtist || rowArtist === normArtist) && (!paramAlbum || rowAlbum === paramAlbum)) {
+          matchedAlbumRow = rowItem;
+          break;
+        }
+      }
+      var displayArtist =
+        (matchedAlbumRow && matchedAlbumRow.getAttribute('data-artist-name')) ||
+        ARTIST_NAMES[normArtist] ||
+        rawArtist ||
+        'Engine Room Records Artist';
+      var displayAlbum =
+        paramAlbum && matchedAlbumRow ? matchedAlbumRow.getAttribute('data-album-title') || '' : '';
+      var displayUpc =
+        paramAlbum && matchedAlbumRow ? matchedAlbumRow.getAttribute('data-upc') || '' : '';
+
+      artistClaimTitle.textContent = displayAlbum
+        ? 'Direct Release & Artist Claim Verification: ' + displayArtist + ' — ' + displayAlbum
+        : 'Direct Artist Profile Claim Verification: ' + displayArtist;
       artistClaimBody.innerHTML =
         '<strong>Notice to Platform Verification Teams (Apple Music for Artists, Spotify for Artists, Amazon Music for Artists, YouTube Music, DistroKid):</strong> ' +
-        'You have been routed to this official Engine Room Records verification ledger via an authenticated domain or artist claim link for <strong>' +
+        'You have been routed to this official Engine Room Records verification ledger via an authenticated domain or claim link for <strong>' +
         displayArtist +
+        (displayAlbum ? ' — <em>' + displayAlbum + '</em>' + (displayUpc ? ' (UPC: <code>' + displayUpc + '</code>)' : '') : '') +
         '</strong>. This confirms that <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) is the sole human creator, producer, and 100% legal rights holder authorized to claim and administer the official artist profile and catalog for <strong>' +
         displayArtist +
         '</strong>.';
