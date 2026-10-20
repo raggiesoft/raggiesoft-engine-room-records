@@ -435,8 +435,8 @@ export function renderDspVerificationPage(masterCatalog) {
             <div style="color: var(--text-secondary);">Engine Room Records (Real-World Brand)<br><a href="https://engineroom-records.com/">engineroom-records.com</a> / <a href="https://engineroom.raggiesoft.com">engineroom.raggiesoft.com</a></div>
           </div>
           <div class="card" style="padding: 0.85rem;">
-            <strong>Primary Aggregator</strong>
-            <div style="color: var(--text-secondary);">DistroKid / Direct DSP Distribution<br>100% Master &amp; Publishing Controlled</div>
+            <strong>US ISRC Agency &amp; Distribution</strong>
+            <div style="color: var(--text-secondary);">US ISRC Prefix: <code>QTAHP</code> (Reg. ID <code>185611</code>)<br>DistroKid / Direct DSP • 100% Master &amp; Publishing</div>
           </div>
         </div>
       </div>
@@ -452,7 +452,7 @@ export function renderDspVerificationPage(masterCatalog) {
         <div class="callout-box" style="margin-bottom: 0;">
           <strong>Declaration of Commercial Rights &amp; Origin:</strong>
           <p style="margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--text-secondary);">
-            I, <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>), hereby certify under penalty of perjury that I am the sole creator, producer, and legal owner of this sound recording and underlying composition. All generative audio components were synthesized under an active, paid commercial <strong>Suno Pro / Premier Studio</strong> subscription granting 100% commercial ownership and monetization clearance, combined with human lyric authoring, phonetic arrangement, and local digital signal processing (DSP) mastering.
+            I, <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code> • Official US ISRC Agency Registrant ID <code>185611</code>, Allocated Prefix <code>QTAHP</code>), hereby certify under penalty of perjury that I am the sole creator, producer, and legal owner of this sound recording and underlying composition. All generative audio components were synthesized under an active, paid commercial <strong>Suno Pro / Premier Studio</strong> subscription granting 100% commercial ownership and monetization clearance, combined with human lyric authoring, phonetic arrangement, and local digital signal processing (DSP) mastering.
           </p>
         </div>
       </div>
@@ -463,6 +463,7 @@ export function renderDspVerificationPage(masterCatalog) {
         <h2 id="affidavit-heading" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Official Chain-of-Custody &amp; Dual Timelines Statement for Content Review Teams</h2>
         <ul style="margin: 0; padding-left: 1.3rem; font-size: 0.9rem; color: var(--text-secondary); display: grid; gap: 0.45rem;">
           <li><strong>Real-World Owner &amp; Claimant:</strong> Michael P. Ragsdale (<a href="https://engineroom-records.com/">https://engineroom-records.com</a> / <a href="https://raggiesoft.com">https://raggiesoft.com</a> / <a href="https://michaelpragsdale.com">https://michaelpragsdale.com</a>) • Official DSP &amp; DistroKid Operations Contact: <a href="mailto:dsp.operations@engineroom-records.com">dsp.operations@engineroom-records.com</a></li>
+          <li><strong>Official US ISRC Agency Registrant Allocation:</strong> Registrant Name: <strong>Michael Ragsdale</strong> • Registrant ID: <code>185611</code> • Allocated US ISRC Prefix: <strong><code>QTAHP</code></strong> (Allocated <code>2026-10-20 02:02:28 UTC</code> via <a href="https://usisrc.org" target="_blank" rel="noopener noreferrer">US ISRC Agency</a> to <code>dsp.operations@engineroom-records.com</code>). Direct first-party recordings mint sequential ISRCs under <code>QTAHP26xxxxx</code> alongside legacy aggregator-assigned <code>QZW...</code> / <code>QZR...</code> ISRCs.</li>
           <li><strong>Record Imprint Name:</strong> Engine Room Records (Real-world brand name; <em>Engine Room Records, LLC</em> is strictly a work of fiction).</li>
           <li><strong>Dual Timelines Policy (1976–2016 Lore Eras vs. 2026 Real-World Production):</strong> Historical dates displayed in album URLs and narrative descriptions (e.g., <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong> (<code>schema:temporalCoverage</code>) within the Ocean View Archives Rock Opera universe. <strong>100% of all sound recordings, lyrics, melodies, and masters were created and produced in 2026</strong> (<code>schema:datePublished: 2026</code>) by Michael P. Ragsdale.</li>
           <li><strong>First-Party Remaster Chain of Custody (<em>&ldquo;The Horizon Line&rdquo;</em> • DistroKid Ref: Z0MB5RT4):</strong> (1) Michael P. Ragsdale&rsquo;s original song <strong>&ldquo;The Horizon Line&rdquo;</strong> on <em>Midnight Drivers</em> (<code>ERR-001-2001-105</code>, DistroKid ISRC <code>QZWFW2601360</code>, UPC <code>825324114857</code>) came first, released via DistroKid on <strong>2026-05-01</strong>. (2) A third-party artist (<code>coffeeandpop</code>) subsequently released an independent Suno AI generation titled <em>&ldquo;Horizon Line&rdquo;</em> on <strong>2026-06-23</strong> (UPC <code>882518230267</code>) that shares only the common song title and Suno&rsquo;s synthesized female vocal model. (3) Track 13 on <em>Starfield Calibration</em> (<strong>&ldquo;The Horizon Line [Cosmic Tidal Lock Mix]&rdquo;</strong>, <code>ERR-001-2011-113</code>, UPC <code>700299965607</code>, uploaded <strong>2026-10-17</strong>) is a 100% first-party studio remaster of Michael P. Ragsdale&rsquo;s own May 1, 2026 song (<code>ISRC: QZWFW2601360</code>); neither artist sampled or copied from the other.</li>
@@ -494,7 +495,7 @@ export function renderDspVerificationPage(masterCatalog) {
           <input
             type="search"
             id="dsp-search"
-            placeholder="e.g. QZRP52580801, Escape Velocity, Fractured Prisms, 199959656614..."
+            placeholder="e.g. QTAHP2600001, QZRP52580801, Escape Velocity, Fractured Prisms..."
             style="width: 100%; max-width: 560px; padding: 0.55rem 0.85rem; border-radius: 0.5rem; border: 1px solid var(--border-strong); background: var(--bg-elevated); color: var(--text-primary);"
           />
         </div>

@@ -197,6 +197,7 @@
           '</div>' +
           '<div class="card" style="padding: 0.9rem;">' +
           '<div><strong>Legal Owner:</strong> Michael P. Ragsdale (<code>dsp.operations@engineroom-records.com</code>)</div>' +
+          '<div><strong>US ISRC Agency Prefix:</strong> <code>QTAHP</code> (Registrant ID <code>185611</code>)</div>' +
           '<div><strong>Artist Persona:</strong> ' + aName + ' (Fictitious Project)</div>' +
           '<div><strong>Aggregator:</strong> ' + dist + '</div>' +
           '<div><strong>Commercial AI Clearance:</strong> ' + clr + '</div>' +
