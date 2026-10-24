@@ -63,6 +63,14 @@ const canonicalUrl = `https://engineroom.raggiesoft.com${canonicalPath}`;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <link rel="stylesheet" href="/assets/err-main.css" />
+    <!-- Google Analytics 4 (GA4) Telemetry Integration (G-P9RG9JVYB6) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
   </head>
   <body>
     <a href="#content" class="skip-link">Skip to main content</a>
