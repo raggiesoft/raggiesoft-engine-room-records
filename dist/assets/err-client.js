@@ -152,13 +152,13 @@
         ? 'Direct Release & Artist Claim Verification: ' + displayArtist + ' — ' + displayAlbum
         : 'Direct Artist Profile Claim Verification: ' + displayArtist;
       artistClaimBody.innerHTML =
-        '<strong>Notice to Platform Verification Teams (Apple Music for Artists, Spotify for Artists, Amazon Music for Artists, YouTube Music, DistroKid):</strong> ' +
+        '<strong>Notice to Platform Verification Teams (DistributeMusic.ai, Apple Music for Artists, Spotify for Artists, Amazon Music for Artists, YouTube Music, DistroKid):</strong> ' +
         'You have been routed to this official Engine Room Records verification ledger via an authenticated domain or claim link for <strong>' +
         displayArtist +
         (displayAlbum ? ' — <em>' + displayAlbum + '</em>' + (displayUpc ? ' (UPC: <code>' + displayUpc + '</code>)' : '') : '') +
-        '</strong>. This confirms that <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) is the sole human creator, producer, and 100% legal rights holder authorized to claim and administer the official artist profile and catalog for <strong>' +
+        '</strong>. This confirms that <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) is the sole human creator, songwriter, producer, and 100% legal rights holder authorized to claim, migrate, and administer the official artist profile and catalog for <strong>' +
         displayArtist +
-        '</strong>.';
+        '</strong> on DistributeMusic.ai and all DSPs.';
       artistClaimSection.style.display = 'block';
     }
 
