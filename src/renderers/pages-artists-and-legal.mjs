@@ -687,7 +687,7 @@ export function renderIsrcExplainerPage(masterCatalog) {
           <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); align-self: center;">Sample Identifiers:</span>
           <button type="button" class="btn" data-decode-code="QTAHP2600046" style="padding: 0.25rem 0.6rem; font-size: 0.76rem;"><code>QTAHP2600046</code> (Reignition Track 1)</button>
           <button type="button" class="btn" data-decode-code="QTAHP2600001" style="padding: 0.25rem 0.6rem; font-size: 0.76rem;"><code>QTAHP2600001</code> (First QTAHP Code)</button>
-          <button type="button" class="btn" data-decode-code="QTAHP2600037" style="padding: 0.25rem 0.6rem; font-size: 0.76rem;"><code>QTAHP2600037</code> (Shared Dual-Release Master)</button>
+          <button type="button" class="btn" data-decode-code="QTAHP2600043" style="padding: 0.25rem 0.6rem; font-size: 0.76rem;"><code>QTAHP2600043</code> (Ignition: Live at the Crucible)</button>
           <button type="button" class="btn" data-decode-code="ERR-001-2015-101" style="padding: 0.25rem 0.6rem; font-size: 0.76rem;"><code>ERR-001-2015-101</code> (Decode by ERR-ID)</button>
           <button type="button" class="btn" data-decode-code="QZWFW2601360" style="padding: 0.25rem 0.6rem; font-size: 0.76rem;"><code>QZWFW2601360</code> (Legacy DistroKid ISRC)</button>
         </div>
@@ -895,7 +895,7 @@ export function renderIsrcExplainerPage(masterCatalog) {
               Under ISO 3901:2019, <strong>a sound recording may only ever have one ISRC for its entire lifespan</strong>, and an ISRC may never be reused for a different recording. All Engine Room Records releases published prior to October 20, 2026 received valid ISRCs from DistroKid&rsquo;s sub-allocated US ISRC blocks (beginning with <code>QZW...</code>, <code>QZR...</code>, or <code>QTA7V...</code>). Those ${legacyCount} recordings permanently keep their original ISRCs forever.
             </p>
             <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">
-              Similarly, when an identical master recording appears on both a primary album and a companion archival release (such as <em>&ldquo;Ignition: The Forger&rsquo;s Call [Live at the Crucible]&rdquo;</em>, <code>QTAHP2600037</code>), both releases reference the exact same ISRC so play counts and rights metadata remain unified.
+              Similarly, when an identical master recording appears on both a primary album and a companion archival release (such as <em>&ldquo;Ignition: The Forger&rsquo;s Call [Live at the Crucible]&rdquo;</em>, <code>QTAHP2600043</code>), both releases reference the exact same ISRC so play counts and rights metadata remain unified.
             </p>
           </div>
         </article>

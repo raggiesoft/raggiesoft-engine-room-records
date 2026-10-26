@@ -7301,8 +7301,8 @@
   },
   {
     "err_id": "ERR-001-2011-101",
-    "isrc": "QTAHP2600028",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "The Stardust Engine",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "The Stardust Engine (Cosmic Tidal Lock Mix)",
@@ -7317,12 +7317,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-102",
-    "isrc": "QTAHP2600029",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Electric Color",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Electric Color (Cosmic Tidal Lock Mix)",
@@ -7337,12 +7337,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-103",
-    "isrc": "QTAHP2600030",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Plastic Sky",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Plastic Sky (Cosmic Tidal Lock Mix)",
@@ -7357,12 +7357,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-104",
-    "isrc": "QTAHP2600031",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Worlds Apart",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Worlds Apart (Cosmic Tidal Lock Mix)",
@@ -7377,12 +7377,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-105",
-    "isrc": "QTAHP2600032",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "My Anchor Holds",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "My Anchor Holds (Cosmic Tidal Lock Mix)",
@@ -7397,12 +7397,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-106",
-    "isrc": "QTAHP2600033",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Neon Hearts",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Neon Hearts (Cosmic Tidal Lock Mix)",
@@ -7417,12 +7417,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-107",
-    "isrc": "QTAHP2600034",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Rearview Mirror",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Rearview Mirror (Cosmic Tidal Lock Mix)",
@@ -7437,12 +7437,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-108",
-    "isrc": "QTAHP2600035",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Atmosphere",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Atmosphere (Cosmic Tidal Lock Mix)",
@@ -7457,12 +7457,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-109",
-    "isrc": "QTAHP2600036",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "No Hidden Gravity",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "No Hidden Gravity (Cosmic Tidal Lock Mix)",
@@ -7477,12 +7477,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-110",
-    "isrc": "QTAHP2600037",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Inertia: Unstoppable",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Inertia: Unstoppable (Cosmic Tidal Lock Mix)",
@@ -7497,12 +7497,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-111",
-    "isrc": "QTAHP2600038",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Echoes in the Wire",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Echoes in the Wire (Cosmic Tidal Lock Mix)",
@@ -7517,12 +7517,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-112",
-    "isrc": "QTAHP2600039",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Midnight Drivers",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Midnight Drivers (Cosmic Tidal Lock Mix)",
@@ -7537,12 +7537,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-113",
-    "isrc": "QTAHP2600040",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "The Horizon Line",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "The Horizon Line (Cosmic Tidal Lock Mix)",
@@ -7557,12 +7557,12 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2011-114",
-    "isrc": "QTAHP2600041",
-    "albumUPC": "",
+    "isrc": "",
+    "albumUPC": "700299965607",
     "trackTitle": "Fade to Dawn",
     "trackVersion": "Cosmic Tidal Lock Mix",
     "taggedTitle": "Fade to Dawn (Cosmic Tidal Lock Mix)",
@@ -7577,7 +7577,7 @@
     "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-17",
-    "status": "Released"
+    "status": "Pending DSP"
   },
   {
     "err_id": "ERR-001-2015-101",
@@ -7594,7 +7594,7 @@
     "trackSlug": "1-01-reignition-lights-up-on-progress-street",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7614,7 +7614,7 @@
     "trackSlug": "1-02-main-engine-start",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7634,7 +7634,7 @@
     "trackSlug": "1-03-the-iceberg-submerged",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7654,7 +7654,7 @@
     "trackSlug": "1-04-orbital-return",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7674,7 +7674,7 @@
     "trackSlug": "1-05-ten-years-in-the-quiet",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7694,7 +7694,7 @@
     "trackSlug": "1-06-fifty-two-to-nothing-the-norfolk-reckoning",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7714,7 +7714,7 @@
     "trackSlug": "1-07-twin-frequency-the-rhythm-section",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7734,7 +7734,7 @@
     "trackSlug": "1-08-neon-on-the-huckleberry-trail",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7754,7 +7754,7 @@
     "trackSlug": "1-09-no-strings-on-the-master",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7774,7 +7774,7 @@
     "trackSlug": "1-10-still-your-safe-person",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
@@ -7794,7 +7794,7 @@
     "trackSlug": "1-11-where-the-stars-still-burn",
     "legalOwner": "Michael P. Ragsdale / RaggieSoft",
     "distributor": "Engine Room Records",
-    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "aiClearance": "Public",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
     "status": "Released"
