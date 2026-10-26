@@ -58,6 +58,7 @@ export function renderDocumentShell({
     { href: '/oconnell-trust', label: 'Trust' },
     { href: '/jessica-miller-center', label: 'Miller Center' },
     { href: '/commercial-licensing', label: 'Licensing' },
+    { href: '/isrc', label: 'ISRC (QTAHP)' },
     { href: '/dsp-verification', label: 'DSP' }
   ];
 
@@ -138,6 +139,8 @@ export function renderDocumentShell({
               <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Hub</a></li>
               <li role="none"><a role="menuitem" href="https://music.raggiesoft.com">🎧 The Listening Room</a></li>
               <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists">🎸 All Artists Directory (7)</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/isrc">🏷️ Official ISRC Registry (QTAHP)</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/dsp-verification">🔍 DSP Verification Ledger</a></li>
               <li class="rs-network-dropdown-divider" role="separator"></li>
               <li class="rs-network-dropdown-header" role="presentation">✦ Band Roster (A–Z)</li>
               <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/crimson-node">🔴 Crimson Node</a></li>
@@ -233,7 +236,7 @@ export function renderDocumentShell({
               In real life, <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;) is the creative brand and private record imprint under which <strong>Michael P. Ragsdale</strong> produces and distributes his music.
             </p>
             <p style="margin: 0; font-size: 0.8rem;">
-              <a href="/about">📜 About</a> • <a href="/history">🕰️ Label History</a> • <a href="/assets">🏛️ Strategic Assets</a> • <a href="/dsp-verification">🔍 DSP Verification</a>
+              <a href="/about">📜 About</a> • <a href="/history">🕰️ Label History</a> • <a href="/assets">🏛️ Strategic Assets</a> • <a href="/isrc">🏷️ ISRC (QTAHP)</a> • <a href="/dsp-verification">🔍 DSP Verification</a>
             </p>
           </div>
           <div>

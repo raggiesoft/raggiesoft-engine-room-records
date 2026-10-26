@@ -39,7 +39,8 @@ import {
   renderArtistsIndexPage,
   renderArtistDetailPage,
   renderCommercialLicensingPage,
-  renderDspVerificationPage
+  renderDspVerificationPage,
+  renderIsrcExplainerPage
 } from '../src/renderers/pages-artists-and-legal.mjs';
 import { renderDocumentShell, escapeHtml } from '../src/renderers/shell.mjs';
 
@@ -339,6 +340,257 @@ function buildClientJs() {
       });
     }
   }
+
+  // Interactive ISRC & ERR Catalog ID Decoder on /isrc
+  var decoderInput = document.getElementById('isrc-decoder-input');
+  var decoderBtn = document.getElementById('isrc-decoder-btn');
+  var decoderResult = document.getElementById('isrc-decoder-result');
+  var catalogDataEl = document.getElementById('err-isrc-catalog-data');
+
+  if (decoderInput && decoderResult && catalogDataEl) {
+    var catalogList = [];
+    try {
+      catalogList = JSON.parse(catalogDataEl.textContent || '[]');
+    } catch (e) {
+      catalogList = [];
+    }
+
+    var ROSTER_MAP = {
+      '001': 'The Stardust Engine (Rock Opera / Progressive Synth-Rock)',
+      '002': 'Fractured Prisms (Industrial / Melodic Post-Hardcore)',
+      '003': 'The Paper Wall (Alternative / Indie Rock)',
+      '004': 'Firelight (Acoustic / Heartland Folk-Rock)',
+      '005': 'The Arctic Symphony Project (Cinematic Symphonic Metal)',
+      '006': 'Crimson Node (Cyberpunk Synthwave / Darksynth)',
+      '007': 'Mana Canvas (Runebreaker Fantasy Orchestral / Chiptune)',
+      '008': 'The Hoshizora Ensemble (1970s Japanese City Pop / Jazz Fusion)'
+    };
+
+    function esc(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function runDecoder(rawQuery, shouldScroll) {
+      var clean = String(rawQuery || '').trim().toUpperCase();
+      if (!clean) {
+        decoderResult.innerHTML = '';
+        return;
+      }
+
+      // Normalize hyphenated ISRCs like QT-AHP-26-00046 if someone pastes with hyphens
+      var normalizedIsrcCandidate = clean.indexOf('ERR-') === 0 ? '' : clean.replace(/[^A-Z0-9]/g, '');
+
+      // Look up matching tracks in master-catalog.json
+      var matches = [];
+      for (var i = 0; i < catalogList.length; i++) {
+        var item = catalogList[i];
+        var itemIsrc = String(item.isrc || '').toUpperCase();
+        var itemErr = String(item.err_id || '').toUpperCase();
+        if (
+          (normalizedIsrcCandidate && itemIsrc === normalizedIsrcCandidate) ||
+          itemErr === clean ||
+          itemIsrc === clean
+        ) {
+          matches.push(item);
+        }
+      }
+
+      // If matched by ERR-ID, also pull in any sibling release sharing the same ISRC
+      var resolvedIsrc = matches.length > 0 ? String(matches[0].isrc || '').toUpperCase() : normalizedIsrcCandidate;
+      var resolvedErr = matches.length > 0 ? String(matches[0].err_id || '').toUpperCase() : (clean.indexOf('ERR-') === 0 ? clean : '');
+
+      if (resolvedIsrc && matches.length === 1) {
+        for (var k = 0; k < catalogList.length; k++) {
+          var sibling = catalogList[k];
+          if (
+            String(sibling.isrc || '').toUpperCase() === resolvedIsrc &&
+            String(sibling.err_id || '').toUpperCase() !== String(matches[0].err_id || '').toUpperCase()
+          ) {
+            matches.push(sibling);
+          }
+        }
+      }
+
+      var htmlParts = [];
+
+      // 1. Render ISO 3901:2019 12-Character ISRC Anatomy if we have a 12-char alphanumeric code
+      if (resolvedIsrc && /^[A-Z]{2}[A-Z0-9]{3}[0-9]{7}$/.test(resolvedIsrc)) {
+        var ctry = resolvedIsrc.slice(0, 2);
+        var reg = resolvedIsrc.slice(2, 5);
+        var yr = resolvedIsrc.slice(5, 7);
+        var desig = resolvedIsrc.slice(7, 12);
+        var isQtahp = resolvedIsrc.indexOf('QTAHP') === 0;
+
+        var ctryDesc =
+          ctry === 'QT' || ctry === 'QZ' || ctry === 'QM' || ctry === 'US'
+            ? 'United States (US ISRC Agency / IFPI ISO 3901 Namespace)'
+            : 'International ISRC Agency Country Prefix (' + esc(ctry) + ')';
+
+        var regDesc = isQtahp
+          ? '<strong>Michael Ragsdale / Engine Room Records</strong> (Official US ISRC Agency Registrant #185611 • Direct First-Party Allocation)'
+          : '<strong>Preserved Distributor Block (<code>' +
+            esc(reg) +
+            '</code>)</strong> — Allocated via DistroKid prior to Oct 20, 2026 &amp; permanently retained under the ISO 3901 Single-ISRC Rule';
+
+        htmlParts.push(
+          '<div class="card card-accent-primary" style="margin-bottom: 0.9rem; padding: 1.1rem;">' +
+            '<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">' +
+              '<span class="badge">' +
+                (isQtahp ? '✓ Official First-Party QTAHP ISRC (Registrant #185611)' : '✓ Preserved Legacy Distributor ISRC (Single-ISRC Rule)') +
+              '</span>' +
+              '<div style="font-family: monospace; font-size: 1.35rem; font-weight: 800; letter-spacing: 0.08em;">' +
+                '<span style="color: var(--accent-primary);">' + esc(ctry) + '</span>' +
+                '<span style="color: var(--accent-amber);">' + esc(reg) + '</span>' +
+                '<span style="color: var(--accent-emerald);">' + esc(yr) + '</span>' +
+                '<span>' + esc(desig) + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="grid-2" style="font-size: 0.85rem; gap: 0.65rem;">' +
+              '<div><strong>1. Country (<code>' + esc(ctry) + '</code>):</strong> ' + ctryDesc + '</div>' +
+              '<div><strong>2. Registrant (<code>' + esc(reg) + '</code>):</strong> ' + regDesc + '</div>' +
+              '<div><strong>3. Reference Year (<code>' + esc(yr) + '</code>):</strong> 20' + esc(yr) + ' Real-World Production &amp; Allocation Year</div>' +
+              '<div><strong>4. Designation (<code>' + esc(desig) + '</code>):</strong> Unique 5-Digit Master Recording Serial (#' + parseInt(desig, 10) + ')</div>' +
+            '</div>' +
+          '</div>'
+        );
+      }
+
+      // 2. Render ERR Catalog Number Anatomy if we have an ERR-XXX-YYYY-ZZZ code
+      if (resolvedErr && /^ERR-[0-9]{3}-[0-9]{4}-[0-9]{3}$/.test(resolvedErr)) {
+        var parts = resolvedErr.split('-');
+        var rosterNum = parts[1];
+        var eraYr = parts[2];
+        var discTrack = parts[3];
+        var discNum = discTrack.slice(0, 1);
+        var trackNum = discTrack.slice(1);
+        var rosterLabel = ROSTER_MAP[rosterNum] || 'Engine Room Records Roster Artist (#' + esc(rosterNum) + ')';
+
+        htmlParts.push(
+          '<div class="card card-accent-emerald" style="margin-bottom: 0.9rem; padding: 1.1rem;">' +
+            '<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.65rem;">' +
+              '<span class="badge">Shared Real-World &amp; In-Universe Catalog Number</span>' +
+              '<code style="font-size: 1.15rem; font-weight: 800; color: var(--accent-emerald);">' + esc(resolvedErr) + '</code>' +
+            '</div>' +
+            '<div class="grid-2" style="font-size: 0.85rem; gap: 0.65rem;">' +
+              '<div><strong>Imprint Prefix (<code>ERR</code>):</strong> Real-World <strong>Engine Room Records</strong> (Michael P. Ragsdale) &amp; In-Universe <em>Engine Room Records, LLC</em> (Holly O&rsquo;Connell)</div>' +
+              '<div><strong>Artist Roster (<code>ERR-' + esc(rosterNum) + '</code>):</strong> ' + esc(rosterLabel) + '</div>' +
+              '<div><strong>Canonical Era Year (<code>' + esc(eraYr) + '</code>):</strong> ' + esc(eraYr) + ' Album Narrative / Release Era</div>' +
+              '<div><strong>Disc &amp; Track (<code>' + esc(discTrack) + '</code>):</strong> Disc ' + esc(discNum) + ', Track ' + esc(trackNum) + '</div>' +
+            '</div>' +
+          '</div>'
+        );
+      }
+
+      // 3. Render Matched Catalog Recording Card(s)
+      if (matches.length > 0) {
+        var cardsHtml = matches
+          .map(function (m) {
+            var listenHref =
+              'https://music.raggiesoft.com/artists/' +
+              encodeURIComponent(m.artistSlug) +
+              '/' +
+              encodeURIComponent(m.albumSlug) +
+              '?track=' +
+              encodeURIComponent(m.trackSlug);
+            var affidavitHref =
+              '/dsp-verification?artist=' +
+              encodeURIComponent(m.artistSlug) +
+              '&album=' +
+              encodeURIComponent(m.albumSlug) +
+              '&track=' +
+              encodeURIComponent(m.trackSlug);
+
+            return (
+              '<div class="card" style="padding: 1rem; margin-top: 0.65rem;">' +
+                '<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 0.75rem;">' +
+                  '<div>' +
+                    '<div style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.2rem;">' +
+                      '<strong>' + esc(m.artist) + '</strong> &bull; <em>' + esc(m.album) + '</em>' +
+                    '</div>' +
+                    '<h3 style="font-size: 1.15rem; margin: 0 0 0.45rem;">' + esc(m.title) + '</h3>' +
+                    '<div style="font-size: 0.82rem; color: var(--text-secondary); display: flex; flex-wrap: wrap; gap: 0.75rem;">' +
+                      '<span><strong>ISRC:</strong> <code>' + esc(m.isrc) + '</code></span>' +
+                      '<span><strong>ERR-ID:</strong> <code>' + esc(m.err_id) + '</code></span>' +
+                      (m.upc ? '<span><strong>UPC:</strong> <code>' + esc(m.upc) + '</code></span>' : '') +
+                      '<span><strong>Real-World Release:</strong> ' + esc(m.date) + '</span>' +
+                      '<span><strong>Rights Holder:</strong> Michael P. Ragsdale (Engine Room Records)</span>' +
+                    '</div>' +
+                  '</div>' +
+                  '<div class="btn-row no-print" style="margin: 0;">' +
+                    '<a href="' + esc(listenHref) + '" class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">🎧 Stream in The Listening Room ↗</a>' +
+                    '<a href="' + esc(affidavitHref) + '" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.82rem;">📄 View DSP Affidavit →</a>' +
+                  '</div>' +
+                '</div>' +
+              '</div>'
+            );
+          })
+          .join('');
+
+        htmlParts.push(
+          '<div>' +
+            '<div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-emerald); text-transform: uppercase; letter-spacing: 0.05em;">' +
+              '✓ Verified in Master Catalog (' + matches.length + (matches.length === 1 ? ' Release Entry' : ' Linked Release Entries under Permanent Single-ISRC Rule') + ')' +
+            '</div>' +
+            cardsHtml +
+          '</div>'
+        );
+      } else {
+        htmlParts.push(
+          '<div class="card" style="padding: 1rem;">' +
+            '<strong>No exact catalog match found for <code>' + esc(clean) + '</code> in the current ' + catalogList.length + '-track ledger.</strong> ' +
+            '<span style="color: var(--text-secondary); font-size: 0.88rem;">If this is a newly minted <code>QTAHP</code> designation reserved for an upcoming master, its ISO 3901 segment breakdown is shown above. You can also search by title or album on the <a href="/dsp-verification">DSP Verification Ledger</a>.</span>' +
+          '</div>'
+        );
+      }
+
+      decoderResult.innerHTML = htmlParts.join('');
+
+      if (shouldScroll) {
+        var sec = document.getElementById('isrc-decoder-section');
+        if (sec && sec.scrollIntoView) {
+          sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var initialParam = urlParams.get('code') || urlParams.get('isrc') || urlParams.get('err') || '';
+    if (initialParam) {
+      decoderInput.value = initialParam.trim().toUpperCase();
+      runDecoder(decoderInput.value, true);
+    } else {
+      runDecoder(decoderInput.value || 'QTAHP2600046', false);
+    }
+
+    decoderInput.addEventListener('input', function (e) {
+      runDecoder(e.target.value, false);
+    });
+
+    if (decoderBtn) {
+      decoderBtn.addEventListener('click', function () {
+        runDecoder(decoderInput.value, false);
+      });
+    }
+
+    document.addEventListener('click', function (e) {
+      var trigger = e.target && e.target.closest ? e.target.closest('[data-decode-code]') : null;
+      if (trigger) {
+        e.preventDefault();
+        var targetCode = trigger.getAttribute('data-decode-code') || '';
+        if (targetCode) {
+          decoderInput.value = targetCode;
+          try {
+            window.history.replaceState(null, '', '/isrc?code=' + encodeURIComponent(targetCode));
+          } catch (err) {}
+          runDecoder(targetCode, true);
+        }
+      }
+    });
+  }
 })();
 `;
 }
@@ -480,6 +732,7 @@ function buildSite() {
   );
   writeDistFile('commercial-licensing/index.html', renderCommercialLicensingPage());
   writeDistFile('dsp-verification/index.html', renderDspVerificationPage(masterCatalog));
+  writeDistFile('isrc/index.html', renderIsrcExplainerPage(masterCatalog));
 
   // 3. Render all 7 artist dossier routes (appending any ported overview HTML right below the structured roster header!)
   const customRenderedRoutes = new Set([
@@ -488,7 +741,8 @@ function buildSite() {
     '/corporate',
     '/artists',
     '/commercial-licensing',
-    '/dsp-verification'
+    '/dsp-verification',
+    '/isrc'
   ]);
 
   for (const slug of Object.keys(ARTIST_LORE_PROFILES)) {
