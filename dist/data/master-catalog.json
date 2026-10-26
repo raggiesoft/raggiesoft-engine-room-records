@@ -7140,6 +7140,26 @@
     "status": "Released"
   },
   {
+    "err_id": "ERR-001-2007-115",
+    "isrc": "QTAHP2600043",
+    "albumUPC": "700521345184",
+    "trackTitle": "Ignition: The Forger's Call",
+    "trackVersion": "1986 Progress Street Cassette Demo",
+    "taggedTitle": "Ignition: The Forger's Call (1986 Progress Street Cassette Demo)",
+    "albumTitle": "Lost Sounds",
+    "albumProductionType": "StudioAlbum",
+    "artistPersona": "The Stardust Engine",
+    "artistSlug": "the-stardust-engine",
+    "albumSlug": "2007-lost-sounds",
+    "trackSlug": "1-14-ignition-the-forgers-call-1986-cassette-demo",
+    "legalOwner": "Michael P. Ragsdale / RaggieSoft",
+    "distributor": "DistroKid",
+    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "vocalType": "Synthetic / Non-Cloned",
+    "realReleaseDate": "2026-10-11",
+    "status": "Released"
+  },
+  {
     "err_id": "ERR-001-2008-101",
     "isrc": "QTA7V2642609",
     "albumUPC": "700521288573",
@@ -8020,7 +8040,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-112",
+    "err_id": "ERR-001-2016-201",
     "isrc": "QTAHP2600042",
     "albumUPC": "",
     "trackTitle": "Escape Velocity (Ad Astra)",
@@ -8040,7 +8060,7 @@
     "status": "Released"
   },
   {
-    "err_id": "ERR-001-2016-113",
+    "err_id": "ERR-001-2016-202",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Apoapsis",
@@ -8060,7 +8080,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-114",
+    "err_id": "ERR-001-2016-203",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Second Apoapsis",
@@ -8080,7 +8100,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-115",
+    "err_id": "ERR-001-2016-204",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "The Spectrum (True Color)",
@@ -8100,7 +8120,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-116",
+    "err_id": "ERR-001-2016-205",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Moon 1: Tidal Lock",
@@ -8120,7 +8140,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-117",
+    "err_id": "ERR-001-2016-206",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Moon 2: Roche Limit",
@@ -8140,7 +8160,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-118",
+    "err_id": "ERR-001-2016-207",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Impact (Mile Marker 98)",
@@ -8160,7 +8180,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-119",
+    "err_id": "ERR-001-2016-208",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Mayday: The Intercept",
@@ -8180,7 +8200,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-120",
+    "err_id": "ERR-001-2016-209",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Star City: Orbital Ward",
@@ -8200,7 +8220,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-121",
+    "err_id": "ERR-001-2016-210",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Twin Moons: Touchdown",
@@ -8220,7 +8240,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-122",
+    "err_id": "ERR-001-2016-301",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Our Own Frequency",
@@ -8240,7 +8260,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-123",
+    "err_id": "ERR-001-2016-302",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Brother's Keeper",
@@ -8260,7 +8280,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-124",
+    "err_id": "ERR-001-2016-303",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Safe Person",
@@ -8280,7 +8300,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-125",
+    "err_id": "ERR-001-2016-304",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Echoes in the Wire",
@@ -8300,7 +8320,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-126",
+    "err_id": "ERR-001-2016-305",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Saturday Night Lights: The Crucible",
@@ -8320,7 +8340,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-127",
+    "err_id": "ERR-001-2016-306",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Progress Street: Where the Fire Began",
@@ -8340,7 +8360,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-128",
+    "err_id": "ERR-001-2016-307",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Neon Hearts",
@@ -8360,7 +8380,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-129",
+    "err_id": "ERR-001-2016-308",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "My Anchor Holds",
@@ -8380,7 +8400,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-130",
+    "err_id": "ERR-001-2016-309",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Reignition: Lights Up on Progress Street",
@@ -8400,7 +8420,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-131",
+    "err_id": "ERR-001-2016-310",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Last Bus Home: Lights Out on Progress Street",
@@ -8420,7 +8440,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-132",
+    "err_id": "ERR-001-2016-311",
     "isrc": "QTAHP2600023",
     "albumUPC": "",
     "trackTitle": "Electric Color",
