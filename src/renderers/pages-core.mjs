@@ -477,9 +477,9 @@ export function renderCorporatePage(corporateStructure) {
       </div>
       <div class="grid-2">
         <article class="card card-accent-primary">
-          <h3>The Fortress &amp; Stardust Studios (512 Progress St NW, Blacksburg)</h3>
+          <h3>The Fortress &amp; Stardust Studios (Progress Street, Blacksburg)</h3>
           <p style="font-size: 0.9rem; color: var(--text-secondary);">
-            In-universe, <strong>The Fortress</strong> (512 Progress Street NW) is the barrier-free residential compound of the O'Connell and Wright family in Blacksburg, Virginia, paired with <strong>Stardust Studios</strong> (Global HQ, Est. 2013) and <strong>The Vault</strong> (subterranean master tape archive). Meanwhile, <em>Stardust Blacksburg, LLC</em> (DBA &ldquo;The Ironwood Collective&rdquo;) provides subsidized, wheelchair-accessible housing for CPI students.
+            In-universe, <strong>The Fortress</strong> (on Progress Street) is the barrier-free residential compound of the O'Connell and Wright family in Blacksburg, Virginia, paired with <strong>Stardust Studios</strong> (Global HQ, Est. 2013) and <strong>The Vault</strong> (subterranean master tape archive). Meanwhile, <em>Stardust Blacksburg, LLC</em> (DBA &ldquo;The Ironwood Collective&rdquo;) provides subsidized, wheelchair-accessible housing for CPI students.
           </p>
         </article>
         <article class="card card-accent-amber">

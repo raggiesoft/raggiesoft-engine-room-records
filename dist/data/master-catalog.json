@@ -7581,7 +7581,7 @@
   },
   {
     "err_id": "ERR-001-2015-101",
-    "isrc": "",
+    "isrc": "QTAHP2600046",
     "albumUPC": "",
     "trackTitle": "Reignition: Lights Up on Progress Street",
     "trackVersion": "",
@@ -7597,11 +7597,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-102",
-    "isrc": "",
+    "isrc": "QTAHP2600047",
     "albumUPC": "",
     "trackTitle": "Main Engine Start",
     "trackVersion": "",
@@ -7617,11 +7617,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-103",
-    "isrc": "",
+    "isrc": "QTAHP2600048",
     "albumUPC": "",
     "trackTitle": "The Iceberg: Submerged",
     "trackVersion": "",
@@ -7637,11 +7637,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-104",
-    "isrc": "",
+    "isrc": "QTAHP2600049",
     "albumUPC": "",
     "trackTitle": "Orbital Return",
     "trackVersion": "",
@@ -7657,11 +7657,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-105",
-    "isrc": "",
+    "isrc": "QTAHP2600050",
     "albumUPC": "",
     "trackTitle": "Ten Years in the Quiet",
     "trackVersion": "",
@@ -7677,11 +7677,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-106",
-    "isrc": "",
+    "isrc": "QTAHP2600051",
     "albumUPC": "",
     "trackTitle": "Fifty-Two to Nothing: The Norfolk Reckoning",
     "trackVersion": "",
@@ -7697,11 +7697,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-107",
-    "isrc": "",
+    "isrc": "QTAHP2600052",
     "albumUPC": "",
     "trackTitle": "Twin Frequency: The Rhythm Section",
     "trackVersion": "",
@@ -7717,11 +7717,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-108",
-    "isrc": "",
+    "isrc": "QTAHP2600053",
     "albumUPC": "",
     "trackTitle": "Neon on the Huckleberry Trail",
     "trackVersion": "",
@@ -7737,11 +7737,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-109",
-    "isrc": "",
+    "isrc": "QTAHP2600054",
     "albumUPC": "",
     "trackTitle": "No Strings on the Master",
     "trackVersion": "",
@@ -7757,11 +7757,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-110",
-    "isrc": "",
+    "isrc": "QTAHP2600055",
     "albumUPC": "",
     "trackTitle": "Still Your Safe Person",
     "trackVersion": "",
@@ -7777,11 +7777,11 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2015-111",
-    "isrc": "",
+    "isrc": "QTAHP2600056",
     "albumUPC": "",
     "trackTitle": "Where the Stars Still Burn",
     "trackVersion": "",
@@ -7797,7 +7797,7 @@
     "aiClearance": "Cleared - Suno Commercial Premium License",
     "vocalType": "Synthetic / Non-Cloned",
     "realReleaseDate": "2026-10-26",
-    "status": "Pending DSP"
+    "status": "Released"
   },
   {
     "err_id": "ERR-001-2016-101",
@@ -8283,6 +8283,26 @@
     "err_id": "ERR-001-2016-304",
     "isrc": "",
     "albumUPC": "",
+    "trackTitle": "Still Your Safe Person",
+    "trackVersion": "Live at the Crucible",
+    "taggedTitle": "Still Your Safe Person (Live at the Crucible)",
+    "albumTitle": "Live at the Crucible",
+    "albumProductionType": "LiveAlbum",
+    "artistPersona": "The Stardust Engine",
+    "artistSlug": "the-stardust-engine",
+    "albumSlug": "2016-live-at-the-crucible",
+    "trackSlug": "still-your-safe-person-live-at-the-crucible",
+    "legalOwner": "Michael P. Ragsdale / RaggieSoft",
+    "distributor": "Engine Room Records",
+    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "vocalType": "Synthetic / Non-Cloned",
+    "realReleaseDate": "2026-10-26",
+    "status": "Pending DSP"
+  },
+  {
+    "err_id": "ERR-001-2016-305",
+    "isrc": "",
+    "albumUPC": "",
     "trackTitle": "Echoes in the Wire",
     "trackVersion": "Live at the Crucible",
     "taggedTitle": "Echoes in the Wire (Live at the Crucible)",
@@ -8300,7 +8320,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-305",
+    "err_id": "ERR-001-2016-306",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Saturday Night Lights: The Crucible",
@@ -8320,7 +8340,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-306",
+    "err_id": "ERR-001-2016-307",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Progress Street: Where the Fire Began",
@@ -8340,7 +8360,27 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-307",
+    "err_id": "ERR-001-2016-308",
+    "isrc": "",
+    "albumUPC": "",
+    "trackTitle": "Neon on the Huckleberry Trail",
+    "trackVersion": "Live at the Crucible",
+    "taggedTitle": "Neon on the Huckleberry Trail (Live at the Crucible)",
+    "albumTitle": "Live at the Crucible",
+    "albumProductionType": "LiveAlbum",
+    "artistPersona": "The Stardust Engine",
+    "artistSlug": "the-stardust-engine",
+    "albumSlug": "2016-live-at-the-crucible",
+    "trackSlug": "neon-on-the-huckleberry-trail-live-at-the-crucible",
+    "legalOwner": "Michael P. Ragsdale / RaggieSoft",
+    "distributor": "Engine Room Records",
+    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "vocalType": "Synthetic / Non-Cloned",
+    "realReleaseDate": "2026-10-26",
+    "status": "Pending DSP"
+  },
+  {
+    "err_id": "ERR-001-2016-309",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Neon Hearts",
@@ -8360,7 +8400,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-308",
+    "err_id": "ERR-001-2016-310",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "My Anchor Holds",
@@ -8380,7 +8420,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-309",
+    "err_id": "ERR-001-2016-311",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Reignition: Lights Up on Progress Street",
@@ -8400,7 +8440,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-310",
+    "err_id": "ERR-001-2016-312",
     "isrc": "",
     "albumUPC": "",
     "trackTitle": "Last Bus Home: Lights Out on Progress Street",
@@ -8420,7 +8460,7 @@
     "status": "Pending DSP"
   },
   {
-    "err_id": "ERR-001-2016-311",
+    "err_id": "ERR-001-2016-313",
     "isrc": "QTAHP2600023",
     "albumUPC": "",
     "trackTitle": "Electric Color",
