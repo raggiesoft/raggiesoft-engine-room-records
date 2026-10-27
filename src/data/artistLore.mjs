@@ -58,7 +58,7 @@ export const ARTIST_LORE_PROFILES = {
       },
       {
         name: 'Evan Wright',
-        role: 'Bass Guitar, Fretless Bass, Moog Taurus Pedals & Systems',
+        role: 'Bass Guitar, Fretless Bass, Sub-Bass Synth Pedals & Systems',
         notes: 'Identical twin maternal cousin; joined Ryan and Cassidy at CPI in 1986; Class A CDL co-driver.'
       },
       {
@@ -78,7 +78,7 @@ export const ARTIST_LORE_PROFILES = {
       },
       {
         title: 'Dedicated Cosmic Portal (stardust.raggiesoft.com)',
-        body: 'Because The Stardust Engine\'s biography, 12+ album eras, rolling sanctuary fleet (the 2002 Sainte-Claire 45H3 "The Iron Horse" and 2004 Prairie Coachworks RLFD30 Launch Unit #001), and companion novels span four decades, their full band lore now resides on its own dedicated cosmic portal at stardust.raggiesoft.com.'
+        body: 'Because The Stardust Engine\'s biography, 12+ album eras, rolling sanctuary fleet (the 2002 Sainte-Claire 45H3 "The Iron Horse", the 2004 Prairie Coachworks RLFD30 Launch Unit #001, and its 2015 Prairie Coachworks RLFD30 replacement), and companion novels span four decades, their full band lore now resides on its own dedicated cosmic portal at stardust.raggiesoft.com.'
       }
     ]
   },
@@ -100,7 +100,7 @@ export const ARTIST_LORE_PROFILES = {
     summary:
       'Formed by surviving British-American siblings Claire Manning (older sister; autistic and living with lifelong cerebral palsy, uses a manual wheelchair) and Rhys Manning (younger brother; neurotypical synthesizer architect and lifelong safe person) after the winter 1981 M6 Shap Fell motorway pileup claimed the other four members of the Manning Family Orchestra. Fleeing to their father\'s vacant 1960s ranch house in Williamsport, Maryland, they built "The Fragile Fortress"—weaving the salvaged instruments of their lost family (including Cousin Gwen\'s wooden concert flute) into towering 1980s analog synthesizer rock operas set inside the gaslamp-lit 1883 Victorian sanctuary of The Hollow Square.',
     whatKindOfMusic:
-      'Lush 1980s British progressive synth-pop, classical wooden concert flute lead melodies ("Gwen\'s Flute"), Roland/Yamaha analog sequencers and LinnDrum gated percussion, and cinematic Victorian-meets-1980s concept albums.',
+      'Lush 1980s British progressive synth-pop, classical wooden concert flute lead melodies ("Gwen\'s Flute"), vintage analog sequencers and 1980s digital drum-machine gated percussion, and cinematic Victorian-meets-1980s concept albums.',
     members: [
       {
         name: 'Claire Manning ("The Voice in the Fog")',
@@ -109,7 +109,7 @@ export const ARTIST_LORE_PROFILES = {
       },
       {
         name: 'Rhys Manning ("The Mechanical Heart")',
-        role: 'Analog Synthesizers, Sequencers, LinnDrum Programming, Julian\'s Rickenbacker Bass, Simon\'s Guitars & Lifelong Safe Person',
+        role: 'Analog Synthesizers, Sequencers, Drum Machine Programming, Julian\'s Electric Bass, Simon\'s Guitars & Lifelong Safe Person',
         notes: 'Younger brother (18 in 1981; 20 in 1983). Neurotypical anchor and 24/7 caretaker for Claire since childhood in their accessible Romford home; engineered the Williamsport Fragile Fortress and Hagerstown Colonial Theatre sanctuary.'
       },
       {
@@ -120,12 +120,12 @@ export const ARTIST_LORE_PROFILES = {
       {
         name: 'Alistair Manning — In Memoriam (The Missing Four)',
         role: 'Older Brother • Acoustic Drum Kit, Gongs & Orchestral Chimes',
-        notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. The powerhouse heartbeat of the original Manning Family Orchestra; Rhys\'s heavy 1983 LinnDrum programming and gated toms mechanically rebuild Alistair\'s pulse.'
+        notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. The powerhouse heartbeat of the original Manning Family Orchestra; Rhys\'s heavy 1983 drum-machine programming and gated toms mechanically rebuild Alistair\'s pulse.'
       },
       {
         name: 'Julian Hayes — In Memoriam (The Missing Four)',
-        role: 'Cousin • Rickenbacker Bass Guitar & Classical Cello',
-        notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. Wove deep, cinematic low-end melodies; Rhys plays Julian\'s actual salvaged Rickenbacker bass paired with fretless bass synthesizers.'
+        role: 'Cousin • Electric Bass Guitar & Classical Cello',
+        notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. Wove deep, cinematic low-end melodies; Rhys plays Julian\'s actual salvaged electric bass paired with fretless bass synthesizers.'
       },
       {
         name: 'Simon Hayes — In Memoriam (The Missing Four)',
@@ -136,7 +136,7 @@ export const ARTIST_LORE_PROFILES = {
     lorePillars: [
       {
         title: 'Winter 1981: The M6 Shap Fell Motorway Disaster & The Missing Four',
-        body: 'Originally a six-piece family ensemble—the Manning Family Orchestra—tragedy struck in the winter of 1981 when a sudden freezing-fog white-out and black-ice multi-car pileup on the M6 motorway over Shap Fell in Cumbria claimed the four touring members of their generation: cousin Gwen Manning (woodwinds), older brother Alistair Manning (percussion), cousin Julian Hayes (Rickenbacker bass & cello), and cousin Simon Hayes (lead guitars). Claire (20) and Rhys (18) survived only because they were hundreds of miles south at their accessible childhood home in Romford, East London—a house built with wider door frames, gentle transitions, and no sharp corners, surrounded by understanding lifelong neighbors like Mrs. Allen and the Bennetts.'
+        body: 'Originally a six-piece family ensemble—the Manning Family Orchestra—tragedy struck in the winter of 1981 when a sudden freezing-fog white-out and black-ice multi-car pileup on the M6 motorway over Shap Fell in Cumbria claimed the four touring members of their generation: cousin Gwen Manning (woodwinds), older brother Alistair Manning (percussion), cousin Julian Hayes (electric bass & cello), and cousin Simon Hayes (lead guitars). Claire (20) and Rhys (18) survived only because they were hundreds of miles south at their accessible childhood home in Romford, East London—a house built with wider door frames, gentle transitions, and no sharp corners, surrounded by understanding lifelong neighbors like Mrs. Allen and the Bennetts.'
       },
       {
         title: 'Romford, 1982: Why Martin Never Legally Married Claire & "The Day the Telly Man Knocked"',
@@ -144,7 +144,7 @@ export const ARTIST_LORE_PROFILES = {
       },
       {
         title: 'Williamsport, Maryland ("The Fragile Fortress"), Route 441 & The 1983 IRS Reality Check',
-        body: 'Born to an American father from Williamsport, Maryland (Washington County) and a British mother, Rhys and Claire used their dual citizenship and generational inheritance to relocate to their father\'s vacant 1960s ranch house in Williamsport, relying on the Route 441 County Commuter bus for daytime autonomy. Inside this "Fragile Fortress," they recorded 1983\'s Carnaby Street with zero session musicians—playing the salvaged instruments of Gwen, Alistair, Julian, and Simon alongside Roland and Yamaha synthesizers. When "The Hollow Square" spent 14 weeks at #1 on the US and UK charts, the sudden royalty windfall triggered an unexpected IRS tax bill (having paid HMRC in the UK, the young siblings hadn\'t realized dual citizens owed US tax filings).'
+        body: 'Born to an American father from Williamsport, Maryland (Washington County) and a British mother, Rhys and Claire used their dual citizenship and generational inheritance to relocate to their father\'s vacant 1960s ranch house in Williamsport, relying on the Route 441 County Commuter bus for daytime autonomy. Inside this "Fragile Fortress," they recorded 1983\'s Carnaby Street with zero session musicians—playing the salvaged instruments of Gwen, Alistair, Julian, and Simon alongside banks of analog and digital synthesizers. When "The Hollow Square" spent 14 weeks at #1 on the US and UK charts, the sudden royalty windfall triggered an unexpected IRS tax bill (having paid HMRC in the UK, the young siblings hadn\'t realized dual citizens owed US tax filings).'
       },
       {
         title: '1984–1985: 1883 (The Rock Opera) & Live at Independence Stadium (Philadelphia, PA)',
