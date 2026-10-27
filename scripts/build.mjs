@@ -40,7 +40,9 @@ import {
   renderArtistDetailPage,
   renderCommercialLicensingPage,
   renderDspVerificationPage,
-  renderIsrcExplainerPage
+  renderIsrcExplainerPage,
+  renderTermsPage,
+  renderPrivacyPage
 } from '../src/renderers/pages-artists-and-legal.mjs';
 import { renderDocumentShell, escapeHtml } from '../src/renderers/shell.mjs';
 
@@ -733,6 +735,8 @@ function buildSite() {
   writeDistFile('commercial-licensing/index.html', renderCommercialLicensingPage());
   writeDistFile('dsp-verification/index.html', renderDspVerificationPage(masterCatalog));
   writeDistFile('isrc/index.html', renderIsrcExplainerPage(masterCatalog));
+  writeDistFile('terms/index.html', renderTermsPage());
+  writeDistFile('privacy/index.html', renderPrivacyPage());
 
   // 3. Render all 7 artist dossier routes (appending any ported overview HTML right below the structured roster header!)
   const customRenderedRoutes = new Set([
@@ -742,7 +746,9 @@ function buildSite() {
     '/artists',
     '/commercial-licensing',
     '/dsp-verification',
-    '/isrc'
+    '/isrc',
+    '/terms',
+    '/privacy'
   ]);
 
   for (const slug of Object.keys(ARTIST_LORE_PROFILES)) {
