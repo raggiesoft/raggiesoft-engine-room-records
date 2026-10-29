@@ -1140,6 +1140,26 @@
     "status": "Released"
   },
   {
+    "err_id": "ERR-001-1990-107",
+    "isrc": "QTAHP2600060",
+    "albumUPC": "",
+    "trackTitle": "Electric Color",
+    "trackVersion": "Live in Chicago",
+    "taggedTitle": "Electric Color (Live in Chicago)",
+    "albumTitle": "Live in Chicago",
+    "albumProductionType": "LiveAlbum",
+    "artistPersona": "The Stardust Engine",
+    "artistSlug": "the-stardust-engine",
+    "albumSlug": "1990-live-in-chicago",
+    "trackSlug": "1-07-electric-color-live-in-chicago",
+    "legalOwner": "Michael P. Ragsdale / RaggieSoft",
+    "distributor": "Engine Room Records",
+    "aiClearance": "Cleared - Suno Commercial Premium License",
+    "vocalType": "Synthetic / Non-Cloned",
+    "realReleaseDate": "2026-04-01",
+    "status": "Released"
+  },
+  {
     "err_id": "ERR-007-1992-101",
     "isrc": "QTA7V2622545",
     "albumUPC": "700521520499",
