@@ -14,8 +14,9 @@
  *    - Closed Submission Policy.
  * 2. `renderStudioEngineeringPage` (`/studio-engineering`):
  *    - Deep studio engineering documentation (Suno v5/v6 pipeline, phonetic vowel
- *      extensions, 74% Cover Audio Influence protocol, Dual Timeline spec, and
- *      Open-Culture Trademark Policy).
+ *      extensions, 75% Cover Audio Influence protocol, Google Gemini Multimodal
+ *      WebVTT lyric alignment, CC BY-SA 4.0 `/suno-prompts/` packaging, Dual
+ *      Timeline spec, and Open-Culture Trademark Policy).
  * 3. `renderCorporatePage` (`/corporate`):
  *    - Full dual-layer corporate breakdown and recursive org-chart renderer for
  *      `corporate-structure.json`.
@@ -164,7 +165,7 @@ export function renderHomePage(catalog) {
         <span class="eyebrow">Core Pillar 02 • Studio Transparency</span>
         <h2 id="pillar-2-heading">2. Behind the Scenes on Music Generation</h2>
         <p style="margin: 0; color: var(--text-secondary);">
-          Full engineering transparency into how human direction, narrative libretto writing, acoustic &amp; phonetic vowel extensions, and the 74% Cover Audio Influence protocol shape every release.
+          Full engineering transparency into how human direction, narrative libretto writing, acoustic &amp; phonetic vowel extensions, the 75% Cover Audio Influence protocol, and Google Gemini Multimodal WebVTT lyric alignment shape every release.
         </p>
       </div>
 
@@ -173,7 +174,7 @@ export function renderHomePage(catalog) {
           <div>
             <h3>Human Direction + AI Studio Pipeline</h3>
             <p style="font-size: 0.9rem; color: var(--text-secondary);">
-              Every song begins with Michael P. Ragsdale's human creative direction, narrative architecture, and co-written lyrics with Google Gemini, engineered into audio via a commercial <strong>Suno v5 / v6</strong> studio subscription and mastered locally through our automated <strong>Harper Audio Engine</strong>.
+              Every song begins with Michael P. Ragsdale's human creative direction, narrative architecture, and co-written lyrics with Google Gemini, engineered into audio via a commercial <strong>Suno v5 / v6</strong> studio subscription, aligned to <code>HUMAN_VERIFIED</code> WebVTT timestamps by <strong>Google Gemini</strong> listening directly to the audio, and mastered locally through our automated <strong>Harper Audio Engine</strong>.
             </p>
           </div>
           <div class="btn-row">
@@ -183,13 +184,13 @@ export function renderHomePage(catalog) {
 
         <article class="card card-accent-primary">
           <div>
-            <h3>Phonetic Vowel Extension &amp; 74% Cover Protocol</h3>
+            <h3>Phonetic Vowel Extension &amp; 75% Cover Protocol</h3>
             <p style="font-size: 0.9rem; color: var(--text-secondary);">
-              To prevent clipped phrasing and unlock sustained stadium vocal belts, lyrics are engineered with explicit phonetic vowel extensions (<code>ooh</code>, <code>aah</code>, <code>ee</code>, <code>oh</code>). For our remastered <em>Starfield Calibration</em> sessions, a precise <strong>74% Audio Influence</strong> Cover ratio preserved original melodies while upgrading acoustic separation.
+              To prevent clipped phrasing and unlock sustained stadium vocal belts, lyrics are engineered with explicit phonetic vowel extensions (<code>ooh</code>, <code>aah</code>, <code>ee</code>, <code>oh</code>). For our remastered <em>Starfield Calibration</em> and live concert sessions, a standard <strong>75% Audio Influence</strong> Cover ratio preserves original melodies while upgrading acoustic separation.
             </p>
           </div>
           <div class="btn-row">
-            <a href="/studio-engineering#cover-protocol" class="btn">Explore 74% Protocol →</a>
+            <a href="/studio-engineering#cover-protocol" class="btn">Explore 75% Protocol →</a>
           </div>
         </article>
 
@@ -317,15 +318,15 @@ export function renderStudioEngineeringPage() {
           </p>
         </article>
         <article class="card card-accent-emerald">
-          <h3>Stage 3: Suno v5 / v6 Generation &amp; 74% Cover Calibration</h3>
+          <h3>Stage 3: Suno v5 / v6 Generation &amp; 75% Cover Calibration</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            Tracks are generated under a paid commercial Suno subscription (granting 100% commercial ownership to Michael P. Ragsdale). When upgrading legacy recordings into our signature 2011 remaster suite (<a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration"><em>Starfield Calibration</em></a>), we discovered the <strong>74% Cover Audio Influence Protocol</strong>—the exact threshold where the engine preserves 100% of the core melody and sibling vocal chemistry while rebuilding the instrumentation with wide-field analog space-synth separation.
+            Tracks are generated under a paid commercial Suno subscription (granting 100% commercial ownership to Michael P. Ragsdale). When upgrading legacy recordings into our signature 2011 remaster suite (<a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration"><em>Starfield Calibration</em></a>) or live stadium arrangements, we use the <strong>75% Cover Audio Influence Protocol</strong>—preserving the core melody and sibling vocal chemistry while rebuilding the instrumentation with wide-field analog space-synth or stadium separation.
           </p>
         </article>
         <article class="card card-accent-violet">
-          <h3>Stage 4: Local Harper Mastering &amp; Decoupled Vaults</h3>
+          <h3>Stage 4: Google Gemini Multimodal WebVTT &amp; Harper CC BY-SA 4.0 Mastering</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            Once a master 24-bit WAV passes human quality review, our local <strong>Harper Audio Engine</strong> (<code>harper.sh</code>) transcodes the master into 128kbps web preview MP3s and free <strong>CC BY-SA 4.0 ZIP archives</strong> for <a href="https://music.raggiesoft.com">music.raggiesoft.com</a>, while keeping multi-gigabyte uncompressed WAV/FLAC masters isolated inside our local <code>/raggiesoft-vaults</code> sanctuary.
+            Once a master WAV passes human quality review, <strong>Google Gemini</strong> listens directly to the rendered audio alongside the studio lyric sheet to author a frame-accurate <code>SYNC_TYPE: HUMAN_VERIFIED</code> WebVTT (<code>.vtt</code>) timed lyric file. Our local <strong>Harper Audio Engine</strong> (<code>harper.sh</code>) then transcodes the master into 128kbps web preview MP3s and free <strong>CC BY-SA 4.0 ZIP archives</strong> (bundling <code>/lyrics/</code>, <code>/metadata/</code>, and each song's <code>/suno-prompts/</code> markdown file so fellow creators know how to recreate every track), while keeping uncompressed WAV/FLAC masters isolated inside our local <code>/raggiesoft-vaults</code> sanctuary.
           </p>
         </article>
       </div>
@@ -333,7 +334,7 @@ export function renderStudioEngineeringPage() {
 
     <section id="cover-protocol" class="section-block" aria-labelledby="cover-heading">
       <div class="section-header">
-        <span class="eyebrow">Acoustic Discovery • The 74% Sweet Spot</span>
+        <span class="eyebrow">Acoustic Discovery • The 75% Benchmark</span>
         <h2 id="cover-heading">2. Why Lyrical &amp; Sonic Changes Happened on <em>Starfield Calibration</em></h2>
       </div>
       <div class="callout-box card-accent-amber">
@@ -345,7 +346,7 @@ export function renderStudioEngineeringPage() {
             <strong>Celebrating Emancipation from Apex Records:</strong> In-universe, Ryan, Cassidy, Evan, and Tyler reclaimed their early 1980s songs from Apex Records' suffocating corporate pop template, rewriting coerced lines into an unapologetic celebration of family autonomy. Notably, <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset?track=the-stardust-engine-1997-hard-reset-1-9"><em>Echoes in the Wire</em></a> (and its <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration?track=the-stardust-engine-2011-starfield-calibration-1-10"><em>Cosmic Tidal Lock Mix</em></a>) permanently replaced Apex's coerced 1989 ballad <em>If You Walked Away</em>—transforming a song of manufactured heartbreak into the true story of Cassidy finding comfort and safety when her brother Ryan is hugging her tightly.
           </li>
           <li>
-            <strong>Acoustic &amp; Phonetic Vowel Extensions:</strong> By opening cramped syllables into resonant vowel sustains (<code>ooh</code>, <code>aah</code>, <code>ee</code>, <code>oh</code>) and pairing them with our <strong>74% Cover Audio Influence</strong> calibration, the vocal harmonies lock into synchronous phase with Cassidy's analog synthesizer pads.
+            <strong>Acoustic &amp; Phonetic Vowel Extensions:</strong> By opening cramped syllables into resonant vowel sustains (<code>ooh</code>, <code>aah</code>, <code>ee</code>, <code>oh</code>) and pairing them with our <strong>75% Cover Audio Influence</strong> calibration, the vocal harmonies lock into synchronous phase with Cassidy's analog synthesizer pads.
           </li>
         </ol>
       </div>
@@ -375,7 +376,7 @@ export function renderStudioEngineeringPage() {
 
   return renderDocumentShell({
     title: 'Behind the Scenes: Studio Engineering | Engine Room Records',
-    description: 'How Engine Room Records engineers music: human direction, Suno v5/v6 pipeline, phonetic vowel extensions, and the 74% Cover Influence protocol.',
+    description: 'How Engine Room Records engineers music: human direction, Suno v5/v6 pipeline, phonetic vowel extensions, and the 75% Cover Influence protocol.',
     canonicalPath: '/studio-engineering',
     bodyHtml
   });
