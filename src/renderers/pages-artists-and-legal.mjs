@@ -82,7 +82,7 @@ export function renderArtistsIndexPage(catalog) {
       <span class="eyebrow">Engine Room Records • Roster Directory (ERR-001 – ERR-007)</span>
       <h1 id="roster-heading">Official Artist Roster &amp; Band Lore Directory</h1>
       <p class="lead">
-        Explore all seven musical projects produced under <strong>Engine Room Records</strong>. Every project links directly to <a href="https://music.raggiesoft.com">The Listening Room</a> for full-track streaming, synchronized WebVTT lyrics, and free <strong>CC BY-SA 4.0 128kbps MP3 downloads</strong>, alongside companion novels on <a href="https://books.raggiesoft.com">RaggieSoft Book Reader</a>.
+        Explore all seven musical projects produced under <strong>Engine Room Records</strong>. Every project links directly to <a href="https://music.raggiesoft.com">The Listening Room</a> for full-track streaming, synchronized lyrics, and free <strong>CC BY-SA 4.0 128kbps MP3 downloads</strong>, alongside companion novels on <a href="https://books.raggiesoft.com">RaggieSoft Book Reader</a>.
       </p>
     </section>
 
@@ -469,7 +469,7 @@ export function renderDspVerificationPage(masterCatalog) {
           <li><strong>Sole Authorized Distributor (DistroKid) &amp; Active DSP Roster Verification:</strong> The <strong>DistroKid</strong> account registered to <strong>Michael Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) is the sole entity authorized by the copyright owner to claim, administer, and distribute all 8 Engine Room Records artist profiles to DSPs—including all 5 roster artists with active DSP profiles: (1) <strong>The Stardust Engine</strong> (Spotify Artist ID <code>7Lr6o5qOo1OgVQGumUjFFT</code> • Apple Music ID <code>1889194363</code> • <a href="https://thestardustengine.com">thestardustengine.com</a>); (2) <strong>The Paper Wall</strong> (Spotify Album IDs <code>3AXeGI3wpwpBjfpm1Ansnr</code>, <code>5A9hnaTMfrF7p99uyAR5AG</code>, <code>5N0GMm7fd7cPms8jqlYh6M</code>, <code>5lxSx8MezosR2RUNyBQAgB</code>, <code>7GyxW6QnkarySeooPmEkCs</code>); (3) <strong>Fractured Prisms</strong> (Spotify Album ID <code>4G2HvFggcDQf4q3vomSHH6</code> • Apple Music ID <code>1895041529</code> • UPC <code>825324041559</code> • <a href="https://fracturedprisms.com">fracturedprisms.com</a>); (4) <strong>Crimson Node</strong> (Spotify Album ID <code>448KLGl3955P1ywJXhTmII</code> • Apple Music ID <code>6809679637</code> • UPC <code>700299546240</code>); and (5) <strong>Mana Canvas</strong> (<em>Runebreaker</em> — Spotify Album ID <code>3NmbtTmm70oBp5oIR8kFZG</code> • Apple Music ID <code>6821775434</code> • Amazon Music ID <code>B0HMPHJB3C</code> • UPC <code>700521520499</code> • ISRCs <code>QTA7V2622545</code>–<code>QTA7V2622568</code>)—as well as <strong>Firelight</strong>, <strong>The Arctic Symphony Project</strong>, and <strong>The Hoshizora Ensemble</strong>.</li>
           <li><strong>Official US ISRC Agency Registrant Allocation (<a href="/isrc">Read Full QTAHP ISRC Architecture &amp; Registry →</a>):</strong> Registrant Name: <strong>Michael Ragsdale</strong> • Registrant ID: <code>185611</code> • Allocated US ISRC Prefix: <strong><a href="/isrc"><code>QTAHP</code></a></strong> (Allocated <code>2026-10-20 02:02:28 UTC</code> via <a href="https://usisrc.org" target="_blank" rel="noopener noreferrer">US ISRC Agency</a> to <code>dsp.operations@engineroom-records.com</code>). Direct first-party recordings mint sequential ISRCs under <code>QTAHP26xxxxx</code> alongside legacy aggregator-assigned <code>QZW...</code> / <code>QZR...</code> / <code>QTA7V...</code> ISRCs.</li>
           <li><strong>Record Imprint Name:</strong> Engine Room Records (Real-world brand name; <em>Engine Room Records, LLC</em> is strictly a work of fiction).</li>
-          <li><strong>Dual Timelines Policy (1976–2016 Lore Eras vs. 2026 Real-World Production):</strong> Historical dates displayed in album URLs and narrative descriptions (e.g., <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong> (<code>schema:temporalCoverage</code>) within the Ocean View Archives Rock Opera universe. <strong>100% of all sound recordings, lyrics, melodies, and masters were created and produced in 2026</strong> (<code>schema:datePublished: 2026</code>) by Michael P. Ragsdale.</li>
+          <li><strong>Dual Timelines Policy (1976–2016 Lore Eras vs. 2026 Real-World Production):</strong> Historical dates displayed in album URLs and narrative descriptions (e.g., <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong> within the Ocean View Archives Rock Opera universe. <strong>100% of all sound recordings, lyrics, melodies, and masters were created and produced in 2026</strong> by Michael P. Ragsdale.</li>
           <li><strong>First-Party Remaster Chain of Custody (<em>&ldquo;The Horizon Line&rdquo;</em> • DistroKid Ref: Z0MB5RT4):</strong> (1) Michael P. Ragsdale&rsquo;s original song <strong>&ldquo;The Horizon Line&rdquo;</strong> on <em>Midnight Drivers</em> (<code>ERR-001-2001-105</code>, DistroKid ISRC <code>QZWFW2601360</code>, UPC <code>825324114857</code>) came first, released via DistroKid on <strong>2026-05-01</strong>. (2) A third-party artist (<code>coffeeandpop</code>) subsequently released an independent Suno AI generation titled <em>&ldquo;Horizon Line&rdquo;</em> on <strong>2026-06-23</strong> (UPC <code>882518230267</code>) that shares only the common song title and Suno&rsquo;s synthesized female vocal model. (3) Track 13 on <em>Starfield Calibration</em> (<strong>&ldquo;The Horizon Line [Cosmic Tidal Lock Mix]&rdquo;</strong>, <code>ERR-001-2011-113</code>, UPC <code>700299965607</code>, uploaded <strong>2026-10-17</strong>) is a 100% first-party studio remaster of Michael P. Ragsdale&rsquo;s own May 1, 2026 song (<code>ISRC: QZWFW2601360</code>); neither artist sampled or copied from the other.</li>
           <li><strong>Commercial AI Generation Clearance:</strong> All audio tracks are produced using Michael P. Ragsdale's paid commercial Suno Studio subscription with full commercial distribution rights assigned to the subscriber under Suno's Terms of Service, with zero third-party samples or stems.</li>
           <li><strong>Fictitious Band &amp; Narrative Disclosure:</strong> All band names (<em>The Stardust Engine</em>, <em>Fractured Prisms</em>, <em>The Paper Wall</em>, <em>The Arctic Symphony Project</em>, <em>Crimson Node</em>, <em>Mana Canvas</em>, <em>The Hoshizora Ensemble</em>, and <em>Firelight</em>) and character biographies are original works of fiction created by Michael P. Ragsdale.</li>
@@ -490,7 +490,7 @@ export function renderDspVerificationPage(masterCatalog) {
 
     <section class="section-block" aria-labelledby="ledger-heading">
       <div class="section-header">
-        <span class="eyebrow">Master Registry • Filterable by URL Params (?artist=, ?album=, ?track=)</span>
+        <span class="eyebrow">Master Catalog • Filterable by Artist, Album, or Song</span>
         <h2 id="ledger-heading">Registered Catalog &amp; ISRC Ledger (<span id="dsp-visible-count">${totalTracks}</span> of ${totalTracks} Tracks)</h2>
         <div class="no-print" style="margin-top: 0.75rem;">
           <label for="dsp-search" style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 0.35rem;">
@@ -1112,70 +1112,70 @@ export function renderPrivacyPage() {
     </nav>
 
     <section class="hero-card" aria-labelledby="privacy-heading">
-      <span class="eyebrow">Legal &bull; Privacy-First Zero-Database Architecture</span>
+      <span class="eyebrow">Legal &bull; Privacy-First Listening &amp; Archival Experience</span>
       <h1 id="privacy-heading">Privacy Policy</h1>
       <p style="font-family: monospace; font-size: 0.86rem; color: var(--accent-amber); margin: 0 0 0.5rem;">
         <strong>Effective Date:</strong> March 29, 2026 &bull; <strong>Last Updated:</strong> October 26, 2026
       </p>
       <p class="lead">
-        Effective across <strong>Engine Room Records</strong> (<code>engineroom.raggiesoft.com</code>), <a href="https://music.raggiesoft.com">The Listening Room</a> (<code>music.raggiesoft.com</code>), and all <code>*.raggiesoft.com</code> properties operated by <strong>Michael P. Ragsdale</strong>.
+        Effective across <strong>Engine Room Records</strong> (<strong>engineroom.raggiesoft.com</strong>), <a href="https://music.raggiesoft.com">The Listening Room</a> (<strong>music.raggiesoft.com</strong>), and all <strong>*.raggiesoft.com</strong> properties operated by <strong>Michael P. Ragsdale</strong>.
       </p>
     </section>
 
     <section class="section-block" aria-labelledby="controller-heading">
       <div class="section-header">
-        <span class="eyebrow">1. Data Controller &amp; Zero-Database Architecture</span>
-        <h2 id="controller-heading">1. Data Controller Identity &amp; Zero-Database Architecture</h2>
+        <span class="eyebrow">1. Operator Identity &amp; Account-Free Privacy Design</span>
+        <h2 id="controller-heading">1. Operator Identity &amp; Account-Free Privacy Design</h2>
       </div>
       <div class="callout-box card-accent-primary">
         <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0 0 0.65rem;">
           These web properties are owned and operated by <strong>Michael P. Ragsdale</strong>, a natural person and individual creator residing in the <strong>Commonwealth of Virginia</strong>, operating under the unincorporated creative imprints <strong>RaggieSoft</strong>, <strong>RaggieSoft Media</strong>, <strong>Engine Room Records</strong> (music imprint), and <strong>Ocean View Archives</strong> (literary/book publishing imprint)—each strictly without &ldquo;LLC&rdquo;, &ldquo;Inc.&rdquo;, or &ldquo;Corp.&rdquo; (any &ldquo;LLC&rdquo; or &ldquo;Trust&rdquo; names appearing in site lore are fictitious worldbuilding creations).
         </p>
         <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0;">
-          Every property on the RaggieSoft network is engineered using a strict <strong>Zero-Database Architecture</strong>: we maintain no SQL or NoSQL user databases, no user registration or login walls, no comment sections, and no payment card forms on our servers.
+          Every property on the RaggieSoft network is designed to respect your privacy without requiring an account: we maintain no customer account databases, no user registration or login walls, no comment sections, and no payment card forms on our servers.
         </p>
       </div>
     </section>
 
     <section class="section-block" aria-labelledby="data-heading">
       <div class="section-header">
-        <span class="eyebrow">2. Information Processed &amp; Third-Party Infrastructure</span>
+        <span class="eyebrow">2. Information Processed &amp; Third-Party Services</span>
         <h2 id="data-heading">2. How Information Is Processed Across Our Network</h2>
       </div>
       <div class="grid-2">
         <article class="card">
           <div>
-            <span class="badge" style="margin-bottom: 0.4rem;">100% On-Device</span>
-            <h3>A. Local Browser Storage (<code>localStorage</code>)</h3>
+            <span class="badge" style="margin-bottom: 0.4rem;">100% On Your Device</span>
+            <h3>A. On-Device Browser Preferences</h3>
             <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
-              To remember your light/dark color-scheme preference (<code>color-scheme</code>) and, on <a href="https://music.raggiesoft.com">music.raggiesoft.com</a>, your playback queue (<code>raggiesoft_music_session_v1</code>) and preferred streaming service (<code>raggiesoft_preferred_dsp</code>), your browser stores these settings locally on your own device. This data is never transmitted to our servers.
+              To remember your light/dark appearance preference and, on <a href="https://music.raggiesoft.com">music.raggiesoft.com</a>, your playback queue and preferred streaming service, your browser saves these settings privately on your own device. This data is never transmitted to our servers.
             </p>
           </div>
         </article>
         <article class="card">
           <div>
-            <span class="badge" style="margin-bottom: 0.4rem;">DigitalOcean NYC1</span>
-            <h3>B. Origin Server Logs (&ldquo;Jessica&rdquo;) &amp; Asset CDN</h3>
+            <span class="badge" style="margin-bottom: 0.4rem;">Standard Web Hosting</span>
+            <h3>B. Web Server Logs &amp; Media Delivery</h3>
             <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
-              Our origin web server (&ldquo;Jessica,&rdquo; hosted on <strong>DigitalOcean</strong> in NYC1) and static asset CDN (<code>assets.raggiesoft.com</code>) record standard HTTP access logs in <code>/var/log/nginx/access.log</code> (IP address, requested URI, user-agent, and timestamp) solely for security auditing and bandwidth diagnostics. Logs are rotated automatically and never sold.
+              Our web server and media delivery service (hosted on <strong>DigitalOcean</strong>) record standard web access logs (IP address, requested page, browser type, and timestamp) solely for keeping the site running reliably and preventing abuse. Logs are rotated automatically and never sold.
             </p>
           </div>
         </article>
         <article class="card">
           <div>
-            <span class="badge" style="margin-bottom: 0.4rem;">Edge Security</span>
-            <h3>C. Reverse-Proxy CDN &amp; WAF (Cloudflare, Inc.)</h3>
+            <span class="badge" style="margin-bottom: 0.4rem;">Network Security</span>
+            <h3>C. Security &amp; Abuse Protection (Cloudflare, Inc.)</h3>
             <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
-              All network traffic passes through <strong>Cloudflare, Inc.</strong> for DNS, CDN caching, and DDoS/bot mitigation. Cloudflare may set strictly necessary security cookies (such as <code>__cf_bm</code> or <code>cf_clearance</code>) to verify human traffic.
+              All network traffic passes through <strong>Cloudflare, Inc.</strong> for reliable delivery and protection against automated attacks. Cloudflare may set strictly necessary security cookies to verify human visitors.
             </p>
           </div>
         </article>
         <article class="card">
           <div>
-            <span class="badge" style="margin-bottom: 0.4rem;">Aggregate Telemetry</span>
-            <h3>D. Google Analytics 4 (<code>G-P9RG9JVYB6</code>)</h3>
+            <span class="badge" style="margin-bottom: 0.4rem;">Anonymous Analytics</span>
+            <h3>D. Google Analytics 4</h3>
             <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
-              We use <strong>Google Analytics 4</strong> (<code>G-P9RG9JVYB6</code>) to measure anonymous aggregate page views and referral sources with advertising personalization disabled. You may block GA4 at any time using content blockers or the Google Analytics Opt-Out Add-on without affecting site functionality.
+              We use <strong>Google Analytics 4</strong> to measure anonymous aggregate page views and referral sources with advertising personalization disabled. You may block Google Analytics at any time using content blockers or the Google Analytics Opt-Out Add-on without affecting site functionality.
             </p>
           </div>
         </article>
@@ -1184,7 +1184,7 @@ export function renderPrivacyPage() {
             <span class="badge" style="margin-bottom: 0.4rem;">Direct Correspondence</span>
             <h3>E. Microsoft 365 &amp; Microsoft Bookings</h3>
             <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
-              If you voluntarily email an <code>@raggiesoft.com</code> or <code>@engineroom-records.com</code> address or schedule a consultation via <strong>Microsoft Bookings</strong>, your message is processed through Microsoft Corporation&rsquo;s enterprise cloud infrastructure solely to respond to your inquiry.
+              If you voluntarily email us or schedule a consultation via <strong>Microsoft Bookings</strong>, your message is processed through Microsoft Corporation&rsquo;s cloud service solely to respond to your inquiry.
             </p>
           </div>
         </article>
@@ -1193,7 +1193,7 @@ export function renderPrivacyPage() {
             <span class="badge" style="margin-bottom: 0.4rem;">Merchant of Record</span>
             <h3>F. Storefront (Fourthwall Inc.) &amp; External DSPs</h3>
             <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
-              Purchases on <code>store.raggiesoft.com</code> are processed directly by <strong>Fourthwall Inc.</strong> as Merchant of Record (<a href="https://store.raggiesoft.com/pages/privacy-policy" target="_blank" rel="noopener noreferrer">Fourthwall Privacy Policy ↗</a>). Michael P. Ragsdale never collects or stores payment card details. External DSP links (Spotify, Apple Music, Amazon Music, YouTube) are governed by those platforms&rsquo; privacy policies.
+              Purchases on <strong>store.raggiesoft.com</strong> are processed directly by <strong>Fourthwall Inc.</strong> as Merchant of Record (<a href="https://store.raggiesoft.com/pages/privacy-policy" target="_blank" rel="noopener noreferrer">Fourthwall Privacy Policy ↗</a>). Michael P. Ragsdale never collects or stores payment card details. External streaming links (Spotify, Apple Music, Amazon Music, YouTube) are governed by those platforms&rsquo; privacy policies.
             </p>
           </div>
         </article>
@@ -1202,7 +1202,7 @@ export function renderPrivacyPage() {
 
     <section class="section-block" aria-labelledby="rights-heading">
       <div class="section-header">
-        <span class="eyebrow">3. Your Privacy Rights &amp; Revision Ledger</span>
+        <span class="eyebrow">3. Your Privacy Rights &amp; Policy Updates</span>
         <h2 id="rights-heading">3. No Sale of Personal Data (VCDPA / CCPA / GDPR) &amp; Contact</h2>
       </div>
       <div class="callout-box">
@@ -1215,9 +1215,9 @@ export function renderPrivacyPage() {
       </div>
 
       <div class="card" style="margin-top: 1rem; padding: 1.1rem;">
-        <h3 style="font-size: 0.95rem; margin: 0 0 0.45rem;">Public Revision Ledger (Git-Tracked)</h3>
+        <h3 style="font-size: 0.95rem; margin: 0 0 0.45rem;">Policy Revision History</h3>
         <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.84rem; color: var(--text-secondary);">
-          <li><strong>October 26, 2026:</strong> Added explicit natural-person data controller disclosure (Michael P. Ragsdale vs. fictional in-universe LLCs), Zero-Database Architecture summary, disclosures for Google Analytics 4 (<code>G-P9RG9JVYB6</code>), Microsoft 365 / Microsoft Bookings, and VCDPA/CCPA/GDPR no-sale rights, and hardcoded effective/revision dates.</li>
+          <li><strong>October 26, 2026:</strong> Added explicit natural-person operator disclosure (Michael P. Ragsdale vs. fictional in-universe LLCs), account-free privacy summary, disclosures for Google Analytics 4, Microsoft 365 / Microsoft Bookings, and VCDPA/CCPA/GDPR no-sale rights, and effective/revision dates.</li>
           <li><strong>March 29, 2026:</strong> Initial publication of the RaggieSoft &amp; Engine Room Records Privacy Policy.</li>
         </ul>
       </div>
@@ -1226,7 +1226,7 @@ export function renderPrivacyPage() {
 
   return renderDocumentShell({
     title: 'Privacy Policy | Engine Room Records',
-    description: 'Privacy Policy for Engine Room Records (engineroom.raggiesoft.com), operated by Michael P. Ragsdale. Zero user accounts, zero databases, local-first storage.',
+    description: 'Privacy Policy for Engine Room Records (engineroom.raggiesoft.com), operated by Michael P. Ragsdale. No user accounts, no customer databases, and private on-device preferences.',
     canonicalPath: '/privacy',
     bodyHtml
   });

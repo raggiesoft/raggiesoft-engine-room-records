@@ -165,20 +165,20 @@ export function renderHomePage(catalog) {
         <span class="eyebrow">Core Pillar 02 • Studio Transparency</span>
         <h2 id="pillar-2-heading">2. Behind the Scenes on Music Generation</h2>
         <p style="margin: 0; color: var(--text-secondary);">
-          Full engineering transparency into how human direction, narrative libretto writing, acoustic &amp; phonetic vowel extensions, the 75% Cover Audio Influence protocol, and Google Gemini Multimodal WebVTT lyric alignment shape every release.
+          Full studio transparency into how human direction, narrative libretto writing, acoustic &amp; phonetic vowel extensions, the 75% Cover Audio Influence protocol, and synchronized lyric timing shape every release.
         </p>
       </div>
 
       <div class="grid-3">
         <article class="card card-accent-amber">
           <div>
-            <h3>Human Direction + AI Studio Pipeline</h3>
+            <h3>Human Direction + AI Studio Workflow</h3>
             <p style="font-size: 0.9rem; color: var(--text-secondary);">
-              Every song begins with Michael P. Ragsdale's human creative direction, narrative architecture, and co-written lyrics with Google Gemini, engineered into audio via a commercial <strong>Suno v5 / v6</strong> studio subscription, aligned to <code>HUMAN_VERIFIED</code> WebVTT timestamps by <strong>Google Gemini</strong> listening directly to the audio, and mastered locally through our automated <strong>Harper Audio Engine</strong>.
+              Every song begins with Michael P. Ragsdale's human creative direction, narrative storytelling, and co-written lyrics with Google Gemini, produced into audio via a commercial <strong>Suno v5 / v6</strong> studio subscription, aligned to line-by-line synchronized lyrics, and mastered in-house for streaming and digital release.
             </p>
           </div>
           <div class="btn-row">
-            <a href="/studio-engineering#pipeline" class="btn">Read Pipeline Spec →</a>
+            <a href="/studio-engineering#pipeline" class="btn">Read Studio Workflow →</a>
           </div>
         </article>
 
@@ -306,27 +306,27 @@ export function renderStudioEngineeringPage() {
       </div>
       <div class="grid-2">
         <article class="card card-accent-primary">
-          <h3>Stage 1: Human Narrative Architecture &amp; Libretto</h3>
+          <h3>Stage 1: Human Storytelling &amp; Libretto</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            Every song starts in the Markdown narrative archives (<a href="https://books.raggiesoft.com">books.raggiesoft.com</a>). Before a single note is rendered, we establish who is singing, why the song exists in-universe (such as Cassidy finding safety in Ryan's embrace on <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset?track=the-stardust-engine-1997-hard-reset-1-9"><em>Echoes in the Wire</em></a>, or the Rowlands siblings broadcasting <a href="https://music.raggiesoft.com/the-arctic-symphony-project/1996-a-symphony-of-snow?track=the-arctic-symphony-project-1996-a-symphony-of-snow-1-1"><em>Upon This Winter's Night</em></a> across the Appalachian mountains for Julian), and its exact tempo, key feel, and structural cues.
+            Every song starts in the Ocean View Archives (<a href="https://books.raggiesoft.com">books.raggiesoft.com</a>). Before a single note is recorded, we establish who is singing, why the song exists in-universe (such as Cassidy finding safety in Ryan's embrace on <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset?track=the-stardust-engine-1997-hard-reset-1-9"><em>Echoes in the Wire</em></a>, or the Rowlands siblings broadcasting <a href="https://music.raggiesoft.com/the-arctic-symphony-project/1996-a-symphony-of-snow?track=the-arctic-symphony-project-1996-a-symphony-of-snow-1-1"><em>Upon This Winter's Night</em></a> across the Appalachian mountains for Julian), and its exact tempo, key feel, and structural cues.
           </p>
         </article>
         <article class="card card-accent-amber">
           <h3>Stage 2: Acoustic &amp; Phonetic Vowel Extensions</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            Standard written prose often produces clipped or rushed vocal synthesis on long melodic sustains. To engineer soaring 1980s stadium belts and zero-gravity harmonic tails, our librettos embed explicit <strong>phonetic vowel extensions</strong> (<code>ooh</code>, <code>aah</code>, <code>ee</code>, <code>oh</code>) and breath-cadence markers directly into the studio lyric sheets. In-universe on <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration"><em>Starfield Calibration</em></a>, these lyrical evolutions celebrate the band's freedom from Apex Records alongside Cassidy's open-room acoustic phrasing.
+            Standard written prose often produces clipped or rushed vocal phrasing on long melodic sustains. To craft soaring 1980s stadium belts and warm harmonic tails, our librettos embed natural <strong>phonetic vowel extensions</strong> (<em>ooh</em>, <em>aah</em>, <em>ee</em>, <em>oh</em>) and breath-cadence cues directly into the studio lyric sheets. In-universe on <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration"><em>Starfield Calibration</em></a>, these lyrical evolutions celebrate the band's freedom from Apex Records alongside Cassidy's open-room acoustic phrasing.
           </p>
         </article>
         <article class="card card-accent-emerald">
-          <h3>Stage 3: Suno v5 / v6 Generation &amp; 75% Cover Calibration</h3>
+          <h3>Stage 3: Suno v5 / v6 Sessions &amp; 75% Cover Calibration</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            Tracks are generated under a paid commercial Suno subscription (granting 100% commercial ownership to Michael P. Ragsdale). When upgrading legacy recordings into our signature 2011 remaster suite (<a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration"><em>Starfield Calibration</em></a>) or live stadium arrangements, we use the <strong>75% Cover Audio Influence Protocol</strong>—preserving the core melody and sibling vocal chemistry while rebuilding the instrumentation with wide-field analog space-synth or stadium separation.
+            Tracks are produced under a paid commercial Suno subscription (granting 100% commercial ownership to Michael P. Ragsdale). When upgrading legacy recordings into our signature 2011 remaster suite (<a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration"><em>Starfield Calibration</em></a>) or live stadium arrangements, we use the <strong>75% Cover Audio Influence Protocol</strong>—preserving the core melody and sibling vocal chemistry while rebuilding the instrumentation with wide-field analog space-synth or stadium separation.
           </p>
         </article>
         <article class="card card-accent-violet">
-          <h3>Stage 4: Google Gemini Multimodal WebVTT &amp; Harper CC BY-SA 4.0 Mastering</h3>
+          <h3>Stage 4: Synchronized Lyrics &amp; Open-Culture Mastering</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            Once a master WAV passes human quality review, <strong>Google Gemini</strong> listens directly to the rendered audio alongside the studio lyric sheet to author a frame-accurate <code>SYNC_TYPE: HUMAN_VERIFIED</code> WebVTT (<code>.vtt</code>) timed lyric file. Our local <strong>Harper Audio Engine</strong> (<code>harper.sh</code>) then transcodes the master into 128kbps web preview MP3s and free <strong>CC BY-SA 4.0 ZIP archives</strong> (bundling <code>/lyrics/</code>, <code>/metadata/</code>, and each song's <code>/suno-prompts/</code> markdown file so fellow creators know how to recreate every track), while keeping uncompressed WAV/FLAC masters isolated inside our local <code>/raggiesoft-vaults</code> sanctuary.
+            Once a master recording passes human quality review, <strong>Google Gemini</strong> listens directly to the finished song alongside the studio lyric sheet to align line-by-line synchronized lyrics. Our studio mastering suite then prepares 128kbps web preview MP3s and free <strong>CC BY-SA 4.0 album downloads</strong> (including full lyrics, liner notes, and studio style sheets so fellow creators can see how every song was crafted), while preserving high-resolution WAV and FLAC masters for streaming platforms and audiophile releases.
           </p>
         </article>
       </div>
@@ -367,7 +367,7 @@ export function renderStudioEngineeringPage() {
         <article class="card card-accent-primary">
           <h3>Dual Timeline Policy &amp; Zero-Numbers DSP Artwork</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            Every release carries two explicit ISO 8601 dates in its Schema.org metadata: <code>temporalCoverage</code> (the in-universe lore year, e.g., <code>1987</code> for <em>Electric Color</em> or <code>2004-09-21</code> for <em>Progress Street</em>) and <code>datePublished</code> (the real-world <code>2026</code> production year). To comply with strict Apple Music and Spotify cover-art inspection rules, all 1:1 album covers contain <strong>zero numbers or dates</strong>, featuring only the artist name and album title.
+            Every release carries two clear dates: the in-universe story date (such as <strong>1987</strong> for <em>Electric Color</em> or <strong>September 21, 2004</strong> for <em>Progress Street</em>) and the real-world <strong>2026</strong> production year. To comply with strict Apple Music and Spotify cover-art inspection rules, all 1:1 album covers contain <strong>zero numbers or dates</strong>, featuring only the artist name and album title.
           </p>
         </article>
       </div>
