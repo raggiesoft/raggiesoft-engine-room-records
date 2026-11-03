@@ -590,12 +590,12 @@ export function renderIsrcExplainerPage(masterCatalog) {
       const artistSlug = String(primary.artistSlug || '');
       const albumSlug = String(primary.albumSlug || '');
       const trackSlug = String(primary.trackSlug || '');
-      const listeningUrl = `https://music.raggiesoft.com/artists/${encodeURIComponent(artistSlug)}/${encodeURIComponent(albumSlug)}?track=${encodeURIComponent(trackSlug)}`;
+      const listeningUrl = `https://music.raggiesoft.com/${encodeURIComponent(artistSlug)}/${encodeURIComponent(albumSlug)}?track=${encodeURIComponent(trackSlug)}`;
       const affidavitUrl = `/dsp-verification?artist=${encodeURIComponent(artistSlug)}&album=${encodeURIComponent(albumSlug)}&track=${encodeURIComponent(trackSlug)}`;
 
       const releasesHtml = entries
         .map((e) => {
-          const eListen = `https://music.raggiesoft.com/artists/${encodeURIComponent(e.artistSlug || '')}/${encodeURIComponent(e.albumSlug || '')}?track=${encodeURIComponent(e.trackSlug || '')}`;
+          const eListen = `https://music.raggiesoft.com/${encodeURIComponent(e.artistSlug || '')}/${encodeURIComponent(e.albumSlug || '')}?track=${encodeURIComponent(e.trackSlug || '')}`;
           const errCode = String(e.err_id || '');
           return `<div><a href="${escapeHtml(eListen)}" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">${escapeHtml(e.albumTitle || '')}</a> <a href="/isrc?code=${encodeURIComponent(errCode)}" data-decode-code="${escapeHtml(errCode)}" title="Decode ${escapeHtml(errCode)}" style="font-size: 0.76rem; color: var(--text-secondary); text-decoration: none;">(<code>${escapeHtml(errCode)}</code>)</a></div>`;
         })
@@ -825,7 +825,7 @@ export function renderIsrcExplainerPage(masterCatalog) {
         <span class="eyebrow">3. ISO 3901:2019 Technical Structure</span>
         <h2 id="anatomy-heading">How to Read an Engine Room Records <code>QTAHP</code> ISRC</h2>
         <p style="margin: 0; color: var(--text-secondary);">
-          Every 12-character International Standard Recording Code (ISRC) issued by Engine Room Records follows the strict four-segment ISO 3901:2019 specification. Here is how Track 1 of <a href="https://music.raggiesoft.com/artists/the-stardust-engine/2015-reignition?track=1-01-reignition-lights-up-on-progress-street" target="_blank" rel="noopener noreferrer"><em>The Stardust Engine — Reignition</em></a> (<code>QTAHP2600046</code>) breaks down:
+          Every 12-character International Standard Recording Code (ISRC) issued by Engine Room Records follows the strict four-segment ISO 3901:2019 specification. Here is how Track 1 of <a href="https://music.raggiesoft.com/the-stardust-engine/2015-reignition?track=1-01-reignition-lights-up-on-progress-street" target="_blank" rel="noopener noreferrer"><em>The Stardust Engine — Reignition</em></a> (<code>QTAHP2600046</code>) breaks down:
         </p>
       </div>
 

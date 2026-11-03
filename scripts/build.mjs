@@ -492,7 +492,7 @@ function buildClientJs() {
         var cardsHtml = matches
           .map(function (m) {
             var listenHref =
-              'https://music.raggiesoft.com/artists/' +
+              'https://music.raggiesoft.com/' +
               encodeURIComponent(m.artistSlug) +
               '/' +
               encodeURIComponent(m.albumSlug) +
