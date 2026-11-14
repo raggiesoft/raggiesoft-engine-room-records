@@ -359,10 +359,25 @@ export function renderDspVerificationPage(masterCatalog) {
   let rowsHtml = '';
   let totalTracks = flatTracks.length;
 
+  /**
+   * Converts a `master-catalog.json` `trackSlug` (e.g. `1-01-the-hollow-square`) into
+   * the canonical Listening Room song route slug (`the-hollow-square`).
+   * @param {string} raw
+   * @returns {string}
+   */
+  const toCanonicalSongSlug = (raw) =>
+    String(raw || '')
+      .toLowerCase()
+      .replace(/\.mp3$/i, '')
+      .replace(/^\d+-\d+-/, '')
+      .replace(/^\d+-/, '');
+
   for (const item of flatTracks) {
     const artistSlug = String(item.artistSlug || '');
     const albumSlug = String(item.albumSlug || '');
     const trackSlug = String(item.trackSlug || '');
+    const canonicalSongSlug = toCanonicalSongSlug(trackSlug);
+    const listeningRoomUrl = `https://music.raggiesoft.com/${encodeURIComponent(artistSlug)}/${encodeURIComponent(albumSlug)}/${encodeURIComponent(canonicalSongSlug)}`;
     const affidavitUrl = `/dsp-verification?artist=${encodeURIComponent(artistSlug)}&album=${encodeURIComponent(albumSlug)}&track=${encodeURIComponent(trackSlug)}`;
     rowsHtml += `
       <tr
@@ -393,7 +408,8 @@ export function renderDspVerificationPage(masterCatalog) {
           <span class="badge">${escapeHtml(item.distributor || 'DistroKid')}</span>
           <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.2rem;">${escapeHtml(item.aiClearance || 'Suno Commercial Pro')}</div>
         </td>
-        <td class="no-print">
+        <td class="no-print" style="display: flex; gap: 0.35rem; flex-wrap: wrap;">
+          <a href="${escapeHtml(listeningRoomUrl)}" class="btn" style="padding: 0.3rem 0.65rem; font-size: 0.78rem;">🎧 Audio ↗</a>
           <a href="${escapeHtml(affidavitUrl)}" class="btn" style="padding: 0.3rem 0.65rem; font-size: 0.78rem;">📄 Affidavit</a>
         </td>
       </tr>`;
@@ -590,12 +606,18 @@ export function renderIsrcExplainerPage(masterCatalog) {
       const artistSlug = String(primary.artistSlug || '');
       const albumSlug = String(primary.albumSlug || '');
       const trackSlug = String(primary.trackSlug || '');
-      const listeningUrl = `https://music.raggiesoft.com/${encodeURIComponent(artistSlug)}/${encodeURIComponent(albumSlug)}?track=${encodeURIComponent(trackSlug)}`;
+      const stripDiscTrackPrefix = (raw) =>
+        String(raw || '')
+          .toLowerCase()
+          .replace(/\.mp3$/i, '')
+          .replace(/^\d+-\d+-/, '')
+          .replace(/^\d+-/, '');
+      const listeningUrl = `https://music.raggiesoft.com/${encodeURIComponent(artistSlug)}/${encodeURIComponent(albumSlug)}/${encodeURIComponent(stripDiscTrackPrefix(trackSlug))}`;
       const affidavitUrl = `/dsp-verification?artist=${encodeURIComponent(artistSlug)}&album=${encodeURIComponent(albumSlug)}&track=${encodeURIComponent(trackSlug)}`;
 
       const releasesHtml = entries
         .map((e) => {
-          const eListen = `https://music.raggiesoft.com/${encodeURIComponent(e.artistSlug || '')}/${encodeURIComponent(e.albumSlug || '')}?track=${encodeURIComponent(e.trackSlug || '')}`;
+          const eListen = `https://music.raggiesoft.com/${encodeURIComponent(e.artistSlug || '')}/${encodeURIComponent(e.albumSlug || '')}/${encodeURIComponent(stripDiscTrackPrefix(e.trackSlug || ''))}`;
           const errCode = String(e.err_id || '');
           return `<div><a href="${escapeHtml(eListen)}" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">${escapeHtml(e.albumTitle || '')}</a> <a href="/isrc?code=${encodeURIComponent(errCode)}" data-decode-code="${escapeHtml(errCode)}" title="Decode ${escapeHtml(errCode)}" style="font-size: 0.76rem; color: var(--text-secondary); text-decoration: none;">(<code>${escapeHtml(errCode)}</code>)</a></div>`;
         })
@@ -825,7 +847,7 @@ export function renderIsrcExplainerPage(masterCatalog) {
         <span class="eyebrow">3. ISO 3901:2019 Technical Structure</span>
         <h2 id="anatomy-heading">How to Read an Engine Room Records <code>QTAHP</code> ISRC</h2>
         <p style="margin: 0; color: var(--text-secondary);">
-          Every 12-character International Standard Recording Code (ISRC) issued by Engine Room Records follows the strict four-segment ISO 3901:2019 specification. Here is how Track 1 of <a href="https://music.raggiesoft.com/the-stardust-engine/2015-reignition?track=1-01-reignition-lights-up-on-progress-street" target="_blank" rel="noopener noreferrer"><em>The Stardust Engine — Reignition</em></a> (<code>QTAHP2600046</code>) breaks down:
+          Every 12-character International Standard Recording Code (ISRC) issued by Engine Room Records follows the strict four-segment ISO 3901:2019 specification. Here is how Track 1 of <a href="https://music.raggiesoft.com/the-stardust-engine/2015-reignition/reignition-lights-up-on-progress-street" target="_blank" rel="noopener noreferrer"><em>The Stardust Engine — Reignition</em></a> (<code>QTAHP2600046</code>) breaks down:
         </p>
       </div>
 

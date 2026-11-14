@@ -399,13 +399,18 @@
       if (matches.length > 0) {
         var cardsHtml = matches
           .map(function (m) {
+            var cleanSongSlug = String(m.trackSlug || '')
+              .toLowerCase()
+              .replace(/.mp3$/i, '')
+              .replace(/^d+-d+-/, '')
+              .replace(/^d+-/, '');
             var listenHref =
               'https://music.raggiesoft.com/' +
               encodeURIComponent(m.artistSlug) +
               '/' +
               encodeURIComponent(m.albumSlug) +
-              '?track=' +
-              encodeURIComponent(m.trackSlug);
+              '/' +
+              encodeURIComponent(cleanSongSlug);
             var affidavitHref =
               '/dsp-verification?artist=' +
               encodeURIComponent(m.artistSlug) +

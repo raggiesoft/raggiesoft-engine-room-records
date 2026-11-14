@@ -308,7 +308,7 @@ export function renderStudioEngineeringPage() {
         <article class="card card-accent-primary">
           <h3>Stage 1: Human Storytelling &amp; Libretto</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            Every song starts in the Ocean View Archives (<a href="https://books.raggiesoft.com">books.raggiesoft.com</a>). Before a single note is recorded, we establish who is singing, why the song exists in-universe (such as Cassidy finding safety in Ryan's embrace on <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset?track=the-stardust-engine-1997-hard-reset-1-9"><em>Echoes in the Wire</em></a>, or the Rowlands siblings broadcasting <a href="https://music.raggiesoft.com/the-arctic-symphony-project/1996-a-symphony-of-snow?track=the-arctic-symphony-project-1996-a-symphony-of-snow-1-1"><em>Upon This Winter's Night</em></a> across the Appalachian mountains for Julian), and its exact tempo, key feel, and structural cues.
+            Every song starts in the Ocean View Archives (<a href="https://books.raggiesoft.com">books.raggiesoft.com</a>). Before a single note is recorded, we establish who is singing, why the song exists in-universe (such as Cassidy finding safety in Ryan's embrace on <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset/echoes-in-the-wire"><em>Echoes in the Wire</em></a>, or the Rowlands siblings broadcasting <a href="https://music.raggiesoft.com/the-arctic-symphony-project/1996-a-symphony-of-snow/homeward-on-this-day"><em>Upon This Winter's Night</em></a> across the Appalachian mountains for Julian), and its exact tempo, key feel, and structural cues.
           </p>
         </article>
         <article class="card card-accent-amber">
@@ -343,7 +343,7 @@ export function renderStudioEngineeringPage() {
         </p>
         <ol style="margin: 0; padding-left: 1.4rem; color: var(--text-secondary); font-size: 0.92rem; display: grid; gap: 0.5rem;">
           <li>
-            <strong>Celebrating Emancipation from Apex Records:</strong> In-universe, Ryan, Cassidy, Evan, and Tyler reclaimed their early 1980s songs from Apex Records' suffocating corporate pop template, rewriting coerced lines into an unapologetic celebration of family autonomy. Notably, <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset?track=the-stardust-engine-1997-hard-reset-1-9"><em>Echoes in the Wire</em></a> (and its <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration?track=the-stardust-engine-2011-starfield-calibration-1-10"><em>Cosmic Tidal Lock Mix</em></a>) permanently replaced Apex's coerced 1989 ballad <em>If You Walked Away</em>—transforming a song of manufactured heartbreak into the true story of Cassidy finding comfort and safety when her brother Ryan is hugging her tightly.
+            <strong>Celebrating Emancipation from Apex Records:</strong> In-universe, Ryan, Cassidy, Evan, and Tyler reclaimed their early 1980s songs from Apex Records' suffocating corporate pop template, rewriting coerced lines into an unapologetic celebration of family autonomy. Notably, <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset/echoes-in-the-wire"><em>Echoes in the Wire</em></a> (and its <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration/inertia-unstoppable"><em>Cosmic Tidal Lock Mix</em></a>) permanently replaced Apex's coerced 1989 ballad <em>If You Walked Away</em>—transforming a song of manufactured heartbreak into the true story of Cassidy finding comfort and safety when her brother Ryan is hugging her tightly.
           </li>
           <li>
             <strong>Acoustic &amp; Phonetic Vowel Extensions:</strong> By opening cramped syllables into resonant vowel sustains (<code>ooh</code>, <code>aah</code>, <code>ee</code>, <code>oh</code>) and pairing them with our <strong>75% Cover Audio Influence</strong> calibration, the vocal harmonies lock into synchronous phase with Cassidy's analog synthesizer pads.
@@ -465,7 +465,7 @@ export function renderCorporatePage(corporateStructure) {
         <span class="eyebrow">Source: corporate-structure.json • 2015 Delaware Ring-Fence</span>
         <h2 id="org-chart-heading">2. In-Universe Corporate Hierarchy (Fictitious Lore Registry)</h2>
         <p style="margin: 0; color: var(--text-secondary);">
-          Rendered directly from <code>raggiesoft-assets/engine-room-records/json/corporate-structure.json</code>. Every entity below is part of the fictional narrative world of <a href="https://books.raggiesoft.com/books/stardust-engine">The Stardust Engine</a> and <a href="https://lore.raggiesoft.com">The Lore Omnibus</a>.
+          Rendered directly from <code>raggiesoft-assets/engine-room-records/json/corporate-structure.json</code>. Every entity below is part of the fictional narrative world of <a href="https://books.raggiesoft.com/stardust-engine">The Stardust Engine</a> and <a href="https://lore.raggiesoft.com">The Lore Omnibus</a>.
         </p>
       </div>
       ${orgTreeHtml}
