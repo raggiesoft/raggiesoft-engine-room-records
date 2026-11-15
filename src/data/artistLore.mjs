@@ -329,9 +329,9 @@ export const ARTIST_LORE_PROFILES = {
     primaryGenre: 'Symphonic Fantasy Rock / 16-Bit Chiptune Prog / JRPG Soundtrack',
     listeningRoomUrl: 'https://music.raggiesoft.com/mana-canvas',
     dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/mana-canvas',
-    bookReaderUrl: 'https://books.raggiesoft.com/dream-kingdom',
-    secondaryBookUrl: 'https://runebreaker.raggiesoft.com',
-    secondaryBookTitle: 'Runebreaker Portal',
+    bookReaderUrl: 'https://books.raggiesoft.com/runebreaker',
+    secondaryBookUrl: 'https://books.raggiesoft.com/runebreaker/toc',
+    secondaryBookTitle: 'Runebreaker Table of Contents',
     heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/mana-canvas/social-preview.jpg',
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/mana-canvas/social-preview.jpg',
     logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/mana-canvas/band-logo.jpg',
@@ -349,7 +349,7 @@ export const ARTIST_LORE_PROFILES = {
     lorePillars: [
       {
         title: 'Scoring Runebreaker & The 16-Bit Digital Realm',
-        body: 'Mana Canvas bridges RaggieSoft\'s Runebreaker / Dream Kingdom narrative universe (books.raggiesoft.com/dream-kingdom and runebreaker.raggiesoft.com) with Engine Room Records\' audio engineering. Every release is structured like a golden-era 1990s 16-bit Super Famicom RPG soundtrack brought to life with a full rock orchestra.'
+        body: 'Mana Canvas bridges RaggieSoft\'s Runebreaker / Dream Kingdom narrative universe (books.raggiesoft.com/runebreaker) with Engine Room Records\' audio engineering. Every release is structured like a golden-era 1990s 16-bit Super Famicom RPG soundtrack brought to life with a full rock orchestra.'
       },
       {
         title: 'From SPC-700 Chiptunes to the 1993 Live Concert Stage',
@@ -368,9 +368,9 @@ export const ARTIST_LORE_PROFILES = {
     primaryGenre: '80s Movie Soundtracks / 80s Synth-Pop / Fantasy-Adventure Score',
     listeningRoomUrl: 'https://music.raggiesoft.com/firelight',
     dedicatedSiteUrl: 'https://engineroom.raggiesoft.com/artists/firelight',
-    bookReaderUrl: 'https://books.raggiesoft.com/aethel-saga',
-    secondaryBookUrl: 'https://books.raggiesoft.com/aethel/',
-    secondaryBookTitle: 'The Silver Gauntlet of Aethel (Full Novel)',
+    bookReaderUrl: 'https://books.raggiesoft.com/aethel',
+    secondaryBookUrl: 'https://books.raggiesoft.com/aethel/toc',
+    secondaryBookTitle: 'The Silver Gauntlet of Aethel (Table of Contents)',
     heroImage: 'https://assets.raggiesoft.com/engine-room-records/artists/firelight/1987-silver-gauntlet-of-aethel/social-preview.jpg',
     ogImage: 'https://assets.raggiesoft.com/engine-room-records/artists/firelight/1987-silver-gauntlet-of-aethel/social-preview.jpg',
     logoUrl: 'https://assets.raggiesoft.com/engine-room-records/artists/firelight/band-logo.png',
@@ -396,7 +396,7 @@ export const ARTIST_LORE_PROFILES = {
       },
       {
         title: 'Companion Literary Saga: The Silver Gauntlet of Aethel',
-        body: 'Every movement of Firelight\'s soundtrack score pairs directly with the four-era fantasy saga The Silver Gauntlet of Aethel on RaggieSoft Book Reader (books.raggiesoft.com/aethel-saga), while all four soundtrack albums and full lyrics stream in The Listening Room at music.raggiesoft.com/firelight.'
+        body: 'Every movement of Firelight\'s soundtrack score pairs directly with the four-era fantasy saga The Silver Gauntlet of Aethel on RaggieSoft Book Reader (books.raggiesoft.com/aethel), while all four soundtrack albums and full lyrics stream in The Listening Room at music.raggiesoft.com/firelight.'
       }
     ]
   },

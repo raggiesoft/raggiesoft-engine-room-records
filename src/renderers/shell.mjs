@@ -44,11 +44,20 @@ export function renderDocumentShell({
   canonicalPath = '/',
   ogImage = 'https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg',
   ogType = 'website',
+  noindex = false,
+  extraJsonLd = [],
   bodyHtml
 }) {
   const safeTitle = escapeHtml(title.slice(0, 60));
   const safeDesc = escapeHtml(description.slice(0, 155));
+  const isErrorPage = canonicalPath === '/404';
   const canonicalUrl = `https://engineroom.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
+  const robotsMetaHtml = noindex
+    ? '\n    <meta name="robots" content="noindex, follow" />'
+    : '';
+  const canonicalLinkHtml = isErrorPage
+    ? ''
+    : `\n    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`;
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -88,8 +97,7 @@ export function renderDocumentShell({
       } catch (e) {}
     </script>
     <title>${safeTitle}</title>
-    <meta name="description" content="${safeDesc}" />
-    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
+    <meta name="description" content="${safeDesc}" />${robotsMetaHtml}${canonicalLinkHtml}
     <meta property="og:title" content="${safeTitle}" />
     <meta property="og:description" content="${safeDesc}" />
     <meta property="og:image" content="${escapeHtml(ogImage)}" />
@@ -125,6 +133,9 @@ export function renderDocumentShell({
           sameAs: [
             'https://music.raggiesoft.com',
             'https://stardust.raggiesoft.com',
+            'https://books.raggiesoft.com',
+            'https://lore.raggiesoft.com',
+            'https://backstage.raggiesoft.com',
             'https://nebulae.raggiesoft.com'
           ]
         },
@@ -147,7 +158,8 @@ export function renderDocumentShell({
             url: ogImage
           },
           license: 'https://creativecommons.org/licenses/by-sa/4.0/'
-        }
+        },
+        ...(Array.isArray(extraJsonLd) ? extraJsonLd : [])
       ]
     })}</script>
     <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/images/logos/engine-room-records-logo.png" media="(prefers-color-scheme: light)" />

@@ -282,12 +282,93 @@ export function renderArtistDetailPage(slug, catalog) {
     </section>
   `;
 
+  const artistSameAs = [artist.listeningRoomUrl];
+  if (slug === 'the-stardust-engine') {
+    artistSameAs.push('https://stardust.raggiesoft.com');
+  }
+  const artistSubjectOf = [];
+  if (artist.bookReaderUrl) {
+    artistSubjectOf.push({
+      '@type': 'Book',
+      url: artist.bookReaderUrl,
+      name: `${artist.name} — Companion Narrative`
+    });
+  }
+  if (artist.secondaryBookUrl) {
+    artistSubjectOf.push({
+      '@type': 'Book',
+      url: artist.secondaryBookUrl,
+      name: artist.secondaryBookTitle || 'Companion Narrative'
+    });
+  }
+
+  const extraJsonLd = [
+    {
+      '@type': 'MusicGroup',
+      '@id': `https://music.raggiesoft.com/${slug}#artist`,
+      name: artist.name,
+      url: `https://engineroom.raggiesoft.com/artists/${slug}`,
+      image: artist.ogImage,
+      logo: artist.logoUrl,
+      description: artist.summary,
+      genre: artist.primaryGenre,
+      foundingLocation: {
+        '@type': 'Place',
+        name: artist.origin
+      },
+      recordLabel: {
+        '@id': 'https://engineroom.raggiesoft.com/#organization'
+      },
+      sameAs: artistSameAs,
+      member: artist.members.map((m) => ({
+        '@type': 'OrganizationRole',
+        roleName: m.role,
+        member: {
+          '@type': 'Person',
+          name: m.name
+        }
+      })),
+      album: artistAlbums.map((al) => ({
+        '@type': 'MusicAlbum',
+        '@id': `https://music.raggiesoft.com/${al.artistSlug}/${al.slug}#album`,
+        name: al.title,
+        url: `https://music.raggiesoft.com/${al.artistSlug}/${al.slug}`,
+        image: al.artwork
+      })),
+      ...(artistSubjectOf.length > 0 ? { subjectOf: artistSubjectOf } : {})
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Engine Room Records',
+          item: 'https://engineroom.raggiesoft.com'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Artist Roster',
+          item: 'https://engineroom.raggiesoft.com/artists'
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: artist.name,
+          item: `https://engineroom.raggiesoft.com/artists/${slug}`
+        }
+      ]
+    }
+  ];
+
   return renderDocumentShell({
     title: `${artist.name} | Lore & Discography | Engine Room Records`,
     description: `${artist.name} (${artist.primaryGenre}): ${artist.summary}`.slice(0, 155),
     canonicalPath: `/artists/${slug}`,
     ogImage: artist.ogImage,
     ogType: 'profile',
+    extraJsonLd,
     bodyHtml
   });
 }
@@ -493,14 +574,14 @@ export function renderDspVerificationPage(masterCatalog) {
       </div>
       <div class="btn-row no-print" style="margin-top: 0.85rem;">
         <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); align-self: center;">Quick Artist Claim Filters:</span>
-        <a href="/dsp-verification/?artist=the-stardust-engine" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🚀 The Stardust Engine</a>
-        <a href="/dsp-verification/?artist=fractured-prisms" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">💎 Fractured Prisms</a>
-        <a href="/dsp-verification/?artist=the-paper-wall" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🧱 The Paper Wall</a>
-        <a href="/dsp-verification/?artist=the-arctic-symphony-project" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">❄️ The Arctic Symphony Project</a>
-        <a href="/dsp-verification/?artist=crimson-node" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🔴 Crimson Node</a>
-        <a href="/dsp-verification/?artist=mana-canvas" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🎨 Mana Canvas</a>
-        <a href="/dsp-verification/?artist=the-hoshizora-ensemble" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">⛴️ The Hoshizora Ensemble</a>
-        <a href="/dsp-verification/?artist=firelight" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🔥 Firelight</a>
+        <a href="/dsp-verification?artist=the-stardust-engine" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🚀 The Stardust Engine</a>
+        <a href="/dsp-verification?artist=fractured-prisms" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">💎 Fractured Prisms</a>
+        <a href="/dsp-verification?artist=the-paper-wall" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🧱 The Paper Wall</a>
+        <a href="/dsp-verification?artist=the-arctic-symphony-project" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">❄️ The Arctic Symphony Project</a>
+        <a href="/dsp-verification?artist=crimson-node" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🔴 Crimson Node</a>
+        <a href="/dsp-verification?artist=mana-canvas" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🎨 Mana Canvas</a>
+        <a href="/dsp-verification?artist=the-hoshizora-ensemble" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">⛴️ The Hoshizora Ensemble</a>
+        <a href="/dsp-verification?artist=firelight" class="btn" style="padding: 0.35rem 0.7rem; font-size: 0.8rem;">🔥 Firelight</a>
       </div>
     </section>
 

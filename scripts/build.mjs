@@ -802,6 +802,7 @@ function buildSite() {
   );
 
   // 4. Render all remaining ported routes from src/data/ported-pages.json
+  const canonicalSitemapRoutes = new Set(customRenderedRoutes);
   let portedCount = 0;
   for (const page of portedPages) {
     if (customRenderedRoutes.has(page.route)) {
@@ -811,8 +812,9 @@ function buildSite() {
         renderDocumentShell({
           title: page.title,
           description: page.description,
-          canonicalPath: altRoute,
+          canonicalPath: page.route,
           ogImage: page.ogImage || undefined,
+          noindex: true,
           bodyHtml: page.html
         })
       );
@@ -820,6 +822,7 @@ function buildSite() {
       continue;
     }
 
+    canonicalSitemapRoutes.add(page.route);
     const relFile = `${page.route.slice(1)}/index.html`;
     writeDistFile(
       relFile,
@@ -834,8 +837,52 @@ function buildSite() {
     portedCount++;
   }
 
+  // 5. Emit accessible consumer-friendly /404.html, robots.txt, sitemap.xml, and IndexNow key
+  writeDistFile(
+    '404.html',
+    renderDocumentShell({
+      title: 'Page Not Found | Engine Room Records',
+      description: 'The requested dossier or catalog page could not be found on Engine Room Records.',
+      canonicalPath: '/404',
+      noindex: true,
+      bodyHtml: `
+        <section class="hero-card" aria-labelledby="err-404-heading" style="margin-top: 1.5rem;">
+          <span class="eyebrow">Engine Room Records • Page Not Found</span>
+          <h1 id="err-404-heading">We Could Not Find That Page</h1>
+          <p class="lead">
+            The artist dossier, studio record, or catalog link you followed may have moved to a new home across the Engine Room Records archive or <a href="https://music.raggiesoft.com">The Listening Room</a>.
+          </p>
+          <div class="btn-row">
+            <a href="/" class="btn btn-primary">⚙️ Engine Room Records Home</a>
+            <a href="/artists" class="btn btn-amber">🎸 Browse All 7 Artists</a>
+            <a href="https://music.raggiesoft.com" class="btn btn-emerald">🎧 Stream Music &amp; Lyrics</a>
+            <a href="https://books.raggiesoft.com" class="btn">📚 Explore Companion Books</a>
+          </div>
+        </section>`
+    })
+  );
+
+  const todayIso = new Date().toISOString().split('T')[0];
+  const sortedRoutes = Array.from(canonicalSitemapRoutes).sort((a, b) => {
+    if (a === '/') return -1;
+    if (b === '/') return 1;
+    return a.localeCompare(b);
+  });
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sortedRoutes
+    .map((route) => {
+      const loc = `https://engineroom.raggiesoft.com${route === '/' ? '/' : route}`;
+      return `  <url>\n    <loc>${escapeHtml(loc)}</loc>\n    <lastmod>${todayIso}</lastmod>\n  </url>`;
+    })
+    .join('\n')}\n</urlset>\n`;
+  writeDistFile('sitemap.xml', sitemapXml);
+  writeDistFile(
+    'robots.txt',
+    `User-agent: *\nAllow: /\n\nSitemap: https://engineroom.raggiesoft.com/sitemap.xml\n`
+  );
+  writeDistFile('726167676965736f6674696e6465786e.txt', '726167676965736f6674696e6465786e\n');
+
   console.log(
-    `✅ Built engineroom.raggiesoft.com static bundle in ${distDir} (${Object.keys(ARTIST_LORE_PROFILES).length} artist hubs, ${catalog.length} albums, and ${portedCount} ported corporate/artist dossiers compiled).`
+    `✅ Built engineroom.raggiesoft.com static bundle in ${distDir} (${Object.keys(ARTIST_LORE_PROFILES).length} artist hubs, ${catalog.length} albums, ${portedCount} ported corporate/artist dossiers, and ${sortedRoutes.length} sitemap URLs compiled).`
   );
 }
 
