@@ -131,12 +131,10 @@ export function renderDocumentShell({
             url: 'https://raggiesoft.com'
           },
           sameAs: [
-            'https://music.raggiesoft.com',
-            'https://stardust.raggiesoft.com',
-            'https://books.raggiesoft.com',
-            'https://lore.raggiesoft.com',
-            'https://backstage.raggiesoft.com',
-            'https://nebulae.raggiesoft.com'
+            'https://engineroom.raggiesoft.com',
+            'https://engineroom-records.com',
+            'https://store.raggiesoft.com',
+            'https://github.com/raggiesoft'
           ]
         },
         {
