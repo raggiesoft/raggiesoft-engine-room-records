@@ -1,0 +1,5 @@
+# ============================================================================
+# .gitattributes — raggiesoft-engine-room-records (engineroom.raggiesoft.com)
+# ============================================================================
+dist/** linguist-generated=true
+package-lock.json linguist-generated=true
