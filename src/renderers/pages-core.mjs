@@ -3,23 +3,32 @@
  * ============================================================================
  * src/renderers/pages-core.mjs — Engine Room Records (engineroom.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Renders the Three Core Pillars of Engine Room Records:
- * 1. `renderHomePage` (`/`):
- *    - Pillar 1: "What Kind of Music Do I Make?" (7-Band Directory passing visitors
- *      directly to `https://music.raggiesoft.com`).
- *    - Pillar 2: Behind the Scenes on Music Generation summary.
- *    - Pillar 3: Real-World Imprint (`Engine Room Records`, no "LLC") vs.
- *      In-Universe Lore Entity (`Engine Room Records, LLC`).
- *    - Closed Submission Policy.
- * 2. `renderStudioEngineeringPage` (`/studio-engineering`):
- *    - Deep studio engineering documentation (Suno v5/v6 pipeline, phonetic vowel
- *      extensions, 75% Cover Audio Influence protocol, Google Gemini Multimodal
- *      WebVTT lyric alignment, CC BY-SA 4.0 `/suno-prompts/` packaging, Dual
- *      Timeline spec, and Open-Culture Trademark Policy).
- * 3. `renderCorporatePage` (`/corporate`):
- *    - Full dual-layer corporate breakdown and recursive org-chart renderer for
- *      `corporate-structure.json`.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   This module contains the pure HTML-rendering functions for the Three Core
+ *   Pillars of `engineroom.raggiesoft.com`, plus a shared statistics helper:
+ *   1. `buildArtistStats(catalog)` — Tallies album counts, total track counts,
+ *      and playable track counts per band from `catalog.json` into a `Map`.
+ *   2. `renderHomePage(catalog)` (`/`) — Renders the front door of the label:
+ *      - Pillar 1: "What Kind of Music Do I Make?" (Band cards passing listeners
+ *        directly to `https://music.raggiesoft.com`).
+ *      - Pillar 2: Behind the Scenes on Music Generation summary.
+ *      - Pillar 3: Real-World Imprint (`Engine Room Records`, strictly NO "LLC")
+ *        vs. Fictional In-Universe Entity (`Engine Room Records, LLC`).
+ *      - Closed Submission Policy callout.
+ *   3. `renderStudioEngineeringPage()` (`/studio-engineering`) — Explains the
+ *      4-stage human + AI production pipeline, phonetic vowel extensions
+ *      (`ooh`, `aah`, `ee`, `oh`), the 75% Cover Audio Influence benchmark,
+ *      Open-Culture Trademark Policy, and Dual Timeline / Zero-Numbers art rules.
+ *   4. `renderCorporatePage(corporateStructure)` (`/corporate`) — Uses a
+ *      recursive helper (`renderCorporateNode`) to turn the nested JSON tree in
+ *      `corporate-structure.json` into indented semantic HTML org-chart cards.
+ *
+ * Why are comments placed outside HTML template literals?
+ *   In JavaScript, `//` inside a backtick string (`` `<div>// hi</div>` ``) is
+ *   treated as literal visible text, NOT a comment! Keeping JS `//` comments
+ *   outside the `` `...` `` strings ensures zero raw code comments leak onto the
+ *   rendered webpages.
  * ============================================================================
  */
 
@@ -27,22 +36,37 @@ import { escapeHtml, renderDocumentShell } from './shell.mjs';
 import { ARTIST_LORE_PROFILES } from '../data/artistLore.mjs';
 
 /**
- * Computes album and playable track totals per artist from `catalog.json`.
- * @param {Array<any>} catalog
+ * Aggregates album and track totals per artist slug from the flat `catalog.json` array.
+ *
+ * 100-Level JS Tip (`Map` vs. Plain Object):
+ *   A JavaScript `Map` (`new Map()`) is a built-in key/value collection with
+ *   explicit `.set(key, val)`, `.get(key)`, and `.has(key)` methods that avoids
+ *   accidental collisions with `Object.prototype` keys.
+ *
+ * @param {Array<any>} catalog - Array of album objects parsed from `catalog.json`.
  * @returns {Map<string, { albumCount: number, trackCount: number, playableCount: number, albums: Array<any> }>}
  */
 export function buildArtistStats(catalog) {
   const stats = new Map();
+
+  // Pre-seed every known artist from `ARTIST_LORE_PROFILES` with zeroed counters
+  // so an artist with 0 albums still safely returns `{ albumCount: 0, ... }`.
   for (const slug of Object.keys(ARTIST_LORE_PROFILES)) {
     stats.set(slug, { albumCount: 0, trackCount: 0, playableCount: 0, albums: [] });
   }
+
+  // Loop through every album in `catalog.json` and accumulate totals under `album.artistSlug`.
   for (const album of catalog) {
     const slug = album.artistSlug;
+    // Defensive check: if `catalog.json` contains an artist slug not yet in `artistLore.mjs`,
+    // initialize a bucket on the fly so `.get(slug)` below never returns `undefined`.
     if (!stats.has(slug)) {
       stats.set(slug, { albumCount: 0, trackCount: 0, playableCount: 0, albums: [] });
     }
     const entry = stats.get(slug);
     entry.albumCount += 1;
+    // Optional chaining (`album.tracks?.length`) safely evaluates to `undefined` instead
+    // of throwing a TypeError if `album.tracks` is missing; `|| 0` falls back to zero.
     entry.trackCount += Number(album.totalTracksCount || album.tracks?.length || 0);
     entry.playableCount += Number(album.playableTrackCount || 0);
     entry.albums.push(album);
@@ -51,15 +75,23 @@ export function buildArtistStats(catalog) {
 }
 
 /**
- * Renders the Home Landing Page (`/`).
- * @param {Array<any>} catalog
- * @returns {string}
+ * Renders the Engine Room Records Home Landing Page (`/`).
+ *
+ * @param {Array<any>} catalog - Album manifest array from `catalog.json`.
+ * @returns {string} Full HTML5 document string for `./dist/index.html`.
  */
 export function renderHomePage(catalog) {
+  // Compute per-band release/track totals and grand label-wide totals.
   const statsMap = buildArtistStats(catalog);
   const totalAlbums = catalog.length;
+  // `.reduce((acc, item) => ..., 0)` folds the entire `catalog` array down into
+  // a single sum (`totalTracks`), starting the accumulator `acc` at `0`.
   const totalTracks = catalog.reduce((acc, a) => acc + Number(a.totalTracksCount || a.tracks?.length || 0), 0);
 
+  // Build one `<article class="card ...">` HTML string per artist in `ARTIST_LORE_PROFILES`.
+  // Notice how The Stardust Engine (`the-stardust-engine`) routes its lore button
+  // externally to its dedicated subdomain (`https://stardust.raggiesoft.com`), while
+  // all other bands route internally to `/artists/<slug>`.
   const artistCardsHtml = Object.values(ARTIST_LORE_PROFILES)
     .map((artist) => {
       const stat = statsMap.get(artist.slug) || { albumCount: 0, trackCount: 0, playableCount: 0 };
@@ -269,6 +301,7 @@ export function renderHomePage(catalog) {
     </section>
   `;
 
+  // Wrap the 3-pillar home page markup inside `renderDocumentShell()` from `shell.mjs`.
   return renderDocumentShell({
     title: 'Engine Room Records | Official Imprint & Studio Hub',
     description: 'What kind of music do I make? Explore all 7 Engine Room Records bands, studio engineering, and our dual-layer corporate lore.',
@@ -279,7 +312,11 @@ export function renderHomePage(catalog) {
 
 /**
  * Renders Pillar 2: Behind the Scenes on Music Generation (`/studio-engineering`).
- * @returns {string}
+ * Uses static consumer-friendly prose explaining the 4-stage human + AI workflow,
+ * phonetic vowel extensions, the 75% Cover Audio Influence ratio, Open-Culture
+ * Trademark Policy, and Dual Timeline / Zero-Numbers DSP cover art rules.
+ *
+ * @returns {string} Full HTML5 document string for `./dist/studio-engineering/index.html`.
  */
 export function renderStudioEngineeringPage() {
   const bodyHtml = `
@@ -374,6 +411,7 @@ export function renderStudioEngineeringPage() {
     </section>
   `;
 
+  // Wrap the studio engineering body inside the shared Engine Room document shell.
   return renderDocumentShell({
     title: 'Behind the Scenes: Studio Engineering | Engine Room Records',
     description: 'How Engine Room Records engineers music: human direction, Suno v5/v6 pipeline, phonetic vowel extensions, and the 75% Cover Influence protocol.',
@@ -383,18 +421,32 @@ export function renderStudioEngineeringPage() {
 }
 
 /**
- * Recursively renders nodes from `corporate-structure.json` into semantic cards.
- * @param {any} node
- * @param {number} depth
- * @returns {string}
+ * Recursively renders hierarchical organization nodes from `corporate-structure.json`
+ * into nested semantic cards.
+ *
+ * 100-Level JS Tip (Recursion):
+ *   Because a parent trust can own holding companies, which in turn own subsidiary
+ *   LLCs of arbitrary nesting depth, a regular `for` loop wouldn't know how many
+ *   levels deep to go. Instead, `renderCorporateNode` uses **recursion**:
+ *   - **Base Case**: When `node.children` is empty or missing, `childrenHtml` is `''`
+ *     and recursion stops.
+ *   - **Recursive Step**: When `node.children` has child entities, we `.map()` over
+ *     each child and call `renderCorporateNode(child, depth + 1)`, indenting each
+ *     deeper level with a left border.
+ *
+ * @param {any} node - Current organization tree node (`{ title, role, meta, description, children }`).
+ * @param {number} [depth=0] - Nesting level (`0` = top-level root trust, `>= 1` = subsidiary).
+ * @returns {string} Nested HTML card markup for this node and all its descendants.
  */
 function renderCorporateNode(node, depth = 0) {
+  // Base case vs. recursive step: render nested children inside an indented left-bordered container.
   const childrenHtml = Array.isArray(node.children) && node.children.length > 0
     ? `<div style="margin-top: 1rem; padding-left: 1rem; border-left: 2px solid var(--border-strong); display: grid; gap: 0.85rem;">
         ${node.children.map((child) => renderCorporateNode(child, depth + 1)).join('\n')}
        </div>`
     : '';
 
+  // Render the current entity card (`depth === 0` gives the root Trust a slightly larger heading).
   return `
     <div class="card" style="padding: 1.15rem;">
       <div>
@@ -418,10 +470,14 @@ function renderCorporateNode(node, depth = 0) {
 
 /**
  * Renders Pillar 3: The Corporate Entity of Engine Room Records (`/corporate`).
- * @param {any} corporateStructure
- * @returns {string}
+ * Note: `scripts/build.mjs` also injects the 73-route Master Archive Directory
+ * right before `</main>` when writing `./dist/corporate/index.html`.
+ *
+ * @param {any} corporateStructure - Root JSON tree parsed from `corporate-structure.json`.
+ * @returns {string} Full HTML5 document string for `/corporate`.
  */
 export function renderCorporatePage(corporateStructure) {
+  // Kick off recursive org-tree rendering starting at depth `0` (root trust).
   const orgTreeHtml = renderCorporateNode(corporateStructure, 0);
 
   const bodyHtml = `

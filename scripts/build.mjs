@@ -3,32 +3,47 @@
  * ============================================================================
  * scripts/build.mjs — Engine Room Records (engineroom.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Static Site Generation (SSG) compiler for `engineroom.raggiesoft.com`.
- * Reads the canonical flat-file JSON manifests in `raggiesoft-assets`:
- * - `raggiesoft-assets/engine-room-records/catalog.json`
- * - `raggiesoft-assets/engine-room-records/json/corporate-structure.json`
- * - `raggiesoft-assets/engine-room-records/json/master-catalog.json`
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & NODE.JS SSG GUIDE):
+ * What is a Static Site Generator (SSG), and what does this script do?
+ *   Traditional dynamic websites run a server database (like MySQL) on every
+ *   single visitor click to build HTML on the fly. By contrast, a **Static Site
+ *   Generator (SSG)** runs ONCE at build time (`npm run build` -> `node scripts/build.mjs`),
+ *   reads flat JSON data files on disk, and pre-builds 100% finished `.html`,
+ *   `.css`, `.js`, and `.xml` files into `./dist`. When deployed behind Nginx,
+ *   visitors get instant, zero-database page loads with zero server attack surface!
  *
- * Emits 100% static, zero-database HTML routes and client assets to `./dist`:
- * - `/index.html`
- * - `/studio-engineering/index.html`
- * - `/corporate/index.html`
- * - `/artists/index.html`
- * - `/artists/<slug>/index.html` (all 7 bands + `/artists/stardust-engine` alias)
- * - `/commercial-licensing/index.html`
- * - `/dsp-verification/index.html`
- * - `/assets/err-main.css`
- * - `/assets/err-client.js`
- * - `/data/master-catalog.json`
+ * Data Inputs Read at Build Time:
+ *   1. `raggiesoft-assets/engine-room-records/catalog.json` — Live albums & tracklists.
+ *   2. `raggiesoft-assets/engine-room-records/json/corporate-structure.json` — In-universe org tree.
+ *   3. `raggiesoft-assets/engine-room-records/json/master-catalog.json` — Complete ISRC/UPC/ERR-ID ledger.
+ *   4. `src/data/artistLore.mjs` — Biographies, personnel, and lore pillars for all bands.
+ *   5. `src/data/ported-pages.json` — 73 archival corporate, property, and character dossiers.
+ *   6. `src/styles/err-main.css` — Master Light/Dark WCAG 2.1 AA stylesheet.
+ *
+ * Outputs Written by `buildSite()`:
+ *   - `./dist/index.html`, `/studio-engineering/index.html`, `/corporate/index.html`,
+ *     `/artists/index.html`, `/artists/<slug>/index.html` (+ `/artists/stardust-engine` alias),
+ *     `/commercial-licensing/index.html`, `/dsp-verification/index.html`, `/isrc/index.html`,
+ *     `/terms/index.html`, `/privacy/index.html`, all 73 ported dossier routes,
+ *     `/404.html`, `/sitemap.xml`, `/robots.txt`, and IndexNow verification key.
+ *   - `./dist/assets/err-main.css` AND mirrored 1:1 to `raggiesoft-assets/engine-room-records/css/err-main.css`.
+ *   - `./dist/assets/err-client.js` AND mirrored 1:1 to `raggiesoft-assets/engine-room-records/js/err-client.js`.
+ *   - Optional local preview web server when invoked with `node scripts/build.mjs --serve`.
  * ============================================================================
  */
 
+// Node.js built-in modules (`node:` prefix explicitly imports core runtime APIs
+// rather than npm packages from `node_modules/`):
+// - `fs`: File System API for reading JSON/CSS files and writing `./dist` outputs.
+// - `path`: Cross-platform file path joiner/resolver (`/` on macOS/Linux, `\` on Windows).
+// - `http`: Built-in HTTP server used only when `--serve` is passed for local previewing.
+// - `fileURLToPath`: Converts ES Module `import.meta.url` (`file:///...`) into an OS path.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import { fileURLToPath } from 'node:url';
 
+// Import artist lore records and HTML page-rendering functions from `src/`.
 import { ARTIST_LORE_PROFILES } from '../src/data/artistLore.mjs';
 import {
   renderHomePage,
@@ -46,15 +61,25 @@ import {
 } from '../src/renderers/pages-artists-and-legal.mjs';
 import { renderDocumentShell, escapeHtml } from '../src/renderers/shell.mjs';
 
+// 100-Level Node.js ESM Tip:
+// Older CommonJS scripts had magic globals named `__filename` and `__dirname`.
+// In modern ES Modules (`"type": "module"`), we derive them from `import.meta.url`:
+// - `__filename`: Absolute path to `.../subdomains/engineroom/scripts/build.mjs`
+// - `__dirname`:  Absolute path to `.../subdomains/engineroom/scripts`
+// - `projectRoot`: One folder up (`..`) -> `.../subdomains/engineroom`
+// - `distDir`:    Output directory -> `.../subdomains/engineroom/dist`
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 const distDir = path.join(projectRoot, 'dist');
 
 /**
- * Resolves the `raggiesoft-assets/engine-room-records` directory across local
- * and production server layouts.
- * @returns {string}
+ * Locates the shared `raggiesoft-assets/engine-room-records` directory across both
+ * local developer machines (`raggiesoft-servers/raggiesoft.com/subdomains/engineroom`
+ * -> `../../../raggiesoft-assets/...`) and the DigitalOcean production server
+ * (`/var/www/raggiesoft-assets/engine-room-records`).
+ *
+ * @returns {string} Absolute path to `raggiesoft-assets/engine-room-records`.
  */
 function resolveEngineRoomAssetsDir() {
   const candidates = [
@@ -63,6 +88,7 @@ function resolveEngineRoomAssetsDir() {
     path.resolve(projectRoot, '../raggiesoft-assets/engine-room-records'),
     '/var/www/raggiesoft-assets/engine-room-records'
   ];
+  // Return the first candidate path that actually exists as a directory on disk.
   for (const candidate of candidates) {
     if (fs.existsSync(candidate) && fs.statSync(candidate).isDirectory()) {
       return candidate;
@@ -72,9 +98,11 @@ function resolveEngineRoomAssetsDir() {
 }
 
 /**
- * Writes a file to `dist`, creating parent directories automatically.
- * @param {string} relPath
- * @param {string} content
+ * Writes a UTF-8 text file inside `./dist`, automatically creating any missing
+ * parent folders (`{ recursive: true }` behaves like `mkdir -p` in the terminal).
+ *
+ * @param {string} relPath - Path relative to `./dist` (e.g., `'corporate/index.html'`).
+ * @param {string} content - UTF-8 file contents to write.
  */
 function writeDistFile(relPath, content) {
   const fullPath = path.join(distDir, relPath);
@@ -83,32 +111,69 @@ function writeDistFile(relPath, content) {
 }
 
 /**
- * Generates the progressive-enhancement client script (`/assets/err-client.js`)
- * implementing the Modern Web Guidance two-state `<meta name="color-scheme">`
- * theme toggle (reverting to system default when matching OS preference),
- * Bootstrap `data-bs-theme` synchronization, and the `/dsp-verification` instant search filter.
- * @returns {string}
+ * Returns the browser JavaScript source code emitted to BOTH `./dist/assets/err-client.js`
+ * and `raggiesoft-assets/engine-room-records/js/err-client.js`.
+ *
+ * Why Progressive Enhancement?
+ *   Every HTML page already works with JavaScript turned off! This script adds four
+ *   interactive browser upgrades once the DOM has parsed (`defer`):
+ *   1. Mobile Hamburger Menu Drawer (`aria-expanded` + `Escape` key dismissal).
+ *   2. Modern Web Guidance Two-State Light/Dark Mode Toggle (syncing `<meta name="color-scheme">`,
+ *      `localStorage`, Bootstrap `data-bs-theme`, and cross-tab `storage` events).
+ *   3. `/dsp-verification` Instant Table Search & URL Query Parameter Affidavits
+ *      (`?artist=`, `?album=`, `?track=`).
+ *   4. `/isrc` Interactive ISO 3901:2019 ISRC & `ERR` Catalog Number Decoder (`?code=`).
+ *
+ * @returns {string} Complete browser-ready JavaScript file source.
  */
 function buildClientJs() {
   return `/**
  * @license MIT
- * err-client.js — Progressive Enhancement for engineroom.raggiesoft.com
- * Implements Modern Web Guidance dark-mode-toggle, mobile navigation drawer,
- * and DSP verification instant filtering.
+ * ============================================================================
+ * err-client.js — Client-Side Progressive Enhancement (engineroom.raggiesoft.com)
+ * ============================================================================
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   This browser script runs on every page of engineroom.raggiesoft.com (loaded
+ *   with the HTML defer attribute so it never blocks initial page rendering).
+ *   Generated by buildClientJs() in scripts/build.mjs and mirrored to both
+ *   /assets/err-client.js and raggiesoft-assets/engine-room-records/js/err-client.js.
+ *
+ * Four Interactive Features Powered by This Script:
+ *   1. Mobile Navigation Drawer: Opens/closes #primary-navigation on narrow screens
+ *      and closes cleanly when the visitor presses the Escape key.
+ *   2. Light / Dark Mode Toggle: Switches between Light Mode and Dark Mode,
+ *      updating meta[name="color-scheme"] and html[data-bs-theme]. Smart cleanup:
+ *      if the user toggles back to their operating system's default preference,
+ *      it removes the localStorage override so OS auto-switching works again!
+ *   3. DSP Verification Ledger Filter (/dsp-verification): Reads ?artist=, ?album=,
+ *      and ?track= URL query parameters plus live search input to filter catalog
+ *      rows and render official Artist Claim or Single-Track Affidavit cards.
+ *   4. Interactive ISRC & ERR Catalog Decoder (/isrc): Parses any 12-character
+ *      ISO 3901 ISRC (e.g., QTAHP2600046) or ERR-ID (e.g., ERR-001-2015-101) into
+ *      its human-readable segments and cross-checks embedded catalog JSON.
+ * ============================================================================
  */
+// Wrap everything in an IIFE (Immediately Invoked Function Expression) so helper
+// variables and functions stay private instead of polluting window.*.
 (function () {
+  // --- 1. DOM ELEMENT LOOKUPS FOR HEADER & THEME CONTROLS ---
   var meta = document.querySelector('meta[name="color-scheme"]');
   var toggleBtn = document.getElementById('theme-toggle');
   var toggleLabel = document.getElementById('theme-toggle-label');
   var mobileToggle = document.getElementById('mobile-menu-toggle');
   var primaryNav = document.getElementById('primary-navigation');
 
+  // --- 2. ACCESSIBLE MOBILE HAMBURGER MENU DRAWER ---
   if (mobileToggle && primaryNav) {
+    // Toggle the mobile menu open/closed on button click and sync aria-expanded for screen readers.
     mobileToggle.addEventListener('click', function () {
       var expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
       mobileToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
       primaryNav.classList.toggle('is-open', !expanded);
     });
+    // Allow keyboard users to dismiss an open mobile drawer with the Escape key
+    // and return keyboard focus directly to the toggle button (WCAG 2.1 AA).
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && primaryNav.classList.contains('is-open')) {
         mobileToggle.setAttribute('aria-expanded', 'false');
@@ -118,12 +183,16 @@ function buildClientJs() {
     });
   }
 
+  // --- 3. TWO-STATE LIGHT / DARK THEME TOGGLE ---
+  // Detects whether the visitor's operating system currently prefers Dark Mode.
   function getSystemScheme() {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
       : 'light';
   }
 
+  // Returns the active theme: checks localStorage first for a manual override,
+  // otherwise falls back to the operating system's prefers-color-scheme setting.
   function getRenderedScheme() {
     var stored = null;
     try {
@@ -135,6 +204,8 @@ function buildClientJs() {
     return getSystemScheme();
   }
 
+  // Synchronizes Bootstrap 5's data-bs-theme attribute on the root html element
+  // and updates the visible label inside the header's theme toggle button.
   function updateButtonLabel() {
     var current = getRenderedScheme();
     document.documentElement.setAttribute('data-bs-theme', current);
@@ -143,12 +214,15 @@ function buildClientJs() {
   }
 
   if (toggleBtn && meta) {
+    // Set initial button text and data-bs-theme attribute on page load.
     updateButtonLabel();
     toggleBtn.addEventListener('click', function () {
       var current = getRenderedScheme();
       var target = current === 'dark' ? 'light' : 'dark';
       var sys = getSystemScheme();
       try {
+        // Modern Web Guidance pattern: if the user switches back to whatever their
+        // OS already prefers, clear localStorage and restore 'light dark' auto mode!
         if (target === sys) {
           localStorage.removeItem('color-scheme');
           meta.content = 'light dark';
@@ -162,6 +236,8 @@ function buildClientJs() {
       updateButtonLabel();
     });
 
+    // Keep multiple open browser tabs of engineroom.raggiesoft.com in sync if the
+    // user toggles Light/Dark mode in another tab.
     window.addEventListener('storage', function (e) {
       if (e.key === 'color-scheme') {
         meta.content = e.newValue || 'light dark';
@@ -170,7 +246,8 @@ function buildClientJs() {
     });
   }
 
-  // DSP Verification table instant filter + URL query param filter (?artist=, ?album=, ?track=)
+  // --- 4. DSP VERIFICATION LEDGER INSTANT FILTER & AFFIDAVIT HYDRATION (/dsp-verification) ---
+  // Note: On pages other than /dsp-verification, table is null and this block safely skips.
   var searchInput = document.getElementById('dsp-search');
   var table = document.getElementById('dsp-ledger-table');
   var visibleCountEl = document.getElementById('dsp-visible-count');
@@ -183,6 +260,8 @@ function buildClientJs() {
   var trackAffidavitSubtitle = document.getElementById('dsp-affidavit-subtitle');
   var trackAffidavitDetails = document.getElementById('dsp-affidavit-details');
 
+  // Maps shorthand or legacy band aliases in URL query strings (like ?artist=mirage
+  // or ?artist=winter-palace) to their canonical catalog artistSlug.
   function normalizeArtistSlug(slug) {
     var s = String(slug || '').trim().toLowerCase();
     if (s === 'stardust-engine' || s === 'thestardustengine') return 'the-stardust-engine';
@@ -343,13 +422,16 @@ function buildClientJs() {
     }
   }
 
-  // Interactive ISRC & ERR Catalog ID Decoder on /isrc
+  // --- 5. INTERACTIVE ISRC & ERR CATALOG ID DECODER (/isrc) ---
+  // Reads the embedded JSON catalog script tag (#err-isrc-catalog-data) on /isrc
+  // and decodes any 12-char ISO 3901 ISRC or ERR-XXX-YYYY-ZZZ catalog number live.
   var decoderInput = document.getElementById('isrc-decoder-input');
   var decoderBtn = document.getElementById('isrc-decoder-btn');
   var decoderResult = document.getElementById('isrc-decoder-result');
   var catalogDataEl = document.getElementById('err-isrc-catalog-data');
 
   if (decoderInput && decoderResult && catalogDataEl) {
+    // Parse the pre-rendered JSON array of tracks embedded in the /isrc HTML page.
     var catalogList = [];
     try {
       catalogList = JSON.parse(catalogDataEl.textContent || '[]');
@@ -357,6 +439,7 @@ function buildClientJs() {
       catalogList = [];
     }
 
+    // Lookup dictionary mapping the 3-digit ERR roster number to its artist & genre description.
     var ROSTER_MAP = {
       '001': 'The Stardust Engine (Rock Opera / Progressive Synth-Rock)',
       '002': 'Fractured Prisms (Industrial / Melodic Post-Hardcore)',
@@ -368,6 +451,7 @@ function buildClientJs() {
       '008': 'The Hoshizora Ensemble (1970s Japanese City Pop / Jazz Fusion)'
     };
 
+    // Client-side HTML entity escaper preventing XSS when injecting user queries into innerHTML.
     function esc(str) {
       return String(str || '')
         .replace(/&/g, '&amp;')
@@ -376,6 +460,8 @@ function buildClientJs() {
         .replace(/"/g, '&quot;');
     }
 
+    // Core decoder routine: accepts an ISRC or ERR-ID string, resolves catalog matches
+    // (including sibling compilation entries sharing the same ISRC), and renders result cards.
     function runDecoder(rawQuery, shouldScroll) {
       var clean = String(rawQuery || '').trim().toUpperCase();
       if (!clean) {
@@ -564,6 +650,8 @@ function buildClientJs() {
       }
     }
 
+    // Check if the visitor arrived via a deep link like /isrc?code=QTAHP2600046
+    // (used when clicking ISRC badges in The Listening Room or /dsp-verification).
     var urlParams = new URLSearchParams(window.location.search);
     var initialParam = urlParams.get('code') || urlParams.get('isrc') || urlParams.get('err') || '';
     if (initialParam) {
@@ -573,16 +661,21 @@ function buildClientJs() {
       runDecoder(decoderInput.value || 'QTAHP2600046', false);
     }
 
+    // Re-decode live on every keystroke in the search box.
     decoderInput.addEventListener('input', function (e) {
       runDecoder(e.target.value, false);
     });
 
+    // Also support clicking the explicit "Decode Identifier" button.
     if (decoderBtn) {
       decoderBtn.addEventListener('click', function () {
         runDecoder(decoderInput.value, false);
       });
     }
 
+    // Event delegation: listen once on document for clicks on any sample chip or
+    // table code link carrying data-decode-code="...", update the URL bar cleanly
+    // via history.replaceState without reloading the page, and scroll to the decoder!
     document.addEventListener('click', function (e) {
       var trigger = e.target && e.target.closest ? e.target.closest('[data-decode-code]') : null;
       if (trigger) {
@@ -603,10 +696,11 @@ function buildClientJs() {
 }
 
 /**
- * Generates an interactive directory card grid for all 73 ported corporate, trust,
- * and artist dossiers on engineroom.raggiesoft.com.
- * @param {Array<Object>} portedPages
- * @returns {string}
+ * Groups all 73 archival routes from `src/data/ported-pages.json` into four thematic
+ * categories and renders a 3-column directory grid appended to `/corporate` and `/artists`.
+ *
+ * @param {Array<Object>} portedPages - Array of `{ route, title, description, html }` dossiers.
+ * @returns {string} HTML `<section>` markup listing all ported archival dossiers.
  */
 function renderEngineRoomMasterArchiveIndex(portedPages) {
   const groups = [
@@ -684,15 +778,28 @@ function renderEngineRoomMasterArchiveIndex(portedPages) {
 }
 
 /**
- * Runs the full static site build.
+ * Orchestrates the end-to-end static site build:
+ *   Step 0: Resolve and parse all flat-file JSON manifests (`catalog.json`,
+ *           `corporate-structure.json`, `master-catalog.json`, `ported-pages.json`).
+ *   Step 1: Wipe `./dist` clean, emit CSS/JS assets to `./dist/assets/`, and mirror
+ *           those exact CSS/JS files 1:1 into `raggiesoft-assets/engine-room-records/`.
+ *   Step 2: Render core hub, engineering, corporate, roster, licensing, DSP, ISRC,
+ *           terms, and privacy routes.
+ *   Step 3: Render individual `/artists/<slug>` dossiers (merging structured lore +
+ *           discography + any ported archival sub-pages) plus the `/artists/stardust-engine` alias.
+ *   Step 4: Render all remaining ported routes from `ported-pages.json` (preserving
+ *           colliding legacy overviews at `/.../overview` with `noindex: true`).
+ *   Step 5: Emit `/404.html`, `/sitemap.xml`, `/robots.txt`, and IndexNow verification key.
  */
 function buildSite() {
+  // Locate the shared `raggiesoft-assets/engine-room-records` folder and construct manifest paths.
   const assetsDir = resolveEngineRoomAssetsDir();
   const catalogPath = path.join(assetsDir, 'catalog.json');
   const corpPath = path.join(assetsDir, 'json', 'corporate-structure.json');
   const masterCatalogPath = path.join(assetsDir, 'json', 'master-catalog.json');
   const portedPagesPath = path.join(projectRoot, 'src', 'data', 'ported-pages.json');
 
+  // Parse each JSON file into memory with safe empty fallbacks if a file is absent.
   const catalog = fs.existsSync(catalogPath)
     ? JSON.parse(fs.readFileSync(catalogPath, 'utf-8'))
     : [];
@@ -706,14 +813,17 @@ function buildSite() {
     ? JSON.parse(fs.readFileSync(portedPagesPath, 'utf-8'))
     : [];
 
+  // Index `portedPages` by `route` in a `Map` for fast O(1) lookup when merging artist dossiers.
   const portedByRoute = new Map(portedPages.map((p) => [p.route, p]));
   const masterIndexHtml = renderEngineRoomMasterArchiveIndex(portedPages);
 
-  // Clean and recreate dist directory
+  // Clean and recreate `./dist` from scratch so stale files from old builds never linger.
   fs.rmSync(distDir, { recursive: true, force: true });
   fs.mkdirSync(distDir, { recursive: true });
 
-  // 1. Copy CSS and write client JS + JSON ledger (to both ./dist and /raggiesoft-assets CDN)
+  // Step 1: Copy `err-main.css` and write `err-client.js` + `master-catalog.json`
+  // to `./dist`, AND mirror `err-main.css` + `err-client.js` 1:1 into `raggiesoft-assets`
+  // so the shared `https://assets.raggiesoft.com/engine-room-records/` CDN stays 100% synced!
   const cssContent = fs.readFileSync(path.join(projectRoot, 'src', 'styles', 'err-main.css'), 'utf-8');
   const clientJsContent = buildClientJs();
   writeDistFile('assets/err-main.css', cssContent);
@@ -726,7 +836,8 @@ function buildSite() {
   fs.writeFileSync(path.join(sharedCdnJsDir, 'err-client.js'), clientJsContent, 'utf-8');
   writeDistFile('data/master-catalog.json', JSON.stringify(masterCatalog, null, 2));
 
-  // 2. Render core 3-pillar pages (with Master Archive Index appended to /corporate and /artists)
+  // Step 2: Render core pages (injecting the 73-dossier Master Archive Index right before
+  // the closing `</main>` tag on `/corporate` and `/artists`).
   writeDistFile('index.html', renderHomePage(catalog));
   writeDistFile('studio-engineering/index.html', renderStudioEngineeringPage());
   writeDistFile(
@@ -743,7 +854,8 @@ function buildSite() {
   writeDistFile('terms/index.html', renderTermsPage());
   writeDistFile('privacy/index.html', renderPrivacyPage());
 
-  // 3. Render all 7 artist dossier routes (appending any ported overview HTML right below the structured roster header!)
+  // Step 3: Track all primary routes in a `Set` (which automatically prevents duplicate entries)
+  // and compile every artist dossier route in `ARTIST_LORE_PROFILES`.
   const customRenderedRoutes = new Set([
     '/',
     '/studio-engineering',
@@ -886,8 +998,12 @@ function buildSite() {
   );
 }
 
+// Execute the static site build immediately when `node scripts/build.mjs` runs.
 buildSite();
 
+// Optional zero-dependency local HTTP preview server (`npm run preview` -> `node scripts/build.mjs --serve`).
+// Resolves clean extensionless directory URLs (like `/corporate` -> `./dist/corporate/index.html`)
+// and serves `.html`, `.css`, `.js`, and `.json` files with accurate `Content-Type` MIME headers.
 if (process.argv.includes('--serve')) {
   const port = Number(process.env.PORT || 4321);
   const server = http.createServer((req, res) => {

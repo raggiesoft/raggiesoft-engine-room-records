@@ -4,77 +4,131 @@
  * ============================================================================
  * BaseLayout.astro — Engine Room Records (engineroom.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Primary Astro 6 document shell enforcing:
- * 1. WCAG 2.1 AA / Section 508 compliance (skip-link, semantic landmarks,
- *    >= 4.5:1 contrast ratio in both dark and light modes, visible focus rings).
- * 2. Modern Web Guidance Dark/Light Mode Architecture:
- *    - `<meta name="color-scheme" content="light dark">` paired with `:root`
- *      `color-scheme: light dark` and `:has(> head > meta[name="color-scheme"])`
- *      overrides so user selection in `localStorage` seamlessly overrides OS
- *      `prefers-color-scheme` without FOUC.
- *    - `light-dark()` CSS color tokens paired with `scrollbar-width: thin`
- *      and `scrollbar-color` (never animated).
- * 3. Mandatory OpenGraph (`og:*`) and Twitter Card metadata (`title` <= 60 chars,
- *    `description` <= 155 chars).
- * 4. Global Fictitious Persons & Entities Disclaimer and Closed Submission Policy.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * What is an `.astro` file, and what are the `---` fences?
+ *   An `.astro` file has two halves separated by triple-dash "code fences" (`---`):
+ *   1. TOP HALF (Inside `--- ... ---`, called "Component Script" or "Frontmatter"):
+ *      Plain JavaScript that runs ONLY at build time on the developer's machine
+ *      (never sent to the visitor's browser). It prepares variables like page
+ *      titles, descriptions, and URLs.
+ *   2. BOTTOM HALF (Below the second `---`, called the "Component Template"):
+ *      HTML markup enhanced with `{variable}` curly-brace placeholders (similar
+ *      to template literals) and special Astro tags like the slot element.
+ *
+ * What does `BaseLayout.astro` do?
+ *   Think of a Layout as the reusable "outer picture frame" shared by every page
+ *   on `engineroom.raggiesoft.com`. Instead of copying and pasting the HTML
+ *   document head, dark/light theme logic, social media preview metadata, and
+ *   accessibility skip-link into every single page, child pages wrap their content
+ *   in `BaseLayout` and inject their unique body content into the slot placeholder.
+ *
+ * Key Web Standards Implemented Here:
+ *   1. Accessibility (WCAG 2.1 AA / Section 508): Language attribute (`lang="en"`),
+ *      keyboard "Skip to main content" link, and high-contrast styling.
+ *   2. Flash-Free Dark/Light Mode: Pairs a `color-scheme` meta declaration with a
+ *      tiny synchronous startup script so returning visitors never see a bright
+ *      white flash (Flash of Unstyled Content / FOUC) if they chose Dark Mode.
+ *   3. Social Sharing (OpenGraph & Twitter Cards): Populates preview titles
+ *      (<= 60 chars), descriptions (<= 155 chars), and 1200x630 banner images.
  * ============================================================================
  */
+
+// `Astro.props` is an object holding all attributes ("props") passed into this
+// layout by a parent page—for example: `<BaseLayout title="Studio" canonicalPath="/studio" />`.
+// Here we use JavaScript Object Destructuring with `=` fallback defaults so every
+// prop still has a safe value even if a page omits one.
 const {
+  // Default browser tab & social card title (kept <= 60 characters for SEO).
   title = 'Engine Room Records | Official Imprint & Studio Hub',
+  // Default search engine & social preview summary (kept <= 155 characters).
   description = 'Official imprint of Michael P. Ragsdale. Explore 7 bands, studio engineering, and the dual-layer lore of Engine Room Records.',
+  // Route path starting with `/` (e.g., `'/'` or `'/corporate'`).
   canonicalPath = '/',
+  // Default 1200x630 banner image URL displayed when links are shared on chat/social apps.
   ogImage = 'https://assets.raggiesoft.com/engine-room-records/images/og/engine-room-og.jpg',
+  // OpenGraph resource category (`'website'` for general pages, `'profile'` for band pages).
   ogType = 'website'
 } = Astro.props;
 
+// Combine the production domain with the page's path using a JS template literal
+// (`https://...${variable}`) to build the authoritative canonical URL for search engines.
 const canonicalUrl = `https://engineroom.raggiesoft.com${canonicalPath}`;
 ---
 <!doctype html>
+<!-- Root HTML5 element declaring English (`en`) for screen readers and translation tools -->
 <html lang="en">
   <head>
+    <!-- UTF-8 character encoding ensures symbols, emojis, and smart quotes render properly -->
     <meta charset="utf-8" />
+    <!-- Responsive viewport rule telling mobile browsers to match the device screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Declares native browser support for both Light and Dark color schemes (scrollbars, form controls) -->
     <meta name="color-scheme" content="light dark" id="meta-color-scheme" />
+    <!--
+      Astro `is:inline` directive: Normally Astro bundles and defers scripts automatically.
+      Adding `is:inline` tells Astro to leave this tiny script right here in the document head
+      so it executes synchronously BEFORE the browser paints a single pixel—preventing a
+       jarring white-to-dark flash (FOUC) when a user has saved a custom theme preference.
+    -->
     <script is:inline>
-      // Synchronous FOUC-prevention script: applies stored user theme preference
-      // directly to <meta name="color-scheme"> before first paint.
+      // Immediately Invoked Function Expression (IIFE): `(function() { ... })()` runs
+      // right away while keeping `saved` and `meta` scoped privately out of `window`.
       (function () {
+        // Wrap `localStorage` access in `try / catch` because strict browser privacy
+        // modes (or sandboxed iframes) can throw a SecurityError when reading storage.
         try {
           var saved = localStorage.getItem('err-theme');
           var meta = document.getElementById('meta-color-scheme');
+          // Only override the color-scheme content if the stored value is an expected theme token.
           if (meta && (saved === 'light' || saved === 'dark')) {
             meta.content = saved;
           }
         } catch (e) {}
       })();
     </script>
+    <!-- Astro curly-brace interpolation `{title}` injects our JavaScript variable safely as text -->
     <title>{title}</title>
+    <!-- Search engine summary snippet -->
     <meta name="description" content={description} />
+    <!-- Authoritative canonical URL preventing duplicate-content indexing penalties -->
     <link rel="canonical" href={canonicalUrl} />
+    <!-- OpenGraph (`og:*`) metadata read by iMessage, Discord, Slack, LinkedIn, and Facebook -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Engine Room Records" />
+    <!-- Twitter / X large-banner social preview card metadata -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <!-- Main site stylesheet defining Light/Dark tokens, responsive grids, and accessible typography -->
     <link rel="stylesheet" href="/assets/err-main.css" />
-    <!-- Google Analytics 4 (GA4) Telemetry Integration (G-P9RG9JVYB6) -->
+    <!-- Google Analytics 4 (GA4) anonymous page-view telemetry (`async` downloads without blocking HTML parsing) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
     <script is:inline>
+      // Initialize the global `dataLayer` queue array if GA4 hasn't created it yet.
       window.dataLayer = window.dataLayer || [];
+      // Helper function pushing analytics events onto the `dataLayer` queue.
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-P9RG9JVYB6');
     </script>
   </head>
   <body>
+    <!-- Keyboard accessibility bypass link: stays off-screen until focused via the Tab key -->
     <a href="#content" class="skip-link">Skip to main content</a>
+    <!--
+      Astro slot placeholder: Whatever child content a page places inside its
+      BaseLayout wrapper tags is injected right here at build time.
+    -->
     <slot />
+    <!--
+      Progressive enhancement client script (`defer` waits until HTML parsing finishes
+      before running theme toggle, mobile menu, DSP filter, and ISRC decoder logic).
+    -->
     <script src="/assets/err-client.js" defer></script>
   </body>
 </html>

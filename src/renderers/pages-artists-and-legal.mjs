@@ -3,17 +3,33 @@
  * ============================================================================
  * src/renderers/pages-artists-and-legal.mjs — Engine Room Records
  * ============================================================================
- * Architectural Overview:
- * Renders:
- * 1. `renderArtistsIndexPage` (`/artists`): Complete 7-project roster index.
- * 2. `renderArtistDetailPage` (`/artists/<slug>`): Dedicated lore dossier,
- *    member roster, and full chronological discography for each of the 7 bands
- *    (including `/artists/fractured-prisms`, the destination for the 301 redirect
- *    from `https://fracturedprisms.com`).
- * 3. `renderCommercialLicensingPage` (`/commercial-licensing`): B2B non-exclusive
- *    synchronization clearance portal.
- * 4. `renderDspVerificationPage` (`/dsp-verification`): Administrative DSP
- *    chain-of-custody & ISRC verification portal powered by `master-catalog.json`.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   This ES Module renders the roster, catalog verification, ISRC registry,
+ *   and legal governance routes for `engineroom.raggiesoft.com`:
+ *   1. `renderArtistsIndexPage(catalog)` (`/artists`) — Complete band roster
+ *      directory combining `ARTIST_LORE_PROFILES` with live album/track stats.
+ *   2. `renderArtistDetailPage(slug, catalog)` (`/artists/<slug>`) — Individual
+ *      band lore dossier, member lineup, chronological discography, free
+ *      CC BY-SA 4.0 MP3 `.zip` download links, and Schema.org `MusicGroup` +
+ *      `BreadcrumbList` JSON-LD metadata.
+ *   3. `renderCommercialLicensingPage()` (`/commercial-licensing`) — Dual-track
+ *      CC BY-SA 4.0 vs. B2B synchronization clearance overview.
+ *   4. `renderDspVerificationPage(masterCatalog)` (`/dsp-verification`) — Print-ready
+ *      and client-filterable chain-of-custody ledger reading `master-catalog.json`,
+ *      emitting `data-*` row attributes hydrated by `/assets/err-client.js` when
+ *      DSP reviewers visit `?artist=`, `?album=`, or `?track=` deep links.
+ *   5. `renderIsrcExplainerPage(masterCatalog)` (`/isrc`) — Official explainer and
+ *      allocation registry for US ISRC Agency prefix `QTAHP` (Registrant #185611)
+ *      and shared `ERR` catalog numbers, plus an embedded JSON payload powering
+ *      the instant client-side ISRC/ERR-ID decoder.
+ *   6. `renderTermsPage()` (`/terms`) & `renderPrivacyPage()` (`/privacy`) —
+ *      Consumer-friendly legal governance pages distinguishing real-world operator
+ *      Michael P. Ragsdale from fictitious in-universe LLCs.
+ *
+ * Safety Note:
+ *   All JavaScript `//` comments are placed strictly OUTSIDE HTML template
+ *   literals so raw comment syntax never leaks into compiled HTML pages.
  * ============================================================================
  */
 
@@ -22,13 +38,18 @@ import { ARTIST_LORE_PROFILES } from '../data/artistLore.mjs';
 import { buildArtistStats } from './pages-core.mjs';
 
 /**
- * Renders `/artists` index page.
- * @param {Array<any>} catalog
- * @returns {string}
+ * Renders the `/artists` roster directory page.
+ * Note: `scripts/build.mjs` also appends the 73-route Master Archive Index
+ * right before `</main>` when writing `./dist/artists/index.html`.
+ *
+ * @param {Array<any>} catalog - Album manifest array parsed from `catalog.json`.
+ * @returns {string} Full HTML5 document string for `/artists`.
  */
 export function renderArtistsIndexPage(catalog) {
+  // Build a Map of `{ albumCount, trackCount, playableCount }` keyed by artist slug.
   const statsMap = buildArtistStats(catalog);
 
+  // Transform every artist profile in `ARTIST_LORE_PROFILES` into a summary card.
   const cardsHtml = Object.values(ARTIST_LORE_PROFILES)
     .map((artist) => {
       const stat = statsMap.get(artist.slug) || { albumCount: 0, trackCount: 0, playableCount: 0 };
@@ -103,18 +124,22 @@ export function renderArtistsIndexPage(catalog) {
 
 /**
  * Renders an individual artist lore & discography dossier (`/artists/<slug>`).
- * @param {string} slug
- * @param {Array<any>} catalog
- * @returns {string}
+ *
+ * @param {string} slug - Artist key in `ARTIST_LORE_PROFILES` (e.g., `'fractured-prisms'`).
+ * @param {Array<any>} catalog - Full album manifest array from `catalog.json`.
+ * @returns {string} Full HTML5 document string for `./dist/artists/<slug>/index.html`.
  */
 export function renderArtistDetailPage(slug, catalog) {
+  // Guard clause: fail fast at build time if a caller passes a non-existent slug.
   const artist = ARTIST_LORE_PROFILES[slug];
   if (!artist) {
     throw new Error(`Unknown artist slug: ${slug}`);
   }
 
+  // `.filter()` keeps only the albums in `catalog.json` belonging to this artist.
   const artistAlbums = catalog.filter((a) => a.artistSlug === slug);
 
+  // Render each band member object `{ name, role, notes }` into a grid card.
   const membersHtml = artist.members
     .map(
       (m) => `
@@ -132,6 +157,7 @@ export function renderArtistDetailPage(slug, catalog) {
     )
     .join('\n');
 
+  // Render each canonical lore pillar `{ title, body }` into an amber-accented card.
   const pillarsHtml = artist.lorePillars
     .map(
       (p) => `
@@ -146,6 +172,8 @@ export function renderArtistDetailPage(slug, catalog) {
     )
     .join('\n');
 
+  // Render release cards with cover art, release year, track count, streaming handoff,
+  // and optional CC BY-SA 4.0 128kbps MP3 `.zip` download link (or a fallback box if empty).
   const albumsHtml =
     artistAlbums.length > 0
       ? artistAlbums
@@ -282,6 +310,8 @@ export function renderArtistDetailPage(slug, catalog) {
     </section>
   `;
 
+  // Build Schema.org `sameAs` cross-property URLs and `subjectOf` companion book links
+  // so search engines connect the band's dossier, Listening Room profile, and novels.
   const artistSameAs = [artist.listeningRoomUrl];
   if (slug === 'the-stardust-engine') {
     artistSameAs.push('https://stardust.raggiesoft.com');
@@ -302,6 +332,10 @@ export function renderArtistDetailPage(slug, catalog) {
     });
   }
 
+  // Construct page-specific `MusicGroup` and `BreadcrumbList` JSON-LD nodes
+  // that `renderDocumentShell()` merges into the `<head>` `@graph` array.
+  // Notice the conditional object spread `...(artistSubjectOf.length > 0 ? { subjectOf: ... } : {})`:
+  // if `artistSubjectOf` has entries, it adds the `subjectOf` key; otherwise it spreads `{}` (nothing).
   const extraJsonLd = [
     {
       '@type': 'MusicGroup',
@@ -436,13 +470,19 @@ export function renderCommercialLicensingPage() {
  * @returns {string}
  */
 export function renderDspVerificationPage(masterCatalog) {
+  // Defensive normalization: ensure `flatTracks` is always an Array before iterating.
   const flatTracks = Array.isArray(masterCatalog) ? masterCatalog : [];
   let rowsHtml = '';
   let totalTracks = flatTracks.length;
 
   /**
-   * Converts a `master-catalog.json` `trackSlug` (e.g. `1-01-the-hollow-square`) into
-   * the canonical Listening Room song route slug (`the-hollow-square`).
+   * Converts a `master-catalog.json` `trackSlug` (e.g. `1-01-the-hollow-square.mp3`)
+   * into the clean Listening Room song route slug (`the-hollow-square`):
+   *   1. `.toLowerCase()` normalizes casing.
+   *   2. `.replace(/\.mp3$/i, '')` strips any trailing `.mp3` extension.
+   *   3. `.replace(/^\d+-\d+-/, '')` strips multi-disc prefixes like `1-01-`.
+   *   4. `.replace(/^\d+-/, '')` strips single-disc track prefixes like `01-`.
+   *
    * @param {string} raw
    * @returns {string}
    */
@@ -453,6 +493,11 @@ export function renderDspVerificationPage(masterCatalog) {
       .replace(/^\d+-\d+-/, '')
       .replace(/^\d+-/, '');
 
+  // Pre-render one `<tr>` table row per registered track in `master-catalog.json`.
+  // Each `<tr>` carries structured `data-*` attributes (`data-artist`, `data-album`,
+  // `data-track`, `data-isrc`, `data-upc`, etc.) so `/assets/err-client.js` can
+  // instantaneously filter rows and populate DSP Claim / Single-Track Affidavit cards
+  // in the browser without making any network requests.
   for (const item of flatTracks) {
     const artistSlug = String(item.artistSlug || '');
     const albumSlug = String(item.albumSlug || '');
@@ -645,7 +690,11 @@ export function renderDspVerificationPage(masterCatalog) {
 export function renderIsrcExplainerPage(masterCatalog) {
   const flatTracks = Array.isArray(masterCatalog) ? masterCatalog : [];
 
-  // Group all tracks that have a QTAHP ISRC by their ISRC code, sorted numerically
+  // Group all tracks carrying a first-party `QTAHP` ISRC into a `Map<isrcCode, Array<track>>`.
+  // Why an array per ISRC? Under the ISO 3901 Permanent Single-ISRC Rule, if an identical
+  // master recording appears on both a primary album and a compilation anthology, both
+  // album entries share the exact same ISRC—so a single ISRC key can map to 1+ releases!
+  // Meanwhile, `legacyCount` tallies pre-Oct-20-2026 distributor-assigned ISRCs (`QZ...`).
   const byIsrc = new Map();
   let legacyCount = 0;
   for (const item of flatTracks) {
@@ -660,10 +709,14 @@ export function renderIsrcExplainerPage(masterCatalog) {
     }
   }
 
+  // Sort unique `QTAHP` codes ascending (`QTAHP2600001` .. `QTAHP26xxxxx`) and grab the highest minted code.
   const sortedQtahpCodes = Array.from(byIsrc.keys()).sort((a, b) => a.localeCompare(b));
   const highestCode = sortedQtahpCodes.length > 0 ? sortedQtahpCodes[sortedQtahpCodes.length - 1] : 'QTAHP2600001';
 
-  // Compact JSON payload for the instantaneous client-side ISRC & ERR-ID decoder
+  // Project only the fields needed by `/assets/err-client.js`'s Interactive Decoder into
+  // a compact JSON array embedded inside `<script id="err-isrc-catalog-data" type="application/json">`.
+  // Security tip: `.replace(/</g, '\\u003c')` escapes `<` as a JSON Unicode escape so a
+  // track title containing `</script>` could never prematurely close the `<script>` tag!
   const decoderPayload = flatTracks.map((t) => ({
     err_id: String(t.err_id || ''),
     isrc: String(t.isrc || ''),

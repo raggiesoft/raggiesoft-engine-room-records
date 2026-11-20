@@ -2,28 +2,48 @@
 /**
  * @license MIT
  * ============================================================================
- * src/pages/index.astro — Engine Room Records Landing Page (/)
+ * src/pages/index.astro — Engine Room Records Home Route (`/`)
  * ============================================================================
- * Architectural Overview:
- * Implements the Three Core Pillars of Engine Room Records (`engineroom.raggiesoft.com`):
- * 1. "What Kind of Music Do I Make?": Curated directory of all 7 active bands
- *    that passes visitors directly to The Listening Room (`https://music.raggiesoft.com`).
- * 2. Behind the Scenes on Music Generation: Transparent studio engineering summary
- *    linking to `/studio-engineering`.
- * 3. The Corporate Entity of Engine Room Records: Clear dual-layer breakdown
- *    distinguishing the Real-World creative brand (**Engine Room Records**, never "LLC")
- *    from the In-Universe lore conglomerate (**Engine Room Records, LLC** founded by
- *    Holly O'Connell in 1992 and The O'Connell Family Revocable Trust).
- * 4. Closed Submission Policy: Explicitly states that Engine Room Records is a closed
- *    private imprint and that unsolicited submissions are deleted prior to inbox delivery.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * What is this file?
+ *   In Astro 6, every `.astro` file inside `src/pages/` defines a public URL
+ *   route using "file-based routing." Because this file is named `index.astro`
+ *   at the root of `src/pages/`, it represents the site's home page (`/`).
+ *
+ * How does it fit into the build lifecycle?
+ *   - Route Blueprint: Declares the canonical SEO title, description, and path
+ *     for `/` wrapped inside `BaseLayout.astro`.
+ *   - Data Hydration (`scripts/build.mjs` + `src/renderers/pages-core.mjs`):
+ *     During `npm run build`, `renderHomePage(catalog)` reads the live album and
+ *     track manifest (`raggiesoft-assets/engine-room-records/catalog.json`) plus
+ *     `src/data/artistLore.mjs` and writes `./dist/index.html`.
+ *
+ * What visible UI does the `/` page produce?
+ *   1. Pillar 1 ("What Kind of Music Do I Make?"): Interactive roster cards for
+ *      all Engine Room Records bands with direct streaming handoff links to
+ *      The Listening Room (`https://music.raggiesoft.com`).
+ *   2. Pillar 2 ("Behind the Scenes on Music Generation"): Summary cards for our
+ *      human + AI studio pipeline, phonetic vowel extensions, and 75% Cover rule.
+ *   3. Pillar 3 ("The Corporate Entity"): Side-by-side distinction between the
+ *      real-world unincorporated brand (**Engine Room Records**, never "LLC") and
+ *      the fictional in-universe conglomerate (*Engine Room Records, LLC*).
+ *   4. Closed Submission Policy: Explicit notice that unsolicited demos are deleted.
  * ============================================================================
  */
+
+// Import the shared outer HTML document layout from `src/layouts/BaseLayout.astro`.
+// Remember: JavaScript inside `--- ... ---` runs strictly at build time!
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<!--
+  Pass page-specific metadata props (`title`, `description`, `canonicalPath`) into
+  our BaseLayout component. Anything placed inside BaseLayout's opening and closing
+  tags is projected into BaseLayout's slot placeholder.
+-->
 <BaseLayout
   title="Engine Room Records | Official Imprint & Studio Hub"
   description="What kind of music do I make? Explore all 7 Engine Room Records bands, studio engineering, and our dual-layer corporate lore."
   canonicalPath="/"
 >
-  <!-- Static HTML compiled and hydrated with catalog.json and corporate-structure.json via scripts/build.mjs -->
+  <!-- Static HTML body hydrated from catalog.json and artistLore.mjs via renderHomePage() in scripts/build.mjs -->
 </BaseLayout>

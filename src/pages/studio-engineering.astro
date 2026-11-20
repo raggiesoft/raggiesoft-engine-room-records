@@ -2,26 +2,39 @@
 /**
  * @license MIT
  * ============================================================================
- * src/pages/studio-engineering.astro — Behind the Scenes on Music Generation
+ * src/pages/studio-engineering.astro — Studio Engineering Route (`/studio-engineering`)
  * ============================================================================
- * Architectural Overview:
- * Pillar 2 of Engine Room Records (`engineroom.raggiesoft.com/studio-engineering`):
- * - Human Direction + Google Gemini Co-Writing & Libretto Architecture
- * - Commercial Suno v5 / v6 Audio Pipeline & Mastering
- * - Acoustic & Phonetic Vowel Extension Protocol (`ooh`, `aah`, `ee`, `oh`)
- * - The 75% Cover Audio Influence Protocol (Starfield Calibration discovery)
- * - Open-Culture Trademark Policy: "The Cosmic Tidal Lock Sound™" (proprietary
- *   brand mark) vs. "80s Cosmic Pop" (open generic genre free for everyone)
- * - Dual Timeline Specification (`temporalCoverage` vs. `datePublished` 2026)
- * - Zero-Numbers DSP Artwork Compliance
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * What is this file?
+ *   Using Astro 6's file-based routing, `src/pages/studio-engineering.astro`
+ *   maps automatically to the URL `/studio-engineering`.
+ *
+ * How does it fit into the build lifecycle?
+ *   - Route Blueprint: Wraps `/studio-engineering` metadata in `BaseLayout.astro`
+ *     using the `---` build-time JavaScript frontmatter fence.
+ *   - Static Compilation: Paired with `renderStudioEngineeringPage()` in
+ *     `src/renderers/pages-core.mjs` (invoked by `scripts/build.mjs`), which emits
+ *     the finished HTML document to `./dist/studio-engineering/index.html`.
+ *
+ * What visible UI does `/studio-engineering` produce?
+ *   Pillar 2 of Engine Room Records ("Behind the Scenes on Music Generation"):
+ *   - The 4-stage human + AI production workflow (human storytelling, phonetic
+ *     vowel extensions like `ooh`/`aah`/`ee`/`oh`, Suno v5/v6 75% Cover Audio
+ *     Influence calibration, and line-by-line Google Gemini lyric synchronization).
+ *   - Why lyrical and acoustic phrasing evolved on *Starfield Calibration*.
+ *   - Open-Culture Trademark Policy ("The Cosmic Tidal Lock Sound™" brand mark vs.
+ *     the open "80s Cosmic Pop" genre) and Dual Timeline / Zero-Numbers DSP art rules.
  * ============================================================================
  */
+
+// Load the reusable outer page shell (`BaseLayout`) at build time.
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<!-- Render the outer HTML document frame with SEO-safe title (<= 60 chars) and description (<= 155 chars) -->
 <BaseLayout
   title="Behind the Scenes: Studio Engineering | Engine Room Records"
   description="How Engine Room Records engineers music: human direction, Suno v5/v6 pipeline, phonetic vowel extensions, and the 75% Cover Influence protocol."
   canonicalPath="/studio-engineering"
 >
-  <!-- Compiled via scripts/build.mjs -->
+  <!-- Full 4-stage studio engineering dossier compiled via renderStudioEngineeringPage() in scripts/build.mjs -->
 </BaseLayout>

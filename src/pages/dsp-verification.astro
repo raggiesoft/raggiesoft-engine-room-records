@@ -2,21 +2,36 @@
 /**
  * @license MIT
  * ============================================================================
- * src/pages/dsp-verification.astro — DSP Identity & Chain-of-Custody Portal
+ * src/pages/dsp-verification.astro — DSP Rights Ledger (`/dsp-verification`)
  * ============================================================================
- * Architectural Overview:
- * Official administrative portal for Digital Service Providers (Spotify, Apple
- * Music, Amazon Music, YouTube Music, DistroKid) verifying Michael P. Ragsdale's
- * 100% independent ownership, commercial Suno AI clearance, ISRC/ERR-ID ledger,
- * and Work of Fiction disclosure.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * What is this file?
+ *   Astro 6 route blueprint for `/dsp-verification`—the official administrative
+ *   chain-of-custody verification portal used by Digital Service Providers
+ *   (DistroKid, Spotify for Artists, Apple Music for Artists, Amazon Music, and
+ *   YouTube Music) to verify ownership of Engine Room Records releases.
+ *
+ * How does it fit into the build & browser lifecycle?
+ *   - Build Time (`scripts/build.mjs` -> `renderDspVerificationPage(masterCatalog)`):
+ *     Reads every track in `raggiesoft-assets/engine-room-records/json/master-catalog.json`
+ *     and pre-renders a complete, print-ready HTML table with `data-*` attributes
+ *     (`data-artist`, `data-album`, `data-track`, `data-isrc`, `data-upc`) into
+ *     `./dist/dsp-verification/index.html`.
+ *   - Browser Runtime (`/assets/err-client.js`):
+ *     Reads URL query parameters (`?artist=`, `?album=`, `?track=`) and live
+ *     keystrokes in the `#dsp-search` input box to filter rows instantaneously
+ *     and display targeted Artist Claim or Single-Track Affidavit banners.
  * ============================================================================
  */
+
+// Import BaseLayout inside the build-time frontmatter block (`---`).
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<!-- Pass SEO metadata props to BaseLayout for `/dsp-verification` -->
 <BaseLayout
   title="DSP Identity & Copyright Verification | Engine Room Records"
   description="Official administrative portal for DSP identity, ISRC registry, and chain-of-custody verification for Engine Room Records."
   canonicalPath="/dsp-verification"
 >
-  <!-- Compiled via scripts/build.mjs -->
+  <!-- Hydrated with master-catalog.json rows via renderDspVerificationPage() in scripts/build.mjs -->
 </BaseLayout>

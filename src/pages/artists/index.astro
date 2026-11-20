@@ -2,22 +2,38 @@
 /**
  * @license MIT
  * ============================================================================
- * src/pages/artists/index.astro & src/pages/artists/[slug].astro
+ * src/pages/artists/index.astro — Artist Roster Directory (`/artists`)
  * ============================================================================
- * Architectural Overview:
- * Renders the complete 7-artist roster directory (`/artists`) and individual
- * band lore & discography pages (`/artists/the-stardust-engine`,
- * `/artists/fractured-prisms`, `/artists/the-paper-wall`,
- * `/artists/the-arctic-symphony-project`, `/artists/crimson-node`,
- * `/artists/mana-canvas`, `/artists/firelight`).
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * What is this file?
+ *   In Astro 6 file-based routing, placing `index.astro` inside a subfolder
+ *   (`src/pages/artists/index.astro`) maps to that folder's root URL: `/artists`.
+ *   Notice the relative import path `../../layouts/BaseLayout.astro` uses `..`
+ *   twice because we are two folders deep (`src/pages/artists/`).
+ *
+ * How does it fit into the build lifecycle?
+ *   - Data Inputs: `src/data/artistLore.mjs` (band biographies & links),
+ *     `raggiesoft-assets/engine-room-records/catalog.json` (live album & song
+ *     counts), and `src/data/ported-pages.json` (73 archival sub-dossiers).
+ *   - Static Compilation: `scripts/build.mjs` calls `renderArtistsIndexPage(catalog)`
+ *     and appends the Master Archive Directory before writing `./dist/artists/index.html`.
+ *
+ * What visible UI does `/artists` produce?
+ *   A 2-column directory grid introducing every musical project distributed under
+ *   Engine Room Records, complete with band emblems, `ERR-00X` catalog badges,
+ *   release/track totals, dossier links, and direct streaming buttons to
+ *   `https://music.raggiesoft.com`.
  * ============================================================================
  */
+
+// Step up two directory levels (`../../`) to import BaseLayout from `src/layouts/`.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
+<!-- Render the outer document frame for `/artists` -->
 <BaseLayout
   title="Artist Roster & Band Lore Directory | Engine Room Records"
   description="Explore all 7 bands on Engine Room Records: The Stardust Engine, Fractured Prisms, The Paper Wall, Arctic Symphony, Crimson Node, Mana Canvas, and Firelight."
   canonicalPath="/artists"
 >
-  <!-- Compiled via scripts/build.mjs -->
+  <!-- Roster cards and 73-route dossier directory compiled via renderArtistsIndexPage() in scripts/build.mjs -->
 </BaseLayout>

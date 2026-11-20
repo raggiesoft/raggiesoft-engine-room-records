@@ -4,23 +4,70 @@
  * ============================================================================
  * src/pages/artists/[slug].astro — Dynamic Artist Lore & Discography Route
  * ============================================================================
- * Architectural Overview:
- * Static paths generated for all 7 Engine Room Records artists:
- * - `/artists/the-stardust-engine` (Hands off to `https://stardust.raggiesoft.com` & `https://music.raggiesoft.com/the-stardust-engine`)
- * - `/artists/fractured-prisms` (Destination for `https://fracturedprisms.com` 301 redirect)
- * - `/artists/the-paper-wall`
- * - `/artists/the-arctic-symphony-project`
- * - `/artists/crimson-node`
- * - `/artists/mana-canvas`
- * - `/artists/firelight`
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * Why are there square brackets `[slug]` in this filename?
+ *   In Astro 6 (and modern web frameworks), square brackets in a filename like
+ *   `[slug].astro` create a **Dynamic Route**—a single template that generates
+ *   many separate static HTML pages at build time by substituting `[slug]` with
+ *   each band's URL-friendly identifier ("slug").
+ *
+ *   In a standalone Astro build, a dynamic route exports an async function called
+ *   `getStaticPaths()` returning an array of `{ params: { slug }, props: { ... } }`
+ *   objects—one per artist. In this zero-database SSG pipeline, `scripts/build.mjs`
+ *   loops over `Object.keys(ARTIST_LORE_PROFILES)` and calls
+ *   `renderArtistDetailPage(slug, catalog)` to emit static HTML for every band:
+ *   - `/artists/the-stardust-engine` (+ `/artists/stardust-engine` legacy alias,
+ *     handing off to `https://stardust.raggiesoft.com` & `https://music.raggiesoft.com`)
+ *   - `/artists/fractured-prisms` (301 redirect destination for `fracturedprisms.com`)
+ *   - `/artists/the-paper-wall`
+ *   - `/artists/the-arctic-symphony-project`
+ *   - `/artists/crimson-node`
+ *   - `/artists/mana-canvas`
+ *   - `/artists/firelight`
+ *   - `/artists/the-hoshizora-ensemble`
+ *
+ * What visible UI does each `/artists/<slug>` page produce?
+ *   1. Band crest, `ERR-00X` catalog badge, origin, active era, and sound summary.
+ *   2. Canonical Band Lore & Sanctuary History pillars.
+ *   3. Band Members & Studio Collective roster cards.
+ *   4. Complete chronological Discography filtered from `catalog.json` with direct
+ *      streaming links and free CC BY-SA 4.0 128kbps MP3 `.zip` download buttons,
+ *      plus any deep sub-page dossiers from `src/data/ported-pages.json`.
  * ============================================================================
  */
+
+// Import `BaseLayout` from `src/layouts/` inside Astro's build-time `---` fence,
+// and import `ARTIST_LORE_PROFILES` so `getStaticPaths()` can enumerate every slug.
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ARTIST_LORE_PROFILES } from '../../data/artistLore.mjs';
+
+/**
+ * Standard Astro 6 `getStaticPaths()` helper for `[slug].astro` dynamic routes.
+ * Maps every artist key in `ARTIST_LORE_PROFILES` into a `{ params, props }` entry
+ * so Astro knows the exact finite list of `/artists/<slug>` URLs to pre-render.
+ */
+export function getStaticPaths() {
+  return Object.values(ARTIST_LORE_PROFILES).map((artist) => ({
+    params: { slug: artist.slug },
+    props: { artist }
+  }));
+}
+
+// Read the `artist` object passed from `getStaticPaths()` (with safe fallbacks).
+const { artist } = Astro.props;
+const pageTitle = artist
+  ? `${artist.name} | Lore & Discography | Engine Room Records`
+  : 'Artist Lore & Discography | Engine Room Records';
+const pageDesc = artist
+  ? `${artist.name} (${artist.primaryGenre}): ${artist.summary}`.slice(0, 155)
+  : 'Official band lore, narrative archive, and complete discography on Engine Room Records.';
+const pageCanonical = artist ? `/artists/${artist.slug}` : '/artists';
 ---
+<!-- Pass per-artist dynamic title, description (<= 155 chars), and canonical path into BaseLayout -->
 <BaseLayout
-  title="Artist Lore & Discography | Engine Room Records"
-  description="Official band lore, narrative archive, and complete discography on Engine Room Records."
-  canonicalPath="/artists"
+  title={pageTitle}
+  description={pageDesc}
+  canonicalPath={pageCanonical}
 >
-  <!-- Compiled via scripts/build.mjs -->
+  <!-- Full artist lore, member cards, discography, and JSON-LD MusicGroup schema compiled via scripts/build.mjs -->
 </BaseLayout>

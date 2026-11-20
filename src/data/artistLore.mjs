@@ -3,23 +3,54 @@
  * ============================================================================
  * src/data/artistLore.mjs — Engine Room Records (engineroom.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Canonical narrative & roster metadata for all 7 musical projects distributed
- * under Engine Room Records. Combined at build time with the live album/track
- * manifest in `raggiesoft-assets/engine-room-records/catalog.json`.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   This ES Module acts as our structured, flat-file "lore database" for all
+ *   musical projects distributed under Engine Room Records (`ERR-001` through
+ *   `ERR-008`). Instead of querying a SQL database on a server, we store each
+ *   band's biography, member lineup, origin story pillars, artwork URLs, and
+ *   cross-site links inside one clean JavaScript dictionary object:
+ *   `ARTIST_LORE_PROFILES`.
+ *
+ * How does it fit into the build lifecycle?
+ *   - Imported by `scripts/build.mjs`, `src/renderers/pages-core.mjs`,
+ *     `src/renderers/pages-artists-and-legal.mjs`, and `src/pages/artists/[slug].astro`.
+ *   - At build time (`npm run build`), the site generator merges each band's
+ *     profile here with live album and track counts from
+ *     `raggiesoft-assets/engine-room-records/catalog.json` (matched by `slug`).
+ *   - Produces the roster cards on `/`, the directory grid on `/artists`, and
+ *     the dedicated `/artists/<slug>` dossier pages (including Schema.org
+ *     `MusicGroup` JSON-LD structured data for search engines).
  *
  * Cross-Property Routing Rules:
- * - Every artist, album, and track reference links directly to The Listening
- *   Room (`https://music.raggiesoft.com/...`).
- * - Every companion novel reference links directly to RaggieSoft Book Reader
- *   (`https://books.raggiesoft.com/...`).
- * - The Stardust Engine's deep band lore lives on its dedicated cosmic property
- *   (`https://stardust.raggiesoft.com`), while `engineroom.raggiesoft.com`
- *   provides their executive roster overview and direct handoff.
+ *   - Music playback & lyrics ALWAYS link to The Listening Room
+ *     (`https://music.raggiesoft.com/<slug>`).
+ *   - Companion novels ALWAYS link to RaggieSoft Book Reader
+ *     (`https://books.raggiesoft.com/<book>`).
+ *   - The Stardust Engine (`ERR-001`) hands off its deep 40-year lore to its own
+ *     dedicated cosmic subdomain (`https://stardust.raggiesoft.com`).
+ *
+ * Object Schema Reference (Every Band Entry Contains):
+ *   - `errId` (string): Official shared real-world & in-universe catalog prefix (`ERR-001`..`ERR-008`).
+ *   - `slug` (string): URL-safe lowercase key matching `catalog.json` `artistSlug`.
+ *   - `name`, `tagline`, `origin`, `yearsActive`, `primaryGenre` (string): Header display metadata.
+ *   - `listeningRoomUrl`, `dedicatedSiteUrl`, `bookReaderUrl` (string): Cross-subdomain links.
+ *   - `heroImage`, `ogImage`, `logoUrl` (string): Absolute CDN URLs on `assets.raggiesoft.com`.
+ *   - `summary`, `whatKindOfMusic` (string): Consumer-friendly sound & story descriptions.
+ *   - `members` (Array<{ name, role, notes }>): Personnel cards rendered on `/artists/<slug>`.
+ *   - `lorePillars` (Array<{ title, body }>): Canonical history cards rendered on `/artists/<slug>`.
  * ============================================================================
  */
 
+// Named export (`export const`) allows other `.mjs` and `.astro` files to import
+// `ARTIST_LORE_PROFILES` by name: `import { ARTIST_LORE_PROFILES } from './artistLore.mjs'`.
+// Keying the outer object by `slug` gives O(1) instant lookup (`ARTIST_LORE_PROFILES[slug]`)
+// while `Object.keys(...)` and `Object.values(...)` let renderers loop over every band in order.
 export const ARTIST_LORE_PROFILES = {
+  // --------------------------------------------------------------------------
+  // ERR-001: The Stardust Engine — Flagship 5-member family synth-rock unit.
+  // Hands off deep band lore, rolling fleet, and cosmic novel to stardust.raggiesoft.com.
+  // --------------------------------------------------------------------------
   'the-stardust-engine': {
     errId: 'ERR-001',
     slug: 'the-stardust-engine',
@@ -40,6 +71,7 @@ export const ARTIST_LORE_PROFILES = {
       'The founding five-member family unit behind Engine Room Records. Forged at Commonwealth Polytechnic Institute (CPI) in 1985–1986 by siblings Ryan, Cassidy, and Holly O\'Connell and identical twin cousins Evan and Tyler Wright, The Stardust Engine blends soaring 1980s stadium synth-rock with Cassidy\'s zero-gravity Cosmic Tidal Lock Sound™.',
     whatKindOfMusic:
       'High-energy 1980s stadium AOR, driving analog synthesizers, sibling vocal duets, progressive rock suites (including the 15-minute "Escape Velocity / Ad Astra"), and lush zero-gravity "80s Cosmic Pop."',
+    // Array of band member / ensemble personnel objects rendered as cards on `/artists/<slug>`.
     members: [
       {
         name: 'Ryan O\'Connell',
@@ -67,6 +99,7 @@ export const ARTIST_LORE_PROFILES = {
         notes: 'Identical twin maternal cousin; joined Ryan and Cassidy at CPI in 1986; Class A CDL lead driver of The Iron Horse & RLFD30.'
       }
     ],
+    // Array of canonical origin-story and history pillars rendered on `/artists/<slug>`.
     lorePillars: [
       {
         title: 'The 1986 Band Name Canon ("Stardust" + "Engine")',
@@ -83,6 +116,10 @@ export const ARTIST_LORE_PROFILES = {
     ]
   },
 
+  // --------------------------------------------------------------------------
+  // ERR-002: Fractured Prisms — British-American progressive synth-pop & rock opera duo.
+  // Also serves as the 301 redirect destination for `https://fracturedprisms.com`.
+  // --------------------------------------------------------------------------
   'fractured-prisms': {
     errId: 'ERR-002',
     slug: 'fractured-prisms',
@@ -101,6 +138,7 @@ export const ARTIST_LORE_PROFILES = {
       'Formed by surviving British-American siblings Claire Manning (older sister; autistic and living with lifelong cerebral palsy, uses a manual wheelchair) and Rhys Manning (younger brother; neurotypical synthesizer architect and lifelong safe person) after the winter 1981 M6 Shap Fell motorway pileup claimed the other four members of the Manning Family Orchestra. Fleeing to their father\'s vacant 1960s ranch house in Williamsport, Maryland, they built "The Fragile Fortress"—weaving the salvaged instruments of their lost family (including Cousin Gwen\'s wooden concert flute) into towering 1980s analog synthesizer rock operas set inside the gaslamp-lit 1883 Victorian sanctuary of The Hollow Square.',
     whatKindOfMusic:
       'Lush 1980s British progressive synth-pop, classical wooden concert flute lead melodies ("Gwen\'s Flute"), vintage analog sequencers and 1980s digital drum-machine gated percussion, and cinematic Victorian-meets-1980s concept albums.',
+    // Array of band member / ensemble personnel objects rendered as cards on `/artists/<slug>`.
     members: [
       {
         name: 'Claire Manning ("The Voice in the Fog")',
@@ -133,6 +171,7 @@ export const ARTIST_LORE_PROFILES = {
         notes: 'Lost in the winter 1981 M6 Shap Fell motorway crash. Architect of their soaring guitar solos; Rhys plays Simon\'s actual guitars using his old picks and loops them into sequencers, while Claire\'s virtuoso flute solo replaces the guitar solo on "Mirrors of Yesterday."'
       }
     ],
+    // Array of canonical origin-story and history pillars rendered on `/artists/<slug>`.
     lorePillars: [
       {
         title: 'Winter 1981: The M6 Shap Fell Motorway Disaster & The Missing Four',
@@ -161,6 +200,10 @@ export const ARTIST_LORE_PROFILES = {
     ]
   },
 
+  // --------------------------------------------------------------------------
+  // ERR-003: The Paper Wall — Literary alternative/industrial rock opera collective.
+  // Formerly known under the working title "Mirage"; links to `books.raggiesoft.com/luna-leo`.
+  // --------------------------------------------------------------------------
   'the-paper-wall': {
     errId: 'ERR-003',
     slug: 'the-paper-wall',
@@ -179,6 +222,7 @@ export const ARTIST_LORE_PROFILES = {
       'Engine Room Records\' first outside signing (2001). Formed by Julian Croft ("Leo") and Maya Sterling ("Olivia") alongside Julian\'s sisters and cousins, The Paper Wall transforms survival, disability rights, and found-family sanctuary into multi-volume literary rock operas.',
     whatKindOfMusic:
       'Emotionally raw theatrical rock operas, dynamic quiet-to-loud alternative rock builds, industrial percussion, and autobiographical storytelling across multi-book concept albums.',
+    // Array of band member / ensemble personnel objects rendered as cards on `/artists/<slug>`.
     members: [
       {
         name: 'Julian Croft ("Leo")',
@@ -201,6 +245,7 @@ export const ARTIST_LORE_PROFILES = {
         notes: 'The "Enforcers" ensuring zero boundary violations at rehearsals and live performances.'
       }
     ],
+    // Array of canonical origin-story and history pillars rendered on `/artists/<slug>`.
     lorePillars: [
       {
         title: 'October 2000 at Kincaid Hall: "We\'re Going to Build an Engine, Too"',
@@ -217,6 +262,10 @@ export const ARTIST_LORE_PROFILES = {
     ]
   },
 
+  // --------------------------------------------------------------------------
+  // ERR-005: The Arctic Symphony Project — Holiday symphonic rock & trilingual winter operas.
+  // Originally recorded in-universe as "The Winter Palace"; links to `books.raggiesoft.com/julian`.
+  // --------------------------------------------------------------------------
   'the-arctic-symphony-project': {
     errId: 'ERR-005',
     slug: 'the-arctic-symphony-project',
@@ -235,6 +284,7 @@ export const ARTIST_LORE_PROFILES = {
       'Born on a freezing December night in 1996 when the Rowlands and Harrison siblings turned their Williamsburg living room into an emergency broadcast studio to guide abducted 14-year-old Julian ("Julep") home across the Appalachian Mountains with "Upon This Winter\'s Night."',
     whatKindOfMusic:
       'Sweeping Trans-Siberian-scale symphonic rock, soaring distorted electric guitars, Baroque cello counter-melodies, silver glockenspiel, Brahms music-box motifs, and trilingual choirs (Cymraeg Welsh, Québécois French, and English).',
+    // Array of band member / ensemble personnel objects rendered as cards on `/artists/<slug>`.
     members: [
       {
         name: 'Julian "Julep" Rowlands',
@@ -252,6 +302,7 @@ export const ARTIST_LORE_PROFILES = {
         notes: 'Identical twin sisters who wove Julian\'s Brahms "Wiegenlied" music box into the symphonic rock anthem.'
       }
     ],
+    // Array of canonical origin-story and history pillars rendered on `/artists/<slug>`.
     lorePillars: [
       {
         title: 'December 1996: The Appalachian Radio Beacon ("Upon This Winter\'s Night")',
@@ -268,6 +319,10 @@ export const ARTIST_LORE_PROFILES = {
     ]
   },
 
+  // --------------------------------------------------------------------------
+  // ERR-006: Crimson Node — Albemarle County stadium synth-prog & rotating vocal phalanx.
+  // Directed by non-verbal wheelchair-using producer Matt Miller; links to `books.raggiesoft.com/crimson-node`.
+  // --------------------------------------------------------------------------
   'crimson-node': {
     errId: 'ERR-006',
     slug: 'crimson-node',
@@ -286,6 +341,7 @@ export const ARTIST_LORE_PROFILES = {
       'Engineered inside a sound-dampened Albemarle County garage by the Miller, Brooks, and Pelletier family phalanx, Crimson Node is directed by non-verbal wheelchair-using producer Matt Miller from his custom Tactile Command Rig and fronted by a powerhouse rotating vocal lineup.',
     whatKindOfMusic:
       'High-octane stadium synth-prog, precision rhythm-section grooves ("Quality of Service", "The Flight Path"), and rotating four-part female lead vocals.',
+    // Array of band member / ensemble personnel objects rendered as cards on `/artists/<slug>`.
     members: [
       {
         name: 'Matt Miller ("The Manager / The Crimson Node")',
@@ -303,6 +359,7 @@ export const ARTIST_LORE_PROFILES = {
         notes: 'Provide the locked stereo keyboard and rhythm foundation across the Albemarle sessions.'
       }
     ],
+    // Array of canonical origin-story and history pillars rendered on `/artists/<slug>`.
     lorePillars: [
       {
         title: 'Matt Miller\'s Tactile Command Rig (Zero-Verbal Production Mastery)',
@@ -319,6 +376,10 @@ export const ARTIST_LORE_PROFILES = {
     ]
   },
 
+  // --------------------------------------------------------------------------
+  // ERR-004: Mana Canvas — 16-bit SNES SPC-700 chiptune & symphonic fantasy rock collective.
+  // Official soundtrack ensemble for the Runebreaker saga (`books.raggiesoft.com/runebreaker`).
+  // --------------------------------------------------------------------------
   'mana-canvas': {
     errId: 'ERR-004',
     slug: 'mana-canvas',
@@ -339,6 +400,7 @@ export const ARTIST_LORE_PROFILES = {
       'The official musical voice of the Runebreaker / Dream Kingdom universe. Mana Canvas fuses authentic 16-bit Super Famicom / SNES SPC-700 synth nostalgia with roaring progressive rock guitars, orchestral strings, and arena singalongs.',
     whatKindOfMusic:
       '16-bit SNES RPG chiptune leads fused with symphonic progressive rock, fantasy acoustic ballads, and live concert rock operas.',
+    // Array of band member / ensemble personnel objects rendered as cards on `/artists/<slug>`.
     members: [
       {
         name: 'The Mana Canvas Ensemble',
@@ -346,6 +408,7 @@ export const ARTIST_LORE_PROFILES = {
         notes: 'In-house JRPG and progressive rock collective scoring Runebreaker (1992) and Runebreaker Live (1993).'
       }
     ],
+    // Array of canonical origin-story and history pillars rendered on `/artists/<slug>`.
     lorePillars: [
       {
         title: 'Scoring Runebreaker & The 16-Bit Digital Realm',
@@ -358,6 +421,10 @@ export const ARTIST_LORE_PROFILES = {
     ]
   },
 
+  // --------------------------------------------------------------------------
+  // ERR-007: Firelight — 1980s fantasy-adventure motion picture soundtrack ensemble.
+  // Scores The Silver Gauntlet of Aethel (`books.raggiesoft.com/aethel`).
+  // --------------------------------------------------------------------------
   'firelight': {
     errId: 'ERR-007',
     slug: 'firelight',
@@ -378,6 +445,7 @@ export const ARTIST_LORE_PROFILES = {
       'The official 1980s motion picture soundtrack ensemble behind The Silver Gauntlet of Aethel—Michael P. Ragsdale\'s love letter to 1980s fantasy-adventure cinema. Anchored by its flagship main theme "A Sister\'s Love" (heavily inspired by Limahl\'s iconic NeverEnding Story theme song), Firelight fuses shimmering 1980s analog synth-pop arpeggios and soaring melodic hooks with widescreen fantasy orchestration.',
     whatKindOfMusic:
       '1980s fantasy-adventure movie soundtracks, shimmering Limahl-inspired 80s synth-pop title themes ("A Sister\'s Love"), power-rock villain and battle anthems, and sweeping orchestral film scores.',
+    // Array of band member / ensemble personnel objects rendered as cards on `/artists/<slug>`.
     members: [
       {
         name: 'The Firelight Soundtrack Ensemble',
@@ -385,6 +453,7 @@ export const ARTIST_LORE_PROFILES = {
         notes: 'Composed and performed the 1987 Theatrical Soundtrack LP and the definitive 2017 3-disc "Leviathan Cut" Original Motion Picture Soundtrack for The Silver Gauntlet of Aethel.'
       }
     ],
+    // Array of canonical origin-story and history pillars rendered on `/artists/<slug>`.
     lorePillars: [
       {
         title: 'A Love Letter to 1980s Fantasy-Adventure Cinema & Limahl\'s "NeverEnding Story"',
@@ -401,6 +470,10 @@ export const ARTIST_LORE_PROFILES = {
     ]
   },
 
+  // --------------------------------------------------------------------------
+  // ERR-008: The Hoshizora Ensemble — 1978 Osaka / Seto Inland Sea maritime folk-pop & City Pop.
+  // Licensed in-universe by Holly O'Connell in 2002; featured in `books.raggiesoft.com/aubrie`.
+  // --------------------------------------------------------------------------
   'the-hoshizora-ensemble': {
     errId: 'ERR-008',
     slug: 'the-hoshizora-ensemble',
@@ -421,6 +494,7 @@ export const ARTIST_LORE_PROFILES = {
       'Originally recorded in Osaka in May 1978 as the official shipboard passenger cabin soundtrack for the overnight Ferry Hoshizora on Japan\'s Seto Inland Sea, The Hoshizora Ensemble\'s "Hoshizora no Uta: Voyages on the Seto Inland Sea" was licensed for North American distribution by Holly O\'Connell in 2002 during the Japanese leg of The Stardust Engine\'s Midnight Drivers World Tour—an overnight ferry crossing that directly inspired the 2003 Twin Moons project.',
     whatKindOfMusic:
       'Breezy 1978 Japanese acoustic folk-pop and maritime City Pop featuring warm fingerpicked acoustic guitars, gentle electric bass, soft brushed percussion, and lush harmonic vocals in both original Japanese and the 2002 Engine Room Records English studio translation.',
+    // Array of band member / ensemble personnel objects rendered as cards on `/artists/<slug>`.
     members: [
       {
         name: 'The Hoshizora Ensemble (Osaka, 1978)',
@@ -433,6 +507,7 @@ export const ARTIST_LORE_PROFILES = {
         notes: 'Negotiated the 2002 American distribution rights and commissioned the official English-language studio translation after the ferry crossing restored Ryan and Cassidy\'s sensory equilibrium during the Midnight Drivers World Tour.'
       }
     ],
+    // Array of canonical origin-story and history pillars rendered on `/artists/<slug>`.
     lorePillars: [
       {
         title: 'Three Release Dates: 1978 (Japan) • 2002 (US Edition) • 2026 (Real-World Digital)',

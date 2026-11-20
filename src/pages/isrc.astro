@@ -2,23 +2,35 @@
 /**
  * @license MIT
  * ============================================================================
- * src/pages/isrc.astro — Official US ISRC Agency Registrant Prefix (QTAHP)
+ * src/pages/isrc.astro — Official US ISRC Prefix Portal (`/isrc`)
  * ============================================================================
- * Architectural Overview:
- * Dedicated public & technical explainer page for Engine Room Records'
- * official US ISRC Agency registrant prefix (`QTAHP`, Registrant ID `185611`),
- * detailing ISO 3901:2019 code anatomy, the Permanent Single-ISRC Rule, the
- * Dual Timelines Policy, Harper's automated RIFF/ID3/Vorbis ISRC minting
- * pipeline, and the live allocation table of all `QTAHP` sound recordings.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * What is this file?
+ *   Astro 6 route blueprint for `/isrc`, the public and technical reference portal
+ *   for Michael P. Ragsdale's official United States ISRC Agency Registrant Prefix
+ *   (`QTAHP`, Registrant ID `185611`) and shared `ERR` catalog numbers.
+ *
+ * How does it fit into the build & browser lifecycle?
+ *   - Build Time (`scripts/build.mjs` -> `renderIsrcExplainerPage(masterCatalog)`):
+ *     Groups all `QTAHP`-minted sound recordings from `master-catalog.json`,
+ *     embeds a compact JSON lookup dataset for client-side decoding, and writes
+ *     `./dist/isrc/index.html`.
+ *   - Browser Runtime (`/assets/err-client.js`):
+ *     Powers the Interactive ISRC & ERR Catalog ID Decoder (`?code=QTAHP2600046`
+ *     or `?code=ERR-001-2015-101`), breaking any 12-character ISO 3901:2019 ISRC
+ *     into Country (`QT`), Registrant (`AHP`), Year (`26`), and Serial (`00046`).
  * ============================================================================
  */
+
+// Import the shared outer HTML layout component at build time.
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<!-- Configure title, description, and canonical path on BaseLayout for `/isrc` -->
 <BaseLayout
   title="Official US ISRC Registrant Prefix (QTAHP) | Engine Room"
   description="Official explainer and allocation registry for US ISRC Agency prefix QTAHP (Registrant #185611, Michael Ragsdale / Engine Room Records)."
   canonicalPath="/isrc"
 >
-  <!-- Compiled via scripts/build.mjs -->
+  <!-- Interactive ISRC/ERR-ID decoder and QTAHP allocation table compiled via scripts/build.mjs -->
 </BaseLayout>
 

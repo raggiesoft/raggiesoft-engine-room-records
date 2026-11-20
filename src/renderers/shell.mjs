@@ -3,19 +3,46 @@
  * ============================================================================
  * src/renderers/shell.mjs — Engine Room Records (engineroom.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Renders the outer HTML5 document shell, accessible sticky navigation bar,
- * Modern Web Guidance dark/light mode toggle, OpenGraph (`og:*`) + Twitter Card
- * social tags (`title` <= 60 chars, `description` <= 155 chars), and the
- * mandatory RaggieSoft Fictitious Persons & Entities Disclaimer + Real-World vs.
- * In-Universe LLC corporate disclosure footer.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   Every webpage on `engineroom.raggiesoft.com` needs the same outer HTML5
+ *   skeleton: the document head (character set, mobile viewport, Light/Dark
+ *   theme detector, SEO title/description, social preview cards, JSON-LD
+ *   search-engine schema, and CSS links), the top RaggieSoft Network bar,
+ *   the sticky Engine Room Records navigation bar, a `<main>` content area,
+ *   and the global legal disclaimer footer.
+ *
+ *   Instead of duplicating those ~250 lines of HTML across 80+ pages, this
+ *   module exports two reusable functions:
+ *   1. `escapeHtml(str)` — Sanitizes dynamic strings so special characters like
+ *      `<`, `>`, `&`, `"`, and `'` cannot accidentally break HTML attributes or
+ *      inject unwanted markup (Cross-Site Scripting / XSS prevention).
+ *   2. `renderDocumentShell(opts)` — Accepts page-specific options (`title`,
+ *      `description`, `canonicalPath`, `bodyHtml`, etc.) and returns a complete
+ *      `<!doctype html>...</html>` string ready to save to `./dist/.../index.html`.
+ *
+ * How does it fit into the build lifecycle?
+ *   - Called by every page renderer in `pages-core.mjs`, `pages-artists-and-legal.mjs`,
+ *     and directly by `scripts/build.mjs` (for the 73 ported archival dossiers
+ *     and `/404.html`).
+ *   - Runs 100% at build time in Node.js; visitors receive pure, pre-rendered HTML.
  * ============================================================================
  */
 
 /**
- * Escapes HTML special characters for safe attribute and text interpolation.
- * @param {string} str
- * @returns {string}
+ * Escapes the five HTML-sensitive characters (`&`, `<`, `>`, `"`, `'`) into
+ * safe HTML entities (`&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#39;`).
+ *
+ * 100-Level JS Tip:
+ *   - `str ?? ''` uses the Nullish Coalescing operator (`??`): if `str` is
+ *     `null` or `undefined`, it falls back to an empty string `''` before
+ *     `String(...)` converts numbers or booleans to text.
+ *   - Notice `&` MUST be replaced FIRST! If we replaced `<` with `&lt;` first
+ *     and ran `.replace(/&/g, '&amp;')` second, `&lt;` would get double-escaped
+ *     into `&amp;lt;`.
+ *
+ * @param {string} str - Raw input string from JSON or lore data.
+ * @returns {string} HTML-escaped string safe for text or attribute interpolation.
  */
 export function escapeHtml(str) {
   return String(str ?? '')
@@ -27,16 +54,25 @@ export function escapeHtml(str) {
 }
 
 /**
- * Wraps page body content in the canonical Engine Room Records HTML shell.
+ * Wraps inner page markup (`bodyHtml`) inside the complete Engine Room Records
+ * HTML5 document shell.
+ *
+ * 100-Level JS Tip (Destructured Options Object):
+ *   Instead of passing 8 positional arguments like `renderDocumentShell(a, b, c, ...)`,
+ *   where callers could easily mix up the order, this function accepts a single
+ *   configuration object `{ title, description, ... }` with `=` default values
+ *   for optional properties (`canonicalPath = '/'`, `noindex = false`, etc.).
  *
  * @param {Object} opts
- * @param {string} opts.title - Page title (strictly <= 60 characters)
- * @param {string} opts.description - Meta/OG description (strictly <= 155 characters)
- * @param {string} opts.canonicalPath - Route path starting with `/`
- * @param {string} [opts.ogImage] - Full URL to 1200x630 OpenGraph image
- * @param {string} [opts.ogType] - OpenGraph type (`website` or `profile`)
- * @param {string} opts.bodyHtml - Inner `<main id="content">` HTML markup
- * @returns {string}
+ * @param {string} opts.title - Browser tab & OpenGraph title (clamped to <= 60 characters).
+ * @param {string} opts.description - Meta & OpenGraph summary (clamped to <= 155 characters).
+ * @param {string} [opts.canonicalPath='/'] - Route path starting with `/` (or `'/404'` for the error page).
+ * @param {string} [opts.ogImage] - Full URL to a 1200x630 social preview banner.
+ * @param {string} [opts.ogType='website'] - OpenGraph resource type (`'website'` or `'profile'`).
+ * @param {boolean} [opts.noindex=false] - When `true`, instructs search crawlers not to index the page.
+ * @param {Array<Object>} [opts.extraJsonLd=[]] - Additional Schema.org JSON-LD nodes (e.g., `MusicGroup`).
+ * @param {string} opts.bodyHtml - Inner HTML content injected inside `<main id="content">`.
+ * @returns {string} Complete HTML5 document string.
  */
 export function renderDocumentShell({
   title,
@@ -48,17 +84,31 @@ export function renderDocumentShell({
   extraJsonLd = [],
   bodyHtml
 }) {
+  // Clamp `title` to 60 chars and `description` to 155 chars using `.slice(0, N)`
+  // so search engines and social cards never truncate metadata mid-sentence, then
+  // escape HTML special characters so quotes or ampersands cannot break meta tags.
   const safeTitle = escapeHtml(title.slice(0, 60));
   const safeDesc = escapeHtml(description.slice(0, 155));
+
+  // Error pages (`/404`) should NOT emit a canonical link pointing to `/404`.
   const isErrorPage = canonicalPath === '/404';
+
+  // Build the full production URL. For the home page (`'/'`), omit the trailing
+  // slash (`https://engineroom.raggiesoft.com`) to match `trailingSlash: 'never'`.
   const canonicalUrl = `https://engineroom.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
+
+  // Conditionally emit a `noindex, follow` meta directive on archival duplicate/404 pages
+  // so search engines follow links on the page without indexing it as a primary search result.
   const robotsMetaHtml = noindex
     ? '\n    <meta name="robots" content="noindex, follow" />'
     : '';
+
+  // Emit the canonical link element on every route except `/404`.
   const canonicalLinkHtml = isErrorPage
     ? ''
     : `\n    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`;
 
+  // Ordered list of primary navigation links rendered in the sticky site header.
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/artists', label: 'Artists (7)' },
@@ -71,6 +121,13 @@ export function renderDocumentShell({
     { href: '/dsp-verification', label: 'DSP' }
   ];
 
+  // Transform the `navItems` array into an HTML string of `<li><a ...>` elements:
+  // - `.map()` visits each navigation item and checks whether the current page matches
+  //   `item.href` exactly OR lives in a sub-folder beneath `item.href` (e.g., `/artists/firelight`
+  //   highlights the `/artists` tab).
+  // - When `isCurrent` is true, `aria-current="page"` tells both CSS (active highlight)
+  //   and screen readers which section the visitor is currently viewing.
+  // - `.join('\n            ')` glues all `<li>` strings together with neat indentation.
   const navHtml = navItems
     .map((item) => {
       const isCurrent =
@@ -80,6 +137,20 @@ export function renderDocumentShell({
     })
     .join('\n            ');
 
+  // Assemble and return the complete HTML5 document using a JavaScript template literal.
+  // Key architectural details inside the template below:
+  // 1. Synchronous `<script>` in `<head>`: Reads `localStorage.getItem('color-scheme')`
+  //    BEFORE stylesheets finish rendering so `meta[name="color-scheme"]` and Bootstrap's
+  //    `data-bs-theme` attribute match the visitor's saved Light/Dark preference with zero FOUC.
+  // 2. `<script type="application/ld+json">`: Embeds a Schema.org `@graph` linking
+  //    `Organization`, `WebSite`, `WebPage`, and any page-specific `extraJsonLd` nodes
+  //    (spread in via `...(Array.isArray(extraJsonLd) ? extraJsonLd : [])`).
+  // 3. Dual favicons & dual header logos: Automatically swap black vs. white crests
+  //    for Light Mode vs. Dark Mode.
+  // 4. `<main id="content" tabindex="-1">`: Target of `.skip-link` so keyboard users
+  //    pressing Enter on "Skip to main content" land focus directly on the main content.
+  // 5. Global footer: Enforces the Real-World Imprint vs. Fictitious In-Universe LLC
+  //    disclosure, Closed Submission Policy, and CC BY-SA 4.0 / MIT licensing notices.
   return `<!doctype html>
 <html lang="en" data-bs-theme="dark">
   <head>

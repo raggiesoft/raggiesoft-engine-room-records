@@ -2,22 +2,37 @@
 /**
  * @license MIT
  * ============================================================================
- * src/pages/commercial-licensing.astro & dsp-verification.astro & artists/*
+ * src/pages/commercial-licensing.astro — B2B Sync Licensing (`/commercial-licensing`)
  * ============================================================================
- * Architectural Overview:
- * - `/commercial-licensing`: B2B non-exclusive synchronization clearance portal.
- * - `/dsp-verification`: Interactive & print-ready DSP verification ledger reading
- *   `master-catalog.json` (`?artist=`, `?album=`, `?track=`).
- * - `/artists` & `/artists/[slug]`: Roster index and deep-dive lore dossiers for
- *   all 7 Engine Room Records projects.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * What is this file?
+ *   Astro 6 file-based route blueprint for `/commercial-licensing`.
+ *
+ * How does it fit into the build lifecycle?
+ *   - Route Blueprint: Declares the page title, meta description, and canonical
+ *     URL path inside the build-time `---` frontmatter and `BaseLayout` wrapper.
+ *   - Static Compilation: `scripts/build.mjs` invokes `renderCommercialLicensingPage()`
+ *     from `src/renderers/pages-artists-and-legal.mjs` to emit
+ *     `./dist/commercial-licensing/index.html`.
+ *
+ * What visible UI does `/commercial-licensing` produce?
+ *   Explains Engine Room Records' dual-track licensing model in plain language:
+ *   1. Free / Open Culture Tier: All 128kbps web MP3 streams and ZIP archives on
+ *      `music.raggiesoft.com` are free under Creative Commons BY-SA 4.0.
+ *   2. Proprietary B2B Sync Tier: One-stop commercial synchronization clearance
+ *      for film, TV, video games, and broadcast productions that cannot use
+ *      ShareAlike terms or need uncompressed 24-bit WAV studio stems.
  * ============================================================================
  */
+
+// Import the shared HTML5 shell component at build time.
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<!-- Wrap `/commercial-licensing` metadata inside BaseLayout's outer document frame -->
 <BaseLayout
   title="Commercial Synchronization Licensing | Engine Room Records"
   description="Non-exclusive commercial synchronization clearances for Film, TV, Games, and Broadcast across the Engine Room Records catalog."
   canonicalPath="/commercial-licensing"
 >
-  <!-- Compiled via scripts/build.mjs -->
+  <!-- Dual-track licensing cards compiled via renderCommercialLicensingPage() in scripts/build.mjs -->
 </BaseLayout>

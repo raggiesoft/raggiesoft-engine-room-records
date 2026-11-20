@@ -2,27 +2,41 @@
 /**
  * @license MIT
  * ============================================================================
- * src/pages/corporate.astro — The Corporate Entity of Engine Room Records
+ * src/pages/corporate.astro — Corporate Architecture Route (`/corporate`)
  * ============================================================================
- * Architectural Overview:
- * Pillar 3 of Engine Room Records (`engineroom.raggiesoft.com/corporate`):
- * - Real-World Layer: Engine Room Records (strictly NO "LLC") — the real-world
- *   brand name under which Michael P. Ragsdale distributes his music.
- * - In-Universe Lore Layer: Engine Room Records, LLC (founded by Holly O'Connell
- *   in 1992) and The O'Connell Family Revocable Trust ($2.4B+ conglomerate across
- *   corporate-structure.json).
- * - Interactive Org Chart & Entity Dossiers (Stardust Strategic Assets, LLC,
- *   The Fortress, Stardust Studios, The Vault, Fleet Command / Serial #001 2004
- *   Prairie Coachworks RLFD30 & 2002 Sainte-Claire 45H3, Stardust Blacksburg, LLC,
- *   Pacific Rim Properties, LLC, Aethelgard Holdings, LLC, and Jessica Miller Center, LLC).
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & ASTRO 6 GUIDE):
+ * What is this file?
+ *   Maps `src/pages/corporate.astro` to the public URL `/corporate` under
+ *   Astro 6's file-based routing convention.
+ *
+ * How does it fit into the build lifecycle?
+ *   - Data Inputs: `raggiesoft-assets/engine-room-records/json/corporate-structure.json`
+ *     (the hierarchical org-chart tree) and `src/data/ported-pages.json` (73 deep
+ *     archival dossiers).
+ *   - Static Compilation: `scripts/build.mjs` calls `renderCorporatePage(corporateStructure)`
+ *     from `src/renderers/pages-core.mjs`, appends the 73-route Master Archive
+ *     Index, and writes `./dist/corporate/index.html`.
+ *
+ * What visible UI does `/corporate` produce?
+ *   Pillar 3 of Engine Room Records:
+ *   1. Legal & Canonical Boundary: Distinguishes the real-world unincorporated
+ *      creative brand (**Engine Room Records**, strictly NO "LLC") from fictitious
+ *      in-universe narrative entities (*Engine Room Records, LLC*, founded in 1992
+ *      by Holly O'Connell, and *The O'Connell Family Revocable Trust*).
+ *   2. Recursive Corporate Org Chart: Nested semantic cards rendering every parent
+ *      trust and subsidiary LLC from `corporate-structure.json`.
+ *   3. Sanctuary Properties & Rolling Fleet Overview + 73-dossier directory grid.
  * ============================================================================
  */
+
+// Import the shared outer HTML layout shell inside Astro's build-time `---` code fence.
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<!-- Configure page-level SEO and OpenGraph metadata on BaseLayout for `/corporate` -->
 <BaseLayout
   title="Corporate Architecture & Lore | Engine Room Records"
   description="Real-world imprint (Engine Room Records) vs. in-universe conglomerate (Engine Room Records, LLC & The O'Connell Family Trust)."
   canonicalPath="/corporate"
 >
-  <!-- Compiled via scripts/build.mjs -->
+  <!-- Hydrated with corporate-structure.json org tree and 73-dossier index via scripts/build.mjs -->
 </BaseLayout>

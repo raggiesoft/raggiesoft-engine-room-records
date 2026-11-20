@@ -3,25 +3,37 @@
  * ============================================================================
  * err-main.css — Engine Room Records (engineroom.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Complete WCAG 2.1 AA / Section 508 compliant stylesheet for Engine Room Records.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL CSS & ACCESSIBILITY GUIDE):
+ * What is this file?
+ *   This is the master stylesheet for `engineroom.raggiesoft.com`. At build time,
+ *   `scripts/build.mjs` copies this file to BOTH `./dist/assets/err-main.css`
+ *   and `raggiesoft-assets/engine-room-records/css/err-main.css` so local pages
+ *   and the shared CDN always serve the exact same styles.
  *
- * Modern Web Guidance Implementations:
- * 1. `dark-mode` & `dark-mode-toggle`:
- *    - Sets `color-scheme: light dark` on `:root` and maps `<meta name="color-scheme">`
- *      overrides back to `:root` via `:has(> head > meta[name="color-scheme"])` so CSS
- *      `light-dark()` and native browser UI follow user overrides without JS dependency.
- *    - Provides `@media (prefers-color-scheme: dark)` custom-property fallbacks alongside
- *      `@supports (color: light-dark(white, black))` progressive enhancement.
- * 2. Accessibility & Motion:
- *    - Minimum 4.5:1 contrast ratio for all body text and 3.0:1 for UI borders/badges
- *      across both Light Mode (Brushed Studio Paper) and Dark Mode (Control Room Obsidian).
- *    - Respects `@media (prefers-reduced-motion: reduce)` by disabling transitions.
+ * How does Light Mode vs. Dark Mode work here without JavaScript flashes?
+ *   1. CSS Custom Properties ("CSS Variables" like `--bg-canvas` and `--text-primary`)
+ *      hold two palettes: **Brushed Studio Paper** (Light Mode) and **Control Room
+ *      Obsidian** (Dark Mode).
+ *   2. `@media (prefers-color-scheme: dark)` automatically switches those variables
+ *      when the visitor's operating system is set to Dark Mode.
+ *   3. `@supports (color: light-dark(white, black))` upgrades modern browsers to
+ *      native CSS `light-dark(lightValue, darkValue)` color resolution.
+ *   4. `:root:has(> head > meta[name="color-scheme"][content="dark"])` (and `"light"`)
+ *      watches the `<meta name="color-scheme">` tag in `<head>`! Whenever the user
+ *      clicks the theme toggle button, changing that single meta tag instantaneously
+ *      flips every token on the page—plus native browser scrollbars and form inputs.
+ *
+ * Accessibility & Print Standards:
+ *   - WCAG 2.1 AA contrast ratios (>= 4.5:1 normal text, >= 3.0:1 UI borders/badges).
+ *   - `@media (prefers-reduced-motion: reduce)` disables smooth-scroll & animations
+ *     for visitors with vestibular motion sensitivities.
+ *   - `@media print` hides navigation bars and switches `/dsp-verification` to crisp
+ *     black-on-white ink for saving official PDF affidavits.
  * ============================================================================
  */
 
 :root {
-  /* Light & Dark Base Token Pairs */
+  /* 1. Raw Light ("Brushed Studio Paper") & Dark ("Control Room Obsidian") Palette Pairs */
   --bg-canvas-light: #f8fafc;
   --bg-canvas-dark: #090d16;
   --bg-surface-light: #ffffff;
@@ -29,6 +41,7 @@
   --bg-elevated-light: #f1f5f9;
   --bg-elevated-dark: #1e293b;
 
+  /* Foreground text hierarchy tokens (primary body copy, secondary subtext, muted captions) */
   --text-primary-light: #0f172a;
   --text-primary-dark: #f8fafc;
   --text-secondary-light: #334155;
@@ -36,11 +49,14 @@
   --text-muted-light: #475569;
   --text-muted-dark: #94a3b8;
 
+  /* Card and section divider border tokens */
   --border-subtle-light: #cbd5e1;
   --border-subtle-dark: #1e293b;
   --border-strong-light: #94a3b8;
   --border-strong-dark: #334155;
 
+  /* Semantic brand accent colors (darker shades on white paper, brighter shades on dark slate
+     so both modes pass the WCAG 2.1 AA >= 4.5:1 contrast ratio requirement!) */
   --accent-primary-light: #0369a1;
   --accent-primary-dark: #38bdf8;
   --accent-amber-light: #b45309;
@@ -52,7 +68,7 @@
   --accent-violet-light: #6d28d9;
   --accent-violet-dark: #a78bfa;
 
-  /* Default to Light Mode tokens for legacy browsers */
+  /* 2. Active Semantic Tokens — Default to Light Mode for older browsers */
   --bg-canvas: var(--bg-canvas-light);
   --bg-surface: var(--bg-surface-light);
   --bg-elevated: var(--bg-elevated-light);
@@ -140,10 +156,12 @@
   }
 }
 
+/* Universal border-box sizing so padding and borders never widen an element past 100% width */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+/* Base document typography using native OS system fonts for zero font-download layout shift */
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
@@ -152,6 +170,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Vestibular accessibility: honor OS "Reduce Motion" setting by turning off smooth scrolling and transitions */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -163,6 +182,7 @@ html {
   }
 }
 
+/* Full-height flex column layout pushing `.site-footer` (`margin-top: auto`) to the bottom of short pages */
 body {
   margin: 0;
   min-height: 100vh;
@@ -172,6 +192,7 @@ body {
   color: var(--text-primary);
 }
 
+/* Explicit underlines on inline links ensure links remain distinguishable without relying on color alone (WCAG 1.4.1) */
 a {
   color: var(--accent-primary);
   text-decoration: underline;
@@ -182,11 +203,13 @@ a:hover {
   opacity: 0.9;
 }
 
+/* High-visibility keyboard focus ring shown only on keyboard Tab navigation (`:focus-visible`, WCAG 2.4.7) */
 :focus-visible {
   outline: 3px solid var(--accent-primary);
   outline-offset: 2px;
 }
 
+/* Accessible "Skip to main content" bypass link: parked off-screen at `top: -999px` until Tab-focused */
 .skip-link {
   position: absolute;
   top: -999px;
@@ -204,6 +227,7 @@ a:hover {
   top: 1rem;
 }
 
+/* Centered max-width page wrapper with horizontal breathing room on mobile screens */
 .container {
   width: 100%;
   max-width: 1240px;
@@ -211,7 +235,7 @@ a:hover {
   padding: 0 1.25rem;
 }
 
-/* Header & Navigation */
+/* Sticky Frosted-Glass Site Header & Primary Navigation */
 .site-header {
   position: sticky;
   top: 0;
@@ -402,6 +426,9 @@ html[data-bs-theme="light"] .brand-logo-dark {
   white-space: nowrap;
 }
 
+/* Responsive Mobile & Tablet Navigation Drawer (<= 1120px):
+ * Collapses horizontal links into a scrollable vertical menu toggled by `.is-open`,
+ * using `100dvh` (dynamic viewport height) and `env(safe-area-inset-bottom)` for iOS home indicators. */
 @media (max-width: 1120px) {
   .header-inner {
     flex-wrap: wrap;
@@ -557,6 +584,10 @@ h3 {
   margin-bottom: 1.5rem;
 }
 
+/* Responsive Auto-Fit CSS Grids:
+ * `repeat(auto-fit, minmax(min(100%, 310px), 1fr))` automatically wraps 3-column and
+ * 2-column layouts down to 1 full-width column on narrow mobile viewports without media queries,
+ * while `min-width: 0` on grid children prevents long URLs or ISRCs from blowing out column widths. */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
@@ -723,6 +754,8 @@ th {
   font-size: 0.82rem;
 }
 
+/* Print Stylesheet (Used by the "Print / Save Official PDF Verification Dossier" button on /dsp-verification):
+ * Hides interactive navigation/search controls (`.no-print`) and forces high-contrast black ink on white paper. */
 @media print {
   .site-header, .no-print {
     display: none !important;
